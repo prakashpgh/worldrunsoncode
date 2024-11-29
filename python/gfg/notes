@@ -1,0 +1,28 @@
+libraries
+
+math
+    floor, ceil, trunc, sqrt, sin, cos, tan
+    log, exp, random, randint, uniform, shuffle, choice, sample
+
+datetime
+date
+time
+
+++++++++++
+classes
+    def __init__(self)
+    inheritance
+    
+
+--------
+try:
+
+except:
+
+    else:
+
+finally:
+
+raise 
+----------
+
