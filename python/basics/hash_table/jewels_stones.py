@@ -1,4 +1,4 @@
-#TO(n)
+#TO(n+m)
 #S(1)
 def jewels_in_stones(jewels: str, stones: str)->list[str]:
     result = []
