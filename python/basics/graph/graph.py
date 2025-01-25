@@ -1,30 +1,38 @@
+from graph_node import Node
+
 n=8
 A = [[0,1], [1,2],[0,3],[3,4],[3,6],[3,7],[4,2],[4,5],[5,2]]
 
+print("edges list: " + str(A))
+
+#adjacency matrix
 M = []
+print("adjacency matrix")
 for i in range(n):
     M.append([0] * n)
 
-print("M: " + str(M))
-
 
 for a,b in A:
-    print("a={} b={}".format(a,b))
+    #print("a={} b={}".format(a,b))
     M[a][b] = 1
-print("M="+ str(M))
+print("adjacency matrix ="+ str(M))
+
 
 #edges list to adjacency list
 from collections import defaultdict
-
+print("adjacency list")
 D=defaultdict(list)
 for a,b in A:
     D[a].append(b)
 
-print("D="+ str(D))
+print("adjacenty list="+ str(D))
+
 
 #dfs..recursive
+recursive_list = []
 def dfs_recursive(node):
-    print(node)
+    #print(node)
+    recursive_list.append(str(node)+",")
     for neighbor in D[node]:
         if neighbor not in seen:
             seen.add(neighbor)
@@ -36,11 +44,12 @@ seen = set()
 seen.add(source)
 print("Dfs recursive:")
 dfs_recursive(source)
-
+print("dfs recursive "+ "".join(recursive_list))
 
 
 
 #dfs..iterative
+dfs_iterative_list = []
 def dfs_iterative(node):
     source = 0
     seen = set()
@@ -50,7 +59,8 @@ def dfs_iterative(node):
     stack.append(node)
     while stack:
         node = stack.pop()
-        print(node)
+        #print(node)
+        dfs_iterative_list.append(str(node)+",")
         for neighbor in D[node]:
             if neighbor not in seen:
                 seen.add(neighbor)
@@ -60,7 +70,10 @@ def dfs_iterative(node):
 
 print("Dfs iterative:")
 dfs_iterative(0)
+print("".join(dfs_iterative_list))
 
+
+bfs_list = []
 from collections import deque
 def bfs(source):
     q = deque()
@@ -70,7 +83,8 @@ def bfs(source):
 
     while q:
         node = q.popleft()
-        print(node)
+        #print(node)
+        bfs_list.append(str(node)+",")
         for neighbor in D[node]:
             if neighbor not in seen:
                 seen.add(neighbor)
@@ -81,31 +95,27 @@ def bfs(source):
 print("Breadth first search")
 
 bfs(0)
+print("bfs:" + "".join(bfs_list))
 
-#graphs in classes
-class Node:
-    def __init__(self, val):
-        self._value = val
-        self._neighbors =[]
-
-    def __str__(self):
-        return f"Node()"
-    
-    def display(self):
-        return f"Node({self._value})"
-        #connections = [node._value for node in self._neighbors]
-        #return f"is connected to {connections}"
     
 
-A=Node("A")
-B=Node("B")
-C=Node("C")
-D=Node("D")
+A=Node(1)
+B=Node(2)
+C=Node(3)
+D=Node(4)
 
-A._neighbors.append("B")
-B._neighbors.append("A")
+A._neighbors.append(B)
+A._neighbors.append(D)
 
-C._neighbors.append("D")
-D._neighbors.append("C")
+B._neighbors.append(A)
+B._neighbors.append(C)
+
+C._neighbors.append(B)
+C._neighbors.append(D)
+
+D._neighbors.append(A)
+D._neighbors.append(C)
 
 A.display()
+
+adjList = [[2,4],[1,3],[2,4],[1,3]]
