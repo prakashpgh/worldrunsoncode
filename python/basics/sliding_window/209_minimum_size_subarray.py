@@ -1,4 +1,9 @@
 #https://leetcode.com/problems/minimum-size-subarray-sum/description/
+'''
+t: O(n)
+note that its sliding window..
+'''
+
 import sys
 
 def minimum_size_subarray_sum(target, nums):
@@ -10,7 +15,7 @@ def minimum_size_subarray_sum(target, nums):
         sum += nums[r]
         while sum >= target and l < N:
             min_size = min(min_size, r-l+1) #did mistake here.
-            sum -= nums[l]
+            sum -= nums[l]  #kool trick
             l += 1
     if min_size == sys.maxsize:
         min_size = 0

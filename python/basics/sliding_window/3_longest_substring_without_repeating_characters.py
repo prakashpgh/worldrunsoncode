@@ -1,6 +1,10 @@
+'''
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/?envType=study-plan-v2&envId=top-interview-150
+#O(n)
+#O(n)
 
-#O(n)
-#O(n)
+2 pointer approach..  ned to adjust the length
+'''
 
 def longest_substring(input : str) -> int:
     l=0
@@ -33,7 +37,10 @@ def longest_substring(input : str) -> int:
                 l += 1
     return maxLength
 
+'''
+this is a better solution..
 
+'''
 def longest_substring_2(input : str) -> int:
     n = len(input)
     l = 0
@@ -47,6 +54,7 @@ def longest_substring_2(input : str) -> int:
             max_word_length = max(max_word_length, word_length)
         else:
             print("words_set: " + str(words_set))
+            #move l forward till the the window is valid.
             while(input[r] in words_set):
                 words_set.remove(input[l])
                 l += 1
@@ -65,7 +73,7 @@ def longest_substring_3(s: str) -> int:
         while r in hash and l < N:
             hash.remove(s[l])
             l += 1
-            length = 0
+            length = -1 #mistake i had set this to zero
 
         hash.add(r)
         length += 1
