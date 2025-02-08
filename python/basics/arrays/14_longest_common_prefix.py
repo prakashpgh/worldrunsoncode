@@ -1,3 +1,8 @@
+'''
+https://leetcode.com/problems/longest-common-prefix/description/?envType=study-plan-v2&envId=top-interview-150
+get the length of the smallest string
+'''
+
 #T(m * n) m = min. length
 def longest_common_prefix(array: list[str]) -> str:
     if len(array) == 0:

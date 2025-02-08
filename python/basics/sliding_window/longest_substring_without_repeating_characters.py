@@ -55,9 +55,41 @@ def longest_substring_2(input : str) -> int:
     return max_word_length
 
 
+def longest_substring_3(s: str) -> int:
+    longest = 0
+    length = 0
+    hash = set()
+    N = len(s)
+    l = 0
+    for r in s:
+        while r in hash and l < N:
+            hash.remove(s[l])
+            l += 1
+            length = 0
+
+        hash.add(r)
+        length += 1
+        longest = max(longest, length)
+    return longest
+
+
+
+
+
 input = "abcabcbb"
 #length = longest_substring(input)
 #print("longest substring: " + str(length))
 
-length = longest_substring_2(input)
-print("longest substring 2: " + str(length))
+#length = longest_substring_2(input)
+length = longest_substring_3(input)
+print("longest substring 3: " + str(length))
+
+
+input = "bbbbb"
+length = longest_substring_3(input)
+print("longest substring 3: " + str(length))
+
+input = "pwwkew"
+#Output: 3
+length = longest_substring_3(input)
+print("longest substring 3: " + str(length))

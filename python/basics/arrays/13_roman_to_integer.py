@@ -1,6 +1,9 @@
-
+'''
+https://leetcode.com/problems/roman-to-integer/description/
 #time: O(n)
 #space: O(1)
+the main thing here is handing cases like IV  XC, inspect the character after you, and it current < current + 1 => value = (next - current)
+'''
 def roman_to_int(roman: str) -> int:
     map = {"M":1000, "D":500, "C":100, "L":50, "X":10, "V":5,  "I": 1}
     n = len(roman)

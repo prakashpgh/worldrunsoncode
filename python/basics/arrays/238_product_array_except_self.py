@@ -1,3 +1,8 @@
+'''
+https://leetcode.com/problems/product-of-array-except-self/description/?envType=study-plan-v2&envId=top-interview-150
+
+
+'''
 
 def product_of_array_except_self_bruteforce(nums: list[int])->list[int]:
     n = len(nums)
@@ -11,6 +16,9 @@ def product_of_array_except_self_bruteforce(nums: list[int])->list[int]:
 
 #time: O(n)
 #space: O(n)
+'''
+create pre and post list, multiply these
+'''
 def product_of_array_except_self(nums: list[int])->list[int]:
     n = len(nums)
     result = [0]*n
@@ -30,7 +38,9 @@ def product_of_array_except_self(nums: list[int])->list[int]:
         result[i]=pre[i] * post[i]
     return result
 
-
+'''
+only create the pre list
+'''
 def product_of_array_except_self_space(nums: list[int])->list[int]:
     n = len(nums)
     pre = [0]*n

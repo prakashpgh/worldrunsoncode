@@ -1,18 +1,23 @@
 #element which appears more than n/2 times
 #Time O(n)
 #space O(n)
+'''
+use dictionary to find the frequency count.
+check with freq. count > N//2
+'''
+
 def majority_element(nums:list[int])->int:
     n = len(nums)
     counter = {}
-    max_occurence = 0
     max_num = nums[0]
     for num in nums:
         if num in counter:
             counter[num] += 1
         else:
             counter[num] = 1
-        max_occurence = max(max_occurence, counter[num])
-        max_num = num
+        if counter[num] > n//2:
+            max_num = num
+            return num
     return max_num
 
 
