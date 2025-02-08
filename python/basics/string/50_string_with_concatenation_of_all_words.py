@@ -7,12 +7,12 @@ function, that checks if the substrings are present..
 hashtable...
 '''
 
-def split_string_by_length(s, index, word_length, words):
+def split_string_by_length(s, index, word_length, words, words_len):
     i = index
     words_copy = words.copy()
     #print("split_string_by_length: " + str(i))
     words_len = len(words_copy)
-    while i <= len(s) -1 :
+    while i <= index + words_len-1 :
         part = s[i:i+word_length]
         #print("print: " + part)
         if part in words_copy:
@@ -48,7 +48,7 @@ def string_with_concatenation_of_all_words(s: str, words: list[str]) -> list[int
             return False
         else:
             #print("valid index+ " + str(i))
-            return split_string_by_length(s, i, length_word, words_set)
+            return split_string_by_length(s, i, length_word, words_set, words_len)
             #print("index = " + str(i) + " status:" + str(ret))
         return False
     result = []
