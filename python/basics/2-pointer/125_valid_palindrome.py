@@ -1,4 +1,8 @@
 #https://leetcode.com/problems/valid-palindrome/
+'''
+2-pointe technique
+isalnum()
+'''
 
 def valid_palindrome(s):
     N=len(s)

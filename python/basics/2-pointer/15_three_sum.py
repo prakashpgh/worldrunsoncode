@@ -1,9 +1,15 @@
+'''
+https://leetcode.com/problems/3sum/description/?envType=study-plan-v2&envId=top-interview-150
+
+t: O(n)
+s: O(1)
+'''
 def three_sum(nums):
     result = []
-    nums.sort()
+    nums.sort() #sorted
     N=len(nums)
     for i in range(N):
-        if nums[i] > 0:
+        if nums[i] > 0: #we can do this because the array is sorted
             break
         if i > 0 and nums[i] == nums[i-1]:
             continue

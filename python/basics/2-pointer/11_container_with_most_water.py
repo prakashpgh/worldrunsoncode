@@ -1,5 +1,6 @@
 #https://leetcode.com/problems/container-with-most-water/description/
 
+#2-pointer - move the pointer with lesser height
 #time O(n)
 #space O(1)
 def container_with_most_water(height):

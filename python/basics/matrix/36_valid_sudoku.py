@@ -1,9 +1,15 @@
+'''
+https://leetcode.com/problems/valid-sudoku/description/?envType=study-plan-v2&envId=top-interview-150
+'''
+
 
 def validate_9_squares(input, row, col):
-    print("validate_9_squares row: {} col: {}".format(row, col))
+    #print("validate_9_squares row: {} col: {}".format(row, col))
     hash = set()
     for r in range(row, row+3,1):
         for c in range(col, col+3,1):
+            if input[r][c] == ".":
+                continue
             #print(input[r][c], end="    ")
             if input[r][c] in hash:
                 return False
@@ -15,13 +21,13 @@ def validate_9_squares(input, row, col):
 def valid_sudoku(input):
     #validate rows
     for row in input:
-        print("row: " + str(row))
+        #print("row: " + str(row))
         hash = set()
         for c in row:
             if c == ".":
                 continue
             elif c in hash:
-                print("row returning false")
+                #print("row returning false")
                 return False
             else:
                 hash.add(c)
@@ -34,7 +40,7 @@ def valid_sudoku(input):
             if c == ".":
                 continue
             elif c in hash:
-                print("column returning false: " + c + " => " + str(hash))
+                #print("column returning false: " + c + " => " + str(hash))
                 return False
             else:
                 hash.add(c)
@@ -46,10 +52,25 @@ def valid_sudoku(input):
     col = 0
     for row in range(0,n,3):
         for col in range(0,n,3):
-            validate_9_squares(input, row, col)
+            ret = validate_9_squares(input, row, col)
+            if not ret:
+                return False
 
     return True
 
+input = [
+    [".",".",".",".","5",".",".","1","."],
+    [".","4",".","3",".",".",".",".","."],
+    [".",".",".",".",".","3",".",".","1"],
+    ["8",".",".",".",".",".",".","2","."],
+    [".",".","2",".","7",".",".",".","."],
+    [".","1","5",".",".",".",".",".","."],
+    [".",".",".",".",".","2",".",".","."],
+    [".","2",".","9",".",".",".",".","."],
+    [".",".","4",".",".",".",".",".","."]]
+result = valid_sudoku(input)
+print("result:" + str(result))
+#exit(0)
 
 input = [
     ["5","3",".",".","7",".",".",".","."],
@@ -64,6 +85,8 @@ input = [
 ]
 result = valid_sudoku(input)
 print("result:" + str(result))
+
+
 
 
 input = [

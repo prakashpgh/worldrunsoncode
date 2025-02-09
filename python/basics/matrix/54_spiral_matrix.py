@@ -1,5 +1,9 @@
+'''
+https://leetcode.com/problems/spiral-matrix/description/?envType=study-plan-v2&envId=top-interview-150
 #T O(n)
 #S O(1)
+'''
+
 def spiral_matrix(nums: list[list[int]])->list[int]:
     result = []
     cols = len(nums[0])
