@@ -1,9 +1,9 @@
-from linkedlist import SinglyLL
+from linkedlist import ListNode
 
 #O(n)
 #space O(n)
 
-def find_middle_node(head:SinglyLL):
+def find_middle_node(head:ListNode):
     node = head
     slow = node
     fast = node
@@ -14,11 +14,11 @@ def find_middle_node(head:SinglyLL):
     return slow
 
 
-A = SinglyLL(1)
-B = SinglyLL(2)
-C = SinglyLL(3)
-D = SinglyLL(4)
-E = SinglyLL(5)
+A = ListNode(1)
+B = ListNode(2)
+C = ListNode(3)
+D = ListNode(4)
+E = ListNode(5)
 
 A._next = B
 B._next = C
@@ -30,7 +30,7 @@ result = find_middle_node(A)
 print("result:" + str(result))
 
 
-F = SinglyLL(6)
+F = ListNode(6)
 E._next = F
 A.traverse()
 result = find_middle_node(A)

@@ -6,6 +6,7 @@ def reverse_words_in_string(s):
 def reverse_words_in_string_code(s):
     N = len(s)
     r = 0
+
     for i in range(N-1, -1, -1):
         if s[i] != " ": #this line was wrong.
             r = i
@@ -13,6 +14,7 @@ def reverse_words_in_string_code(s):
     start = -1
     end = r
     stk = []
+
     for i in range(r, -1, -1):
         if s[i] == " ":
             start = i+1

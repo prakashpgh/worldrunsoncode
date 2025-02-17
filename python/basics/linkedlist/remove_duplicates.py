@@ -1,9 +1,9 @@
-from linkedlist import SinglyLL
+from linkedlist import ListNode
 
 
 #O(n)
 #space O(1)
-def delete_duplicates(head:SinglyLL):
+def delete_duplicates(head:ListNode):
     node = head
     prev = None
     while node:
@@ -15,11 +15,11 @@ def delete_duplicates(head:SinglyLL):
     return head
 
 
-A = SinglyLL(1)
-B = SinglyLL(1)
-C = SinglyLL(2)
-D = SinglyLL(3)
-E = SinglyLL(3)
+A = ListNode(1)
+B = ListNode(1)
+C = ListNode(2)
+D = ListNode(3)
+E = ListNode(3)
 A._next = B
 B._next = C
 C._next = D

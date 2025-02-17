@@ -1,4 +1,4 @@
-from linkedlist import SinglyLL
+from linkedlist import ListNode
 
 
 def gcd(a, b):
@@ -11,7 +11,7 @@ def gcd(a, b):
     return mi
         
 
-def insert_gcd(input:SinglyLL):
+def insert_gcd(input:ListNode):
     node = input
     prev = None
     while node:
@@ -20,7 +20,7 @@ def insert_gcd(input:SinglyLL):
         if node and prev:
             gcd1 = gcd(prev._val, node._val)
             print("node: " + str(node) + " prev: " + str(prev) + " gcd: " + str(gcd1))
-            gcd_node = SinglyLL(gcd1)
+            gcd_node = ListNode(gcd1)
             gcd_node._next = node
             prev._next = gcd_node
     return input
@@ -28,10 +28,10 @@ def insert_gcd(input:SinglyLL):
 
 
 
-A = SinglyLL(18)
-B = SinglyLL(6)
-C = SinglyLL(10)
-D = SinglyLL(3)
+A = ListNode(18)
+B = ListNode(6)
+C = ListNode(10)
+D = ListNode(3)
 
 A._next = B
 B._next = C

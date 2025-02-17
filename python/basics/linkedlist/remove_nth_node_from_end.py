@@ -1,8 +1,8 @@
-from linkedlist import SinglyLL
+from linkedlist import ListNode
 #remove_nth_node_from_end.py
 #https://www.youtube.com/watch?v=fbi4UdayLSA
 
-def remove_nth_node_from_end(head: SinglyLL, n):
+def remove_nth_node_from_end(head: ListNode, n):
     node = head
     faster = node
     for i in range(n+1):
@@ -18,11 +18,11 @@ def remove_nth_node_from_end(head: SinglyLL, n):
         
     return head
 
-A = SinglyLL(1)
-B = SinglyLL(2)
-C = SinglyLL(3)
-D = SinglyLL(4)
-E = SinglyLL(5)
+A = ListNode(1)
+B = ListNode(2)
+C = ListNode(3)
+D = ListNode(4)
+E = ListNode(5)
 
 A._next = B
 B._next = C
@@ -36,7 +36,7 @@ print("after removing " + str(n) )
 result.traverse()
 
 #
-P = SinglyLL(1)
+P = ListNode(1)
 P.traverse()
 n=1
 result = remove_nth_node_from_end(P, n)
@@ -49,8 +49,8 @@ else:
 #[]
 
 #
-X = SinglyLL(1)
-Y = SinglyLL(2)
+X = ListNode(1)
+Y = ListNode(2)
 X._next = Y
 n=1
 X.traverse()

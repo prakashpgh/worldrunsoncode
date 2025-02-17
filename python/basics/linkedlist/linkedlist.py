@@ -1,4 +1,4 @@
-class SinglyLL:
+class ListNode:
     def __init__(self, val, next=None, random=None):
         self._val = val
         self._next = next
@@ -8,12 +8,12 @@ class SinglyLL:
         return str(self._val)
     
     def traverse(self, mem_location=False):
-        print("traverse linkedlist")
-        print(self._val)
+        #print("traverse linkedlist")
+        #print(self._val)
         node = self
         str_list = []
         while node:
-            print(node._val)
+            #print(node._val)
             if mem_location:
                 str_list.append(str(node._val) + " ml:" + str(id(node)) + "->")
             else:
@@ -43,7 +43,7 @@ def displayDD(head : DoubleNode):
     print(" <-> ".join(elements))
 
 
-def traverse(node : SinglyLL):
+def traverse(node : ListNode):
     print("traverse call...")
     while(node is not None):
         print(node)

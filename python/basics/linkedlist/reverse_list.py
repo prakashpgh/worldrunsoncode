@@ -1,6 +1,6 @@
-from linkedlist import SinglyLL
+from linkedlist import ListNode
 
-def reverseList(head:SinglyLL)->SinglyLL:
+def reverseList(head:ListNode)->ListNode:
     print("reverseList")
     node = head
     prev = None
@@ -13,11 +13,11 @@ def reverseList(head:SinglyLL)->SinglyLL:
 
 
 
-A = SinglyLL(1)
-B = SinglyLL(1)
-C = SinglyLL(2)
-D = SinglyLL(3)
-E = SinglyLL(3)
+A = ListNode(1)
+B = ListNode(1)
+C = ListNode(2)
+D = ListNode(3)
+E = ListNode(3)
 A._next = B
 B._next = C
 C._next = D

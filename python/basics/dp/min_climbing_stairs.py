@@ -1,4 +1,10 @@
 #https://leetcode.com/problems/climbing-stairs/description/
+'''
+https://www.geeksforgeeks.org/minimum-cost-to-reach-the-top-of-the-floor-by-climbing-stairs/
+    ith floor can be reached from i-1 or i-2 floors
+    min of cost from i-1 and i-2 floors
+    
+'''
 def min_climbing_stairs(nums):
     N=len(nums)
     if N<2:

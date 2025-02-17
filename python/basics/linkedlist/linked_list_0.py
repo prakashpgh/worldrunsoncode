@@ -1,6 +1,6 @@
 
 
-class SinglyLL:
+class ListNode:
     def __init__(self, val, next=None):
         self._val = val
         self._next = next
@@ -10,21 +10,21 @@ class SinglyLL:
 
 
 
-head_single = SinglyLL(1)
-B = SinglyLL(2)
-C = SinglyLL(3)
-D = SinglyLL(4)
+head_single = ListNode(1)
+B = ListNode(2)
+C = ListNode(3)
+D = ListNode(4)
 
 head_single._next = B
 B._next = C
 C._next = D
 
-def traverse(node : SinglyLL):
+def traverse(node : ListNode):
     while(node is not None):
         print(node)
         node = node._next
 
-def search(head_single : SinglyLL, val):
+def search(head_single : ListNode, val):
     node = head
     while node is not None:
         if node._val == val:
@@ -68,7 +68,7 @@ displayDD(head)
 
 
 #reverse linked list
-def reverse(head : SinglyLL):
+def reverse(head : ListNode):
     return head
 
 
