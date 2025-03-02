@@ -14,6 +14,7 @@ def n_order(array, search):
 index = n_order(A, search)
 print("index: " + str(index))
 
+
 #traditional binary search
 #O( log N)
 def binary_search(array, search):
@@ -67,3 +68,33 @@ print("binary search condition index: " + str(index))
 A = [False, False,False,False,False,False,False]
 index = binary_search_condition_based(A)
 print("binary search condition index: " + str(index))
+
+#finding both ends .. using binary search.. eg. first and last position of an element in a sorted array
+def search(nums: list[int], target:int):
+    def search(nums: list[int], target:int, left: bool):
+        N = len(nums)
+        l = 0
+        r = N-1
+        index = -1
+        while l <= r:
+            m = l + (r-l)//2
+            if target < nums[m]:
+                r = m -1
+            elif target > nums[m]:
+                l = m + 1
+            else:
+                index = m
+                if left:
+                    r = m - 1
+                else:
+                    l = m + 1
+        return index
+
+    left = search(nums, target, True)
+    right = search(nums, target, False)
+    return [left, right]
+
+nums = [5,7,7,8,8,10]
+target = 8
+result = search(nums, 8)
+print("result: " + str(result))

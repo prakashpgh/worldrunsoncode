@@ -1,5 +1,14 @@
+'''
 #https://leetcode.com/problems/same-tree/description/
 
+https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
+recursion
+    on left and right node
+
+iteratively..
+    use Q
+    get the level of Q, 
+'''
 from tree_node import TreeNode
 from tree_node import bfs
 

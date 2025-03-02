@@ -3,17 +3,25 @@ https://leetcode.com/problems/edit-distance/
 
 https://www.geeksforgeeks.org/edit-distance-dp-5/
 Approach I: recursive
+    base: m ==0, return n, n ==0, return m => for insertions and deletions when one string ends
+
     start from end.. base case one of the string ends.
 
     if character match...  try with the strings with each index reduced by 1
-    if character dont match, insert, replace, delete
+    if character dont match => insert, replace, delete => get min.
 
     memoization: parameters m, n -lengths of the strings
 
-Approach II:
+Approach II: bottom up iterative
+    create dp array with m+1, n+1 for 0-m
+    fill case for when m = 0
+    fill case for when n = 0
+
+    iterate 1..m+1,n+1
+        when string match ... no changes needed. so match [i-1][j-1]
+        when dont match 1 + min(update, delete, insert)  1 is for 1char change
 
 '''
-
 
 def edit_distance_recursive(word1:str, word2:str) -> int:
     l1=len(word1)
@@ -60,9 +68,23 @@ def edit_distance_recursive_memo(word1:str, word2:str) -> int:
         return memo[m][n]
     return dp(word1, l1, word2, l2)
 
-#todo
+
 def edit_distance_iterative(word1:str, word2:str) -> int:
-    return -1
+    m = len(word1)
+    n = len(word2)
+    #+1 to account for the 0 to m/n
+    dp = [[0]*(n+1) for i in range(m+1)]
+    for i in range(m+1):
+        dp[i][0] = i
+    for j in range(n+1):
+        dp[0][j] = j
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if word1[i-1] == word2[j-1]:
+                dp[i][j] = dp[i-1][j-1]
+            else:
+                dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])
+    return dp[m][n]
 
 
 word1 = "horse"
@@ -76,6 +98,10 @@ print("result-recur: " + str(result))
 
 result = edit_distance_recursive_memo(word1, word2)
 print("result-recur-memo: " + str(result))
+
+result = edit_distance_iterative(word1, word2)
+print("result-iterative: " + str(result))
+
 
 
 word1 = "intention"
@@ -92,3 +118,7 @@ print("result-recur: " + str(result))
 
 result = edit_distance_recursive_memo(word1, word2)
 print("result-recur-memo: " + str(result))
+
+result = edit_distance_iterative(word1, word2)
+print("result-iterative: " + str(result))
+

@@ -1,6 +1,9 @@
 '''
 https://leetcode.com/problems/invert-binary-tree
 swap the right and left trees
+
+Approach II: Iterative.. use q
+https://www.geeksforgeeks.org/write-an-efficient-c-function-to-convert-a-tree-into-its-mirror-tree/
 '''
 from tree_node import TreeNode
 from tree_node import bfs
@@ -14,6 +17,9 @@ def invert_binary_tree(root):
     invert_binary_tree(root.left)
     invert_binary_tree(root.right)
     return root
+
+
+def invert_binary_tree
 
 
 root = [4,2,7,1,3,6,9]

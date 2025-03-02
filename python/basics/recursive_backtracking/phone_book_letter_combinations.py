@@ -1,3 +1,14 @@
+'''
+https://leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+#meta
+choices: 
+    pairing with different letters mapped to a digit
+
+exit:
+    the length of the result == number of digits
+'''
+
 def phone_book_letter_combinations(input:str):
     sol = []
     result = []

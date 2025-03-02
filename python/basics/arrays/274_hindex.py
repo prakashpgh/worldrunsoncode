@@ -22,8 +22,12 @@ def hindex_bruteforce(nums):
     return h
 
 '''
-create a hash of the counts.
-go thru the possible hashes from max... check the values from the hash table
+create a hash of the counts... if the number of citations > no. of paper
+
+go thru the possible hashes from max... 
+    check the values from the hash table
+    sum the citations..
+    if citations > the index number => thats the answer
 time O(n)
 space O(n)
 '''

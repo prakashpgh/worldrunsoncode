@@ -3,9 +3,19 @@ https://leetcode.com/problems/lru-cache/
 
 for storing the values, we use dictionary.  key,Node
 
-    get() => remove and add to refresh the cache Q
-    put() => remove and add, check for the length... of queue
+so the dictionary has key = key, value = actual Q-node.
+Q-node = has key + value. 
+    it cleans the cache as required if over-capacity, and using the key, cleans the dictionary
 
+
+    get() => remove and add to refresh the cache Q
+    put() => check for the length... of queue, remove elements if necessary.... 
+             add new data
+
+dictionary => we use for quick access and put.
+deque => we use for maintaining the cache, removing from dictionary is not possible easily.
+
+             
 for maintaining LrU, we use a de-queue
     methods
         add(Node)

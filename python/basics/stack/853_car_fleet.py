@@ -2,12 +2,18 @@
 https://leetcode.com/problems/car-fleet/description/
 
 idea: 
+    let c1 and c2 be cars.  C2, C1 => target.  C1 is nearer to the target than C2.
+    If C1 reachese the target before C1.  then C1 is a disticnt fleet.
+    If C2 reachese before or together with C1, then (C1 & C2) form a fleet.  the time is now that of C1.
+
         using time, if some car which is behind reaches first, make it part of the fleet
     sort by position.
     find the time required..
     iterate array..
         if time > slowest, then to fleet..
             update slowest
+
+#meta
 '''
 
 
@@ -16,19 +22,18 @@ def car_fleet(target:int, position:list[int], speed:list[int]):
     cars = []
     for i in range(len(position)):
         cars.append((position[i], speed[i], (target-position[i])/speed[i]))
-
+    print("input: " + str(cars))
     cars.sort(key=lambda x: x[0], reverse=True)
     print("sorted: " + str(cars))
 
     N = len(cars)
-    time_slowest = (target - cars[0][0])/cars[0][1]
+    timetoreach_slowest = (target - cars[0][0])/cars[0][1]
     fleet = 1
     for i in range(len(cars)):
-        t = float('inf')
         t1 = (target - cars[i][0])/cars[i][1]
-        if t1 > time_slowest:
+        if t1 > timetoreach_slowest:
             fleet += 1
-            time_slowest = t1
+            timetoreach_slowest = t1
 
     return fleet
 

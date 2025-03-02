@@ -3,6 +3,7 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 our typical merge loop..for both valid lists
 
+#meta
 '''
 from linkedlist import ListNode
 
@@ -13,35 +14,35 @@ def merge_sorted_list(list1:ListNode, list2:ListNode)->ListNode:
     resultNode = result
     while node1 and node2:
         val = -1
-        if node1._val < node2._val:
-            val = node1._val
-            node1=node1._next
+        if node1.val < node2.val:
+            val = node1.val
+            node1=node1.next
         else:
-            val = node2._val
-            node2=node2._next
+            val = node2.val
+            node2=node2.next
 
-        resultNode._next = ListNode(val)
-        resultNode = resultNode._next
+        resultNode.next = ListNode(val)
+        resultNode = resultNode.next
     node = node1
     if not node:
         node = node2
-    resultNode._next = node
-    return result._next
+    resultNode.next = node
+    return result.next
 
 
 
 A = ListNode(1)
 B = ListNode(2)
 C = ListNode(4)
-A._next = B
-B._next = C
+A.next = B
+B.next = C
 print( "traverse: " + A.traverse())
 
 A1 = ListNode(1)
 B1 = ListNode(3)
 C1 = ListNode(4)
-A1._next = B1
-B1._next = C1
+A1.next = B1
+B1.next = C1
 print( "traverse: " + A1.traverse())
 
 

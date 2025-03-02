@@ -3,7 +3,7 @@ https://leetcode.com/problems/valid-parentheses/description/
 
 use of stack
 map of closing to opening bracket
-when you encounter a closing bracket - pop up from stack and the bracket should match
+when you encounter a closing bracket - pop up from stack and the bracket should match.  If no or no matching, invalid
     at the end the stack should be empty
 '''
 def valid_parentheses(input:str):

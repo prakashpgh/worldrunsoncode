@@ -1,6 +1,9 @@
 '''
 https://leetcode.com/problems/longest-common-prefix/description/?envType=study-plan-v2&envId=top-interview-150
+
 get the length of the smallest string
+
+O(s) s = sum of lengths 
 '''
 
 #T(m * n) m = min. length
@@ -22,21 +25,28 @@ def longest_common_prefix(array: list[str]) -> str:
                 break
         if append:
             prefix_list.append(ch)
+        else:
+            break
     return ''.join(prefix_list)
+
+
+strs = ["cir", "car"]
+prefix = longest_common_prefix(strs)
+print("prefix:" + str(strs) + " => " + prefix)
 
 
 strs = ["flower", "flow", "flight"]
 prefix = longest_common_prefix(strs)
-print("prefix:" + prefix)
+print("prefix:" + str(strs) + " => " + prefix)
 
 strs = ["dog", "racecar", "car"]
 prefix = longest_common_prefix(strs)
-print("prefix:" + prefix)
+print("prefix:" + str(strs) + " => " + prefix)
 
 strs = ["flower", "flowz", "flow"]
 prefix = longest_common_prefix(strs)
-print("prefix:" + prefix)
+print("prefix:" + str(strs) + " => " + prefix)
 
 strs = [""]
 prefix = longest_common_prefix(strs)
-print("prefix:" + prefix)
+print("prefix:" + str(strs) + " => " + prefix)

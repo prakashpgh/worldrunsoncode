@@ -4,10 +4,12 @@ https://leetcode.com/problems/interleaving-string/
 https://www.youtube.com/watch?v=oRYUnwklC98
 
 Approach I: recursion
+    Choice: the char matches s1 & s3, s2 & s3
     if the character matches, then try the next character..
     try with both the strings if charactermatches.
 
     base case: sum of lengths, all indexes reach the lengths of the strings
+        check for lengths - len(S1) + len(S2) 
 '''
 
 def interleaving_string_recursion(s1:str, s2:str, s3: str) -> bool:
@@ -28,6 +30,8 @@ def interleaving_string_recursion(s1:str, s2:str, s3: str) -> bool:
             ret1 = recur(i+1, j, k+1)    
         if j < A2 and s2[j] == s3[k]:
             ret2 = recur(i, j+1, k+1)    
+        else:
+            return false
         memo[(i,j,k)]=ret1 or ret2
         return memo[(i,j,k)]
     return recur(0,0,0)

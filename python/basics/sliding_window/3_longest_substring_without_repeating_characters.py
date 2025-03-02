@@ -3,7 +3,12 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/des
 #O(n)
 #O(n)
 
-2 pointer approach..  ned to adjust the length
+sliding window problem
+    l=r=0
+    keep moving r till window is valid.  use dictionary to store the characaters encountered
+    once window is invalid, keep moving l till it becomes again valid
+
+#meta
 '''
 
 def longest_substring(input : str) -> int:

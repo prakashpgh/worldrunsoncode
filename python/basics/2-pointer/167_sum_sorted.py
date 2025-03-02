@@ -2,6 +2,7 @@
 https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
 use 2 pointer technique
+#meta
 '''
 
 def two_sum_sorted(input, target):

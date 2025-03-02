@@ -1,5 +1,8 @@
 '''
 #https://leetcode.com/problems/range-sum-query-immutable/description/
+
+https://www.geeksforgeeks.org/find-subarray-with-given-sum/
+https://www.geeksforgeeks.org/find-subarray-with-given-sum-in-array-of-integers/
 '''
 
 class NumArray:

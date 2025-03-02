@@ -1,10 +1,11 @@
 from collections import deque
 
 class TreeNode:
-    def __init__(self, val, left=None, right=None):
+    def __init__(self, val, left=None, right=None, parent = None):
         self.val = val
         self.left = left
         self.right = right
+        self.parent = parent
 
     def __str__(self):
         return str(self.val)

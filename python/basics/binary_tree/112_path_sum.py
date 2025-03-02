@@ -1,6 +1,7 @@
 '''
 #https://leetcode.com/problems/path-sum/
 
+keep traversing the tree... till you encounter the leaf node... and check the target-sum
 '''
 from tree_node import TreeNode
 from tree_node import bfs

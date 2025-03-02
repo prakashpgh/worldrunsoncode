@@ -1,4 +1,13 @@
+'''
 #https://leetcode.com/problems/diameter-of-binary-tree/description/
+
+longest diameter at a given node = diam of left node + diam of right node
+
+max(l, r) + 1 => what this node will contribute to the recursion.
+
+
+#meta
+'''
 
 from tree_node import TreeNode
 from tree_node import bfs

@@ -1,8 +1,11 @@
 '''
 https://leetcode.com/problems/simplify-path/description/
+
 use of stack
     .. => pop
     no token or . => ignore
+    
+#meta
 '''
 
 def simplify_path(path:str) -> str:
