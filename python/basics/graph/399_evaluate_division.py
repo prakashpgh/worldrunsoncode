@@ -3,13 +3,12 @@ https://leetcode.com/problems/evaluate-division/
 https://www.geeksforgeeks.org/problems/division-problem4236/1
 
 create the graph in the form of dictionary:
-    src : {dest:value}
+    src : [(dest:value) ]
 
     do a dfs.. from src to destination..
             visited
             exit condition
             
-
 '''
 from collections import defaultdict
 

@@ -5,6 +5,7 @@ recursion:
     can we pick this item.
     if yes
         choice: - either to include the i-th item or not - get max of the 2 choices
+        
     basecase: n=0 and w=0, profit = 0
             if weight of nth is > W, then exclude
 

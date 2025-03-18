@@ -46,6 +46,14 @@ my_dict = {'z': 'zebra', 'b': 'ball', 'w': 'whale',
 # dictionary to tuple 
 my_list = [(k, v) for k, v in my_dict.items()] 
 
+#retrieve the node with "d", else use dog as default
+node = my_dict.setdefault("d", "dog")
+
+val = node.pop("e", False)
+print("val: " + str(val))
+
+
+
 print("Before organizing as heap :", my_list) 
 import heapq
 heapq.heapify(my_list)

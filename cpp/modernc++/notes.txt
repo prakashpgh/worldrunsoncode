@@ -1,0 +1,37 @@
+C++...
+shared pointers
+
+lambda
+
+rvalue
+lvalue
+
+move
+
+-------------------------
+containers
+	std::array<>
+
+emplace_back
+	constructs in place
+push_back.. construct + copy/move
+
+------------------------
+Threads
+creating threads
+mutex
+lock_guard
+unique_lock
+condition_variable
+locks in threading
+promise
+async
+future
+producer consumer
+
+race condition
+deadlocks
+
+semaphores
+
+

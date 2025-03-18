@@ -2,6 +2,9 @@
 https://leetcode.com/problems/single-number/description/
 
 ^ of the number with same number give zero
+
+t:O(N)
+s:O(1)
 '''
 
 def single_number(nums):

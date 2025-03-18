@@ -1,3 +1,14 @@
+/*
+join
+    the calling thread waits for the thread with join(), if main finishes while the thread function is running
+    can join only once. else will crash, use joinable() before join()
+    
+detach:
+    the called thread runs independent of the calling thread.  
+    even if the calling thread finishes,the T keeps on running
+    but if the process/main thread exits, then your called T finishes
+ */
+
 #include <iostream>
 #include <thread>
 #include <vector>

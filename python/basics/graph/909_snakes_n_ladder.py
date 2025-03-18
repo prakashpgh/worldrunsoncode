@@ -28,6 +28,7 @@ def snakes_ladders(board: list[list[int]]):
         r = (num - 1) // N
         if r % 2:
             c = N-1-c
+        #r = N-1-r
         return [r,c]
 
     #val = pos_to_rc(17)
@@ -36,20 +37,20 @@ def snakes_ladders(board: list[list[int]]):
     q.append([1,0]) #start here. [square-number, steps]
     visited = set()
     while q:
-        [square, hops] = q.popleft()
-        r,c = pos_to_rc(square) 
-        if board[r][c] != -1:
-            square = board[r][c]
-        if square >= N*N:
-            return hops
-
+        square, hops = q.popleft()
+        #print("square: " + str(square) + " hops: " + str(hops))
         for i in range(1,N+1):
-            nextsquare = square + i
-            #print("reached from square: " + str(square) + " to " + str(nextsquare) + " in hops " + str(hops))
-            if nextsquare not in visited:
-                q.append([nextsquare, hops + 1])
-                #print("square: " + str(square) + " to " + str(nextsquare) + " hops: " + str(hops+1))
-                visited.add(nextsquare)
+            next_square = square + i
+            #print("square: " + str(square) + " next_square: " + str(next_square))
+            r,c = pos_to_rc(next_square) 
+            if board[r][c] != -1:
+                next_square = board[r][c]
+            if next_square == N*N:
+                return hops+1
+
+            if next_square not in visited:
+                visited.add(next_square)
+                q.append([next_square, hops + 1])
     return -1
 
 

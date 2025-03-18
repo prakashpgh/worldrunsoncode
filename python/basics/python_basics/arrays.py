@@ -5,6 +5,11 @@ print("before sort: " + str(intervals))
 intervals.sort(key=lambda t:t[0])
 print("after sort: " + str(intervals))
 
+#sorting by 2 keys
+intervals = [[1,3],[9,7],[9,6],[8,10],[15,18]]
+print("before sort: " + str(intervals))
+intervals.sort(key=lambda t:(t[0], t[1]))
+print("after sort: " + str(intervals))
 
 
 
@@ -92,3 +97,15 @@ capacity = [11,22,33,44,55,66,77,88,99]
 combine = zip(profits, capacity)
 print("zip: " + str(list(combine)))
 
+##
+#grids
+grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
+#getting the neighbors
+rows = len(grid)
+cols = len(grid[0])
+for r in range(rows):
+    for c in range(cols):
+        offsets = [(0,-1),(-1,0),(0,1),(1,0)]
+        for off in offsets:
+            i = r + off[0]
+            j = c + off[1]

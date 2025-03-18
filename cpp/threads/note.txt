@@ -1,3 +1,46 @@
-note
-tet
+resources..
+https://www.youtube.com/watch?v=zUy66Bats5c&t=9286s
+https://www.youtube.com/watch?v=zUy66Bats5c&t=12555s
+
+
+https://www.youtube.com/watch?v=bojZqt6yb3M
+    HFT interviews
+https://www.youtube.com/watch?v=eat5LAwb6AI
+https://leetcode.com/problemset/concurrency/
+
+
+
+Thread creation.
+
+Analogies For multi-threading
+2 queues for a single coffee shop  => 2 threads or CONcurrency
+T1,T2 => S
+
+2 queues having separate coffee shopes => PAALLELISM
+Q1 => S1
+Q2 => S2
+
+----------------
+Process & threads
+Ship is a process, many parallel activities going on..
+Captain is the main thread..
+    many other threads
+
+    some threads will be working on the same data.. same tasks...   Data parallel processing
+    
+    some threads will be doing different tasks. e.g navigation, fuelling etc.
+
+---------------------
+---------------------
+
+
+------------
+
+
+
+sleep v wait..
+sleep => no cpu ccyles for n units of time
+wait => no cpu till some thread calls notify on my condition_variable
+
+
 

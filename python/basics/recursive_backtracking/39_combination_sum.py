@@ -4,7 +4,16 @@ https://leetcode.com/problems/combination-sum/description/
 1) Note we dont need exactly k numbers in the combination
 2) same number can be repeated
 
-
+Parameters: index of candidates, we only want to consider the candidates equal to or after the index
+            solv[]
+            current_sum
+Choice:
+    with same index => since the same number can be repeated.    
+    to call recursively with same index, updated_sum,
+End criteria:
+    sum == target
+        => success
+    sum > target     
 '''
 
 def combination_sum(candidates: list[int], target:int) -> list[list[int]]:

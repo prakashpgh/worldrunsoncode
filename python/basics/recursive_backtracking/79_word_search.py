@@ -3,10 +3,13 @@ https://leetcode.com/problems/word-search/description/
 
 recursive backtracking
 
-exit criteria: the word_index = N-1 
+exit criteria: the word_index = N-1  & character matching.
+    if character not matching, False
 
 Choices: 
+    set character to somethingle else
     try on all its neighbors
+    set back the character
 
 Parameters: grid position, word_index
 '''
@@ -58,36 +61,46 @@ def word_search(grid:list[list[str]], word)->bool:
         for c in range(cols):
             if(backtrack((r,c), 0)):
                 return True
-
     return exists
 
 
+
+board = [["a","b"],["c","d"]]
+word = "abcd"
+#exists = exist(board, word)
+#print("exists: " + str(exists))
+exists = word_search(board, word)
+print("exists: " + str(exists))
+#false
 
 
 board = [["A","B","C","E"], ["S","F","C","S"],["A", "D","E", "E"]]
 word = "SF"
 exists = word_search(board, word)
 print("exists: " + str(exists))
-
+#true
 
 
 board = [["A","B","C","E"], ["S","F","C","S"],["A", "D","E", "E"]]
 word = "ABCCED"
 exists = word_search(board, word)
 print("exists: " + str(exists))
-
+#True
 
 board = [["A","B","C","E"], ["S","F","C","S"],["A", "D","E", "E"]]
 word = "SEE"
 exists = word_search(board, word)
 print("exists: " + str(exists))
+#True
 
 board = [["A","B","C","E"], ["S","F","C","S"],["A", "D","E", "E"]]
 word = "ABCB"
 exists = word_search(board, word)
 print("exists: " + str(exists))
+#false
 
 board = [["A","B","C","E"], ["S","F","C","S"],["A", "D","E", "E"]]
 word = "ABCESEEDAS"
 exists = word_search(board, word)
 print("exists: " + str(exists))
+#True

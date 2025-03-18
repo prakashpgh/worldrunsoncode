@@ -1,10 +1,14 @@
 '''
 https://leetcode.com/problems/find-peak-element/
 
-
+use binary search
+if n(m) > n(m+1), search the lhs, else rhs
 
 O(log N)
 '''
+
+print("ans: " + str(1//2))
+
 
 def find_peak_element(nums:list[int]) -> bool:  
     l = 0

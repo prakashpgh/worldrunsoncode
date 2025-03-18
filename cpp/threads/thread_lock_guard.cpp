@@ -1,3 +1,11 @@
+/*
+std::mutex
+std::lock_guard<std::mutex> lg(m) 
+    raii for m.lock and m.unlock
+    
+
+ */
+
 #include <iostream>
 #include <thread>
 #include <mutex>

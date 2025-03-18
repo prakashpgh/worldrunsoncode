@@ -7,6 +7,8 @@ max(l, r) + 1 => what this node will contribute to the recursion.
 
 
 #meta
+t:  O(N)
+s:  O(N)
 '''
 
 from tree_node import TreeNode

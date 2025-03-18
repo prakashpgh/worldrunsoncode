@@ -3,29 +3,13 @@
 import sys
 
 def max_sub_array_largest_sum_my(nums):
-    N=len(nums)
-    if N==0:
-        return []
-    sum1 = nums[0]
-    max_sum = sum1
-    ans_start = 0
-    ans_end = 0
-    start = 0
-    end = 0
-    for i in range(1, N):
-        if sum1 < 0:
-            sum1 = 0
-            start = i
-            end = i
-        sum1 += nums[i]
-        if sum1 > max_sum:
-            max_sum = sum1
-            ans_start = start
-            ans_end = i
-    result = nums[ans_start: ans_end+1]
-    print("type: " + str(type(result)))
-    return sum(result)
-    #return result
+    max_sum = float('-inf')
+    sum = 0.0
+    for n in nums:
+        sum += n
+        sum = max(sum, n)
+        max_sum = max(sum, max_sum)
+    return int(max_sum)
 
 
 def max_sub_array_largest_sum(nums):

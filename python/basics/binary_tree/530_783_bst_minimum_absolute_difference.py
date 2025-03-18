@@ -22,7 +22,7 @@ def bst_minimum_absolute_difference(root: TreeNode):
             return
         
         dfs(node.left)
-        if prev[0]:
+        if prev[0] is not None:
             min_abs_difference[0] = min(min_abs_difference[0], abs(prev[0] - node.val))
         prev[0] = node.val
 
@@ -30,6 +30,21 @@ def bst_minimum_absolute_difference(root: TreeNode):
 
     dfs(root)
     return min_abs_difference[0]
+
+
+node_root = TreeNode(100000)
+node_root.left = TreeNode(0)
+result = bst_minimum_absolute_difference(node_root)
+print("bst_minimum_absolute_difference: " + str(result))
+
+
+node_root = TreeNode(1)
+node_root.left = None
+node_root.right = TreeNode(5)
+node_root.right.left = TreeNode(3)
+result = bst_minimum_absolute_difference(node_root)
+print("bst_minimum_absolute_difference: " + str(result))
+
 
 
 node_root = TreeNode(20)

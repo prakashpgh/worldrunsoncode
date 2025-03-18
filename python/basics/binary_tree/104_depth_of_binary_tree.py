@@ -41,6 +41,22 @@ def depth_of_binary_tree_iterative(root:TreeNode):
     return depth
 
 
+
+node = TreeNode(3)
+node.left = TreeNode(5)
+node.right = TreeNode(2)
+node.left.left = TreeNode(1)
+node.left.right = TreeNode(4)
+node.right.left = TreeNode(6)
+node.right.right = TreeNode(7)
+s = bfs(node)
+print("s=" + s)
+depth = depth_of_binary_tree(node)
+print("depth=" + str(depth))
+
+
+
+
 root = [3,9,20,None, None,15,7]
 #Output: 3
 node = TreeNode(3)

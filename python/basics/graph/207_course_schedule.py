@@ -11,6 +11,10 @@ get in adjacency list format.
 for all nodes, you do a dfs, there should not be any cycles.
 3 states - unvisited, visiting, visited.
     if the dfs comes to you when you are visiting, then it means cycle
+
+time: O(c+p)
+space:O(c+p)
+
 '''
 from collections import defaultdict
 

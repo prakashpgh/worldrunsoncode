@@ -6,6 +6,9 @@ https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
 left is smaller than root
 right is greater than root
 each key must be distinct
+
+time: O(N) => visiting nodes once
+space: O(H) => dfs stack space.
 '''
 from tree_node import TreeNode
 from tree_node import bfs
