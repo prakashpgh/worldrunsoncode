@@ -1,5 +1,11 @@
 #https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+
 '''
+bfs
+    pass the max of the max( node_value, max_value ) to the nodes..
+    check value and increment the count accordingly
+    do a bfs... so you can put the node and the sum on the Q
+
 MISTAKE understood the problem wrong initially
 '''
 from tree_node import TreeNode

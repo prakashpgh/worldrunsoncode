@@ -6,7 +6,7 @@ https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
 1) if root val === p or q, then root is the lca
 
 1) search left root , right root.
-    if both return then passed node
+    if both return then passed node => since each node is present in left and right nodes
 
     if both return valid nodes, then return the passed node.
     else if left,left, or rigt

@@ -2,8 +2,8 @@
 https://leetcode.com/problems/move-zeroes/description/
 
 for loop for r...
-    
-#todo
+keep a pointer at the non-zero entry, and another pointer at the zero entry
+
 '''
 
 def move_zeros(nums: list[int]):

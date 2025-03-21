@@ -7,28 +7,35 @@ traverse the string from
 def reverse_words_in_string(s):
     return " ".join(reversed(s.split()))
 
+from collections import deque
+
 #right to left
 def reverse_words_in_string_code__from_right(s):
     N = len(s)
     left = 0
     right = len(s) - 1
-    stk = []
+    q = deque()
+
+    # remove leading spaces
+    while left <= right and s[left] == " ":
+        left += 1
+
+    # remove trailing spaces
+    while left <= right and s[right] == " ":
+        right -= 1    
 
     while right >= left:
-        # remove leading spaces
-        while left <= right and s[left] == " ":
+        word = []
+        while left <= right:
+            if s[left] != " ":
+                word.append(s[left])
+            elif s[left] == " " and word:
+                q.appendleft("".join(word))
+                word = []
             left += 1
-
-        # remove trailing spaces
-        while left <= right and s[right] == " ":
-            right -= 1    
-
-        word_end = right
-        while left <= right and s[right] != " ":
-            right -= 1
-        word = s[right+1:word_end+1]
-        stk.append(word)
-    return " ".join(stk)
+        q.appendleft("".join(word))
+    
+    return " ".join(q)
 
 
 #left to right
@@ -71,14 +78,24 @@ result = reverse_words_in_string(s)
 #Output: "blue is sky the"
 print("reversed: " + result)
 
+result = reverse_words_in_string_code__from_right(s)
+print("reverse_words_in_string_code__from_right: " + result)
+
+
+
 
 result = reverse_words_in_string_code_from_left(s)
 print("reverse_words_in_string_code: " + result)
+
+result = reverse_words_in_string_code__from_right(s)
+print("reverse_words_in_string_code__from_right: " + result)
 
 
 s = "  hello world  "
 #Output: "world hello"
 #Explanation: Your reversed string should not contain leading or trailing spaces.
+result = reverse_words_in_string_code__from_right(s)
+print("reverse_words_in_string_code__from_right: " + result)
 
 
 

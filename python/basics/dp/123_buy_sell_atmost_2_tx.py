@@ -2,6 +2,7 @@
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/
 
+#####
 Approach I:
         find the profit for 1st tx... use the remaining of the array to find the 2nd tx.
 

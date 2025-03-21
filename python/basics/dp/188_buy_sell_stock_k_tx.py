@@ -29,11 +29,14 @@ no transactions => profit from previous day
         For N, we will be selling & the buy should have occured on any of the days 0...j-1,   i-1 tx should have been completed
             max( price[j] - price[i] + dp[i-1][x])
         profit on jth day = max( all possible profits )
-                A = dp[i-1][x] = profit till day x because of i-1 transactions.  Note B + S = 1 transaction
+                A = dp[i-1][x] = profit till day x because of i-1 transactions.  Note Buy + Sell = 1 transaction
                 B = p[j] -p[x] = profit because of ith transaction
                 total profit = A + B
                 take max of (this for all the days.., No transactions  )
 '''
+
+#t:O(kN)
+#s:O(kN)
 def max_profit_iterative_effective_buy_price( k:int, prices:list[int]):
     N=len(prices)
     dp = [[0]*(N) for i in range(k+1)]
@@ -49,6 +52,7 @@ def max_profit_iterative_effective_buy_price( k:int, prices:list[int]):
             #dp[i][j-1] = profit with no tx
             #helper(i, j, prices, dp) = profit with tx
             #effective buy prices = price - profit = prices[j]-dp[k-1][j]
+            #dp[i-1][j] = profits from all previous transactions
             dp[i][j] = max(dp[i][j-1], prices[j] - effective_buy_price)  
             effective_buy_price = min(effective_buy_price, prices[j] - dp[i-1][j])
     print("dp: " + str(dp))
@@ -68,16 +72,20 @@ def max_profit_iterative( k:int, prices:list[int]):
             #max of no-tx & sell
             #dp[i][j-1] = profit with no tx
             #helper(i, j, prices, dp) = profit with tx
+            #max of previous day profit, today's profit
+            #dp[i][j-1] => previous day profit  #helper(i, j, prices, dp) => today' profit with transacations
             dp[i][j] = max(dp[i][j-1], helper(i, j, prices, dp))
     return dp[k][N]
 
+# P - SP - BP
 #this will give the max profit for selling.
 #p[j] - p[x] + dp[k-1][x]  => assumes we are selling on jth day, with buy on xth day.  price diff j & i, max profit on xth day with k-1 tx
 def helper(tx, p, prices, dp):
     val = 0
     for i in range(p):
         #compare the profits of buy on ith and sell on pth day + profit on ith day with tx-1
-        val = max(val, prices[p-1] - prices[i] + dp[tx-1][i])
+        #dp[tx-1][i] => profits due to tx-1 tx, till ith day,  prices[p] - prices[i] = profit due buy buy on ith and sell on pth day
+        val = max(val, prices[p] - prices[i] + dp[tx-1][i])
     return val
 
 

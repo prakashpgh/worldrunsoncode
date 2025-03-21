@@ -1,7 +1,10 @@
 '''
-https://leetcode.com/problems/is-subsequence/description/?envType=study-plan-v2&envId=top-interview-150
+https://leetcode.com/problems/is-subsequence/
 
 simple pointer stuff
+
+t: O(source_string_len)
+s:(1)
 '''
 
 def is_subsequence(s: str, t: str):

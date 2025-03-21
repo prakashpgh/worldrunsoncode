@@ -1,5 +1,10 @@
 '''
 https://leetcode.com/problems/reverse-linked-list/
+
+save the next as next
+next = prev
+prev = node
+node = next
 '''
 
 from linkedlist import ListNode

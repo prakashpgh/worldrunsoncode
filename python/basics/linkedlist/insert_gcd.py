@@ -16,13 +16,13 @@ def insert_gcd(input:ListNode):
     prev = None
     while node:
         prev = node
-        node = node._next
+        node = node.next
         if node and prev:
-            gcd1 = gcd(prev._val, node._val)
+            gcd1 = gcd(prev.val, node.val)
             print("node: " + str(node) + " prev: " + str(prev) + " gcd: " + str(gcd1))
             gcd_node = ListNode(gcd1)
-            gcd_node._next = node
-            prev._next = gcd_node
+            gcd_node.next = node
+            prev.next = gcd_node
     return input
 
 

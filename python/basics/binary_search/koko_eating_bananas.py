@@ -1,4 +1,11 @@
-#https://leetcode.com/problems/koko-eating-bananas/
+'''
+https://leetcode.com/problems/koko-eating-bananas/'
+
+binary search.
+max of the array.. should be r, l=0
+check if that speed is lower, higher for the bananas
+
+'''
 from math import ceil
 
 def koko_eating_bananas(piles, hours):

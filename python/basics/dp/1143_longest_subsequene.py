@@ -2,6 +2,7 @@
 #https://leetcode.com/problems/longest-common-subsequence/description/
 #https://www.youtube.com/watch?v=DG50PJIx2SM
 '''
+Approach I : recursive
 axyz baz, z matching
         axy ba, => we reduce the len of one of the strings.. and take max of 2
 
@@ -12,6 +13,12 @@ axyz baz, z matching
 
     3) last characters dont match... 
             max of the 2 options
+
+Approach II:
+    recursive with memo,just introduce memo
+
+Approach III: bottom up
+    uses logic similar to recursive
 '''
 def longest_common_subsequence(a:str, b:str, i:int, j:int)->int:
     #when length of the strings = 0, return 0
@@ -27,24 +34,24 @@ def longest_common_subsequence(a:str, b:str, i:int, j:int)->int:
 
 
 
-def longest_common_subsequence_memo(a:str, b:str, m:int, n:int)->int:
-    memo = [[-1] * n for i in range(m)]
-    def dp(a:str, b:str, i:int, j:int)->int:
-        if memo[i-1][j-1] != -1:
-            return memo[i-1][j-1]
-        
+def longest_common_subsequence_memo(a:str, b:str)->int:
+    memo = {}
+    def len_sequence(i, j):
+        if (i, j) in memo:
+            return memo[(i, j)]
+        #when length of the strings = 0, return 0
         if i == 0 or j == 0:
-            memo[i][j] = 0
             return 0
 
+        #axyz baz,  => z matching .. last character matches... increment count by 1, repeat for the remaining characters
         if a[i-1] == b[j-1]:
-            memo[i-1][j-1] = 1 + longest_common_subsequence(a, b, i-1,j-1)
-            return memo[i-1][j-1]
+            memo[(i,j)] = 1 + len_sequence(i-1,j-1)
+            return memo[(i,j)]
         
-        memo[i-1][j-1] = max( longest_common_subsequence(a, b, i, j-1), longest_common_subsequence(a, b, i-1, j))
-        return memo[i-1][j-1]
-
-    return dp(a, b, m, n)
+        #axy ba, => we reduce the len of one of the strings.. and take max of 2 approaches
+        memo[(i,j)] = max( len_sequence(i, j-1), len_sequence(i-1, j))
+        return memo[(i,j)]
+    return len_sequence(len(a), len(b))
 
 #O(mn)
 def longest_common_subsequence_bottom_up(a:str, b:str)->int:

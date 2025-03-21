@@ -109,3 +109,10 @@ for r in range(rows):
         for off in offsets:
             i = r + off[0]
             j = c + off[1]
+
+
+#fill 3d grid
+m=3
+n=4
+memo = [[-1] * n for i in range(m)]
+print(memo)

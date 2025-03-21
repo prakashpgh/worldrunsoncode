@@ -1,5 +1,7 @@
 '''
 https://leetcode.com/problems/find-pivot-index/
+
+we can use a 2
 '''
 
 def pivot_index(nums: list[int]) -> int:
