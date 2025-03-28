@@ -16,13 +16,13 @@ for i in range(5):
     print(str(i))
 
 
-
 printEnd()
 #range => immutable sequence
 #iterating range
 rg = range(1,10)
 for i in rg:
     print( i, end=",")
+
 
 printEnd()
 #reverse range

@@ -3,6 +3,10 @@ https://leetcode.com/problems/3sum/description/?envType=study-plan-v2&envId=top-
 
 t: O(n)
 s: O(1)
+#check
+iterate ..
+    for each element... find the other 2 elements.
+    take care of duplicates ..by comparing i+1 and i
 '''
 def three_sum(nums):
     result = []

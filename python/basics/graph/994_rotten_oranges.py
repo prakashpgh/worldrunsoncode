@@ -1,3 +1,19 @@
+'''
+https://leetcode.com/problems/rotting-oranges/
+
+use bfs
+traverse the matrix, 
+    find the fresh oranges, 
+    q => fill with rotten 
+    while q:
+        ==> USE BFS FOr LEVEL ONLY SO YOU DONT GET THE ONCE THAT ARE MARKED ROTTEN, SO YOU COUNT THE MINUTES RIGHT
+        add newly rotten to q
+        reduce fresh count
+        update the grid
+        check fresh count == 0
+    check fresh count
+'''
+
 from collections import deque
 #O(m*n)
 #space O(m*n)

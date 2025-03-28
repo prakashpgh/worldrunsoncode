@@ -6,38 +6,28 @@ https://leetcode.com/problems/partition-list/
 '''
 from linkedlist import ListNode
 
-def partition(head:ListNode, x:int) -> ListNode:
+def partition2(head:ListNode, x:int) -> ListNode:
+    left_head = ListNode(0)
+    right_head = ListNode(0)
+    left_node = left_head
+    right_node = right_head
     node = head
-    prev_left = None
-    right_list = ListNode(0)
-    right_list_node = right_list
+    middle_node = None
     while node:
-        #create the right 
-        if node._val >= x:
-            right_list_node._next = node
-            right_list_node = node
-            next = node._next
-            right_list_node._next = None   #mistake .. this line was missing
-            #delete from current            
-            if prev_left:
-                prev_left._next = next
-                node = next
-                continue
-            else:
-                #if the 1st node is deleted, make head 
-                head = next
-                prev_left = None
-                node = head
-                continue
+        if node.val == x:
+            middle_node = node
+        elif node.val < x:
+            left_node.next = node
+            left_node = node
+        else:
+            right_node.next = node
+            right_node = node
+        node = node.next
+    right_node.next = None
+    left_node.next = middle_node
+    middle_node.next = right_head.next
+    return left_head.next
 
-        prev_left = node
-        node = node._next
-
-    if prev_left:
-        prev_left._next = right_list._next
-    else:
-        head = right_list._next
-    return head
 
 
 #head = [2,1]
@@ -45,15 +35,11 @@ x = 2
 #Output: [1,2]
 A = ListNode(2)
 B = ListNode(1)
-A._next = B
+A.next = B
 
-print("result: " + A.traverse())
-result = partition(A, x)
+print("A: " + A.traverse())
+result = partition2(A, x)
 print("result-after-partition: " + result.traverse())
-
-
-
-
 
 #head = [1,4,3,2,5,2]
 x = 3
@@ -64,14 +50,14 @@ C = ListNode(3)
 D = ListNode(2)
 E = ListNode(5)
 F = ListNode(2)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
-E._next = F
+A.next = B
+B.next = C
+C.next = D
+D.next = E
+E.next = F
 
 print("result: " + A.traverse())
-result = partition(A, x)
+result = partition2(A, x)
 print("result-after-partition: " + result.traverse())
 
 

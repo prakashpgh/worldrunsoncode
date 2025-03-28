@@ -3,7 +3,7 @@
 '''
 mistake: be careful about the indexes...
 
-1) first find the min... element index
+1) first find the min... element index.. index of the min. element.
 
 2) then you break the array into 3 parts, => when minIndex = 0, the part before min index, and part after min index.... depending on the target.
 
@@ -21,7 +21,7 @@ def search_in_rotated_array(nums: list[int], target):
         else:
             r = m
     print("change-l: " + str(l) + "=>" + str(nums[l]))
-    
+
     #case i: m = 0
     min_index = l
     if min_index == 0:
@@ -46,6 +46,12 @@ def search_in_rotated_array(nums: list[int], target):
     return -1
 
 
+nums = [11,12,13,14,15,8,9,10]
+target = 8
+result = search_in_rotated_array(nums, target)
+print("result: " + str(nums) + " target: " + str(target) + "=>" + str(result ))
+exit(0)
+
 nums = [1]
 target = 1
 result = search_in_rotated_array(nums, target)
@@ -53,10 +59,6 @@ print("result: " + str(nums) + " target: " + str(target) + "=>" + str(result ))
 
 
 
-nums = [11,12,13,14,15,8,9,10]
-target = 8
-result = search_in_rotated_array(nums, target)
-print("result: " + str(nums) + " target: " + str(target) + "=>" + str(result ))
 
 target = 12
 result = search_in_rotated_array(nums, target)

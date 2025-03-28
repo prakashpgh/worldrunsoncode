@@ -17,8 +17,8 @@ def reverse(head: ListNode):
     new_head = None
     prev = None
     while node:
-        next = node._next
-        node._next = prev
+        next = node.next
+        node.next = prev
         new_head = node
         prev = node
         node = next
@@ -33,16 +33,16 @@ def reverse_nodes_in_k_group(head: ListNode, k):
     start = head
     
     while node:
-        next_node = node._next
+        next_node = node.next
         if count == k:
-            next_group_begin = node._next #save this link
-            node._next = None
+            next_group_begin = node.next #save this link
+            node.next = None
             new_head, new_end = reverse(start)
             if prev_node == None:
                 head = new_head
             else:
-                prev_node._next = new_head
-            new_end._next = next_group_begin
+                prev_node.next = new_head
+            new_end.next = next_group_begin
             prev_node = new_end
             count = 0
             start = next_group_begin
@@ -61,10 +61,10 @@ B = ListNode(2)
 C = ListNode(3)
 D = ListNode(4)
 E = ListNode(5)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 
 print("tr: " + A.traverse())
 #head,end = reverse(A)
@@ -81,10 +81,10 @@ B = ListNode(2)
 C = ListNode(3)
 D = ListNode(4)
 E = ListNode(5)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 print("tr: " + A.traverse())
 head = reverse_nodes_in_k_group(A, k)
 print("tr-reversed: " + head.traverse())

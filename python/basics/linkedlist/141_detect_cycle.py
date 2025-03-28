@@ -15,7 +15,7 @@ def has_cycle_using_hashset(head:ListNode):
         if node in hash:
             return True
         hash.add(node)
-        node = node._next
+        node = node.next
     return False
 
 #Time O(n)
@@ -24,9 +24,9 @@ def has_cycle_using_fast_slow(head:ListNode):
     node = head
     fast = node
     slow = node
-    while fast and fast._next:
-        slow = slow._next
-        fast = fast._next._next
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
         if slow is fast:
             return True
 
@@ -39,10 +39,10 @@ B = ListNode(2)
 C = ListNode(0)
 D = ListNode(-4)
 
-A._next = B
-B._next = C
-C._next = D
-#D._next = B
+A.next = B
+B.next = C
+C.next = D
+#D.next = B
 
 A.traverse()
 result = has_cycle_using_hashset(A)
@@ -52,7 +52,7 @@ result = has_cycle_using_fast_slow(A)
 print("result has_cycle_using_fast_slow:" + str(result))
 
 
-D._next = B
+D.next = B
 result = has_cycle_using_hashset(A)
 print("result:" + str(result))
 

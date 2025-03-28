@@ -1,6 +1,9 @@
 '''
+https://leetcode.com/problems/squares-of-a-sorted-array/
 squares of sorted array, also in sorted 
 https://www.youtube.com/watch?v=syTs9_w-pwA&list=PLKYEe2WisBTFEr6laH5bR2J19j7sl5O8R&index=13
+
+O(n)
 '''
 
 def reverse_inplace(nums : list[int]):

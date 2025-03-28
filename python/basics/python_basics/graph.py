@@ -47,17 +47,13 @@ Ways to implement a disjoint set
 QuickUnion
     array stores the parent node
     connect => the roots are connected...
-    
-
+  
 '''
-
-
 '''
 Difference between tree and graph
     Cycles: tree is not cyclical, graph can have cycles
     connectivity:  graphs can be disconnected, tree nodes are always connected
     Hierarchy: trees have hierarchical structure, with a root.
-
 
 
 BFS
@@ -77,7 +73,8 @@ Process all vertices of a level befor ethe next level
 
 DFS
 1) Use stack
-
+t: O(V+E)
+s: O(V)
 
 
 Spanning tree: tree that connects all the nodes
@@ -111,9 +108,7 @@ Prims algo
 
 
 Kruskal adds the edges, Prims adds the vertices
-
 '''
-
 
 '''
 Single source shortest path

@@ -3,12 +3,26 @@ https://leetcode.com/problems/median-of-two-sorted-arrays/
 
 https://www.youtube.com/watch?v=q6IEA26hvXc
 
+    idea is run binary search on smaller array, and use that to deduce the median
+
 find m = l + (r-l)//2
-                should run Binary search only one one of the arrasy... smaller one 
-        find left partition of one A array
-        find left partition of array-2  => half - len_B
-        check partitions are correct
-                rightmost_left_A < leftmost_right_B
+        find the smaller of the 2 arrays... lets call it A
+            half = len(A1) + len(A2)
+            run binary search on this.. find i (m in terms of binary search lingo)
+            now since the second array B is sorted.., its mid will be j = half - i -2
+            check if the 2 partitions are correct.
+                check partitions are correct
+                    rightmost_left_A < leftmost_right_B
+                    rightmost_left_B < leftmost_right_A
+                        If the partitions are correct then we find the median
+                            odd: min(a-right, b-right)
+                            even: (max(a-left,b-left) + min(aright,bright)       )/2
+                        else if A, left > B' right
+                            r = i -1
+                        else
+                            l = i + 1        
+
+            
 
         median = 
                 min(left partitions)

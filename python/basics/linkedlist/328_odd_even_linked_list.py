@@ -1,4 +1,5 @@
 '''
+https://leetcode.com/problems/odd-even-linked-list/
 328_odd_even_linked_list.py
 get the even nodes.. 
 

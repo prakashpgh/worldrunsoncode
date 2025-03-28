@@ -24,7 +24,7 @@ for maintaining LrU, we use a de-queue
 
 class Node:
     def __init__(self, key, value, prev=None, next = None):
-        self._value = value
+        self.value = value
         self._key = key
         self.prev = prev
         self.next = next
@@ -43,7 +43,7 @@ class LRUCache:
         if key in self._cache:
             self.remove_node(self._cache[key])
             self.add_node(self._cache[key])
-            return self._cache[key]._value
+            return self._cache[key].value
         return -1
 
     def put(self, key: int, value: int) -> None:
@@ -51,7 +51,7 @@ class LRUCache:
         new_node = None
         if key in self._cache:
             new_node = self._cache[key]
-            new_node._value = value
+            new_node.value = value
             self.remove_node(new_node)
             self.add_node(new_node)
         else:
@@ -113,7 +113,7 @@ class LRUCache:
         if self._head:
             node = self._head
             while node:
-                nodes.append(str(node._value) + " => ")
+                nodes.append(str(node.value) + " => ")
                 node = node.next
         return "".join(nodes)
 

@@ -1,5 +1,8 @@
 '''
 https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
+
+find the middle head using fast and slow pointers
+delete the node
 '''
 
 from linkedlist import ListNode

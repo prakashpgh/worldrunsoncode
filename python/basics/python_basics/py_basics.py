@@ -49,8 +49,6 @@ my_list = [(k, v) for k, v in my_dict.items()]
 #retrieve the node with "d", else use dog as default
 node = my_dict.setdefault("d", "dog")
 
-val = node.pop("e", False)
-print("val: " + str(val))
 
 
 
@@ -75,6 +73,20 @@ print("Resultant dictionary :", my_dict)
 
 
 
+
+class Counter:
+    def __init__(self, n: int):
+        self.count = n - 1
+    
+    def __call__(self):
+        self.count += 1
+        return self.count
+
+# Example usage:
+counter = Counter(10)
+print(counter())  # 10
+print(counter())  # 11
+print(counter())  # 12
 
 
 

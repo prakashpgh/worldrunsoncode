@@ -27,7 +27,7 @@ class ListNode:
 class DoubleNode:
     def __init__(self, val, prev=None, next=None):
         self.val = val
-        self._prev = prev
+        self.prev = prev
         self.next = next
 
     def __str__(self):

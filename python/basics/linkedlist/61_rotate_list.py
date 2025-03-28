@@ -6,6 +6,7 @@ iterate and find N, point the last to head
 then iterate again and find the last one... N-k-1
 point it to null
 head to the first one
+#revisit
 '''
 from linkedlist import ListNode
 
@@ -18,19 +19,19 @@ def rotate_list(head:ListNode, k:int) -> ListNode:
     
     while node:
         prev = node
-        node = node._next
+        node = node.next
         count += 1
     k = k % count
     #close the loop
-    prev._next = head
+    prev.next = head
     print("prev: " + str(prev))
 
     node = head
     for i in range(count - k - 1):
-        node = node._next
+        node = node.next
     print("val: " + str(node))
-    head = node._next
-    node._next = None
+    head = node.next
+    node.next = None
     return head
 
 
@@ -42,10 +43,10 @@ B = ListNode(2)
 C = ListNode(3)
 D = ListNode(4)
 E = ListNode(5)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 print("traverse: " + A.traverse())
 A=rotate_list(A, k)
 print("traverse-after: " + A.traverse())
@@ -57,8 +58,8 @@ k = 4
 A = ListNode(0)
 B = ListNode(1)
 C = ListNode(2)
-A._next = B
-B._next = C
+A.next = B
+B.next = C
 
 print("traverse: " + A.traverse())
 A=rotate_list(A, k)

@@ -5,6 +5,7 @@ binary search.
 max of the array.. should be r, l=0
 check if that speed is lower, higher for the bananas
 
+
 '''
 from math import ceil
 

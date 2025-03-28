@@ -7,4 +7,8 @@ for c in s:
 print(f)
 
 ###########
-
+#isalnum()
+s = "hello, world"
+for c in s:
+    if not c.isalnum():
+        print(f"{c} is not alnum" )

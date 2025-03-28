@@ -7,14 +7,14 @@ def remove_nth_node_from_end(head: ListNode, n):
     faster = node
     for i in range(n+1):
         if faster:
-            faster = faster._next
+            faster = faster.next
     if not faster:
         return None
     while faster:
-        node=node._next
-        faster = faster._next
-    if node._next:
-        node._next = node._next._next
+        node=node.next
+        faster = faster.next
+    if node.next:
+        node.next = node.next.next
         
     return head
 
@@ -24,10 +24,10 @@ C = ListNode(3)
 D = ListNode(4)
 E = ListNode(5)
 
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 
 A.traverse()
 n=2
@@ -51,7 +51,7 @@ else:
 #
 X = ListNode(1)
 Y = ListNode(2)
-X._next = Y
+X.next = Y
 n=1
 X.traverse()
 result = remove_nth_node_from_end(X, n)

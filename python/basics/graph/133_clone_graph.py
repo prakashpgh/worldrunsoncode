@@ -28,7 +28,7 @@ def clone_graph(node:Node)->Node:
         while stack:
             node_pop = stack.pop()
             #print(node_pop)
-            hash_map[node_pop] = Node(node_pop._value)
+            hash_map[node_pop] = Node(node_pop.value)
             for nei in node_pop._neighbors:
                 if nei not in seen:
                     stack.append(nei)

@@ -10,6 +10,7 @@ t: O(n)
 s: O(n)
 
 Approach II:
+    find middle using fast and slow pointers
     reverse the second half of the LL
     now traverse the first half and the 2nd half, and find the twin sum.. and max. of twin sum
 t: O(n)

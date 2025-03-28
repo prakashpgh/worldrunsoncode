@@ -33,9 +33,9 @@ B = ListNode(6)
 C = ListNode(10)
 D = ListNode(3)
 
-A._next = B
-B._next = C
-C._next = D
+A.next = B
+B.next = C
+C.next = D
 
 
 result = gcd(12, 6)

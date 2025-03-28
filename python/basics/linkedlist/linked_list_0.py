@@ -6,7 +6,7 @@ class ListNode:
         self.next = next
 
     def __str__(self):
-        return str(self._val)
+        return str(self.val)
 
 
 
@@ -15,21 +15,21 @@ B = ListNode(2)
 C = ListNode(3)
 D = ListNode(4)
 
-head_single._next = B
-B._next = C
-C._next = D
+head_single.next = B
+B.next = C
+C.next = D
 
 def traverse(node : ListNode):
     while(node is not None):
         print(node)
-        node = node._next
+        node = node.next
 
 def search(head_single : ListNode, val):
     node = head
     while node is not None:
-        if node._val == val:
+        if node.val == val:
             return node
-        node = node._next
+        node = node.next
     return None
 
 
@@ -38,26 +38,26 @@ traverse(head_single)
 node = search(head_single, 8)
 if(node is not None):
     print("found...")
-    print(node._val)
+    print(node.val)
 else:
     print("not found")
 
 
 class DoubleNode:
     def __init__(self, val, prev=None, next=None):
-        self._val = val
-        self._prev = prev
-        self._next = next
+        self.val = val
+        self.prev = prev
+        self.next = next
 
     def __str__(self):
-        print(str(self._val))
+        print(str(self.val))
 
 
 def displayDD(head : DoubleNode):
     node = head
     elements = []
     while node is not None:
-        elements.append(node._val)
+        elements.append(node.val)
     
     print("elements: " + str(len(elements)))
     print(" <-> ".join(elements))

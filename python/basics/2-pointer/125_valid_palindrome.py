@@ -2,6 +2,9 @@
 '''
 2-pointe technique
 isalnum()
+
+t:O(N)
+s: O(1)
 '''
 
 def valid_palindrome(s):

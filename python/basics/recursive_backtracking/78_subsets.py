@@ -14,19 +14,18 @@ Parameters: index
 
 def subsets(input):
     result = []
-    sol = []
     n = len(input)
-    def backtracking(i):
+    def backtracking(i, sol):
         if i == n:
             result.append(sol[:])
             return
-        backtracking(i + 1)
+        backtracking(i + 1, sol)
 
         sol.append(input[i])
-        backtracking(i+1)
+        backtracking(i+1, sol)
         sol.pop()
 
-    backtracking(0)
+    backtracking(0, [])
 
     return result
 

@@ -12,19 +12,19 @@ def remove_duplicates_from_sorted_list(head:ListNode) -> ListNode:
     node = head
     prev = None
     
-    while node and node._next:
+    while node and node.next:
         #values match
-        if node._val == node._next._val:
-            val = node._val
-            while node and node._val == val:
-                node = node._next
+        if node.val == node.next.val:
+            val = node.val
+            while node and node.val == val:
+                node = node.next
             if not prev:
                 head = node
             else:
-                prev._next = node
+                prev.next = node
         else:       #mistake else was missing
             prev = node
-            node = node._next
+            node = node.next
     return head
 
 
@@ -38,12 +38,12 @@ C2 = ListNode(3)
 D = ListNode(4)
 E = ListNode(4)
 F = ListNode(5)
-A._next = B
-B._next = C
-C._next = C2
-C2._next = D
-D._next = E
-E._next = F
+A.next = B
+B.next = C
+C.next = C2
+C2.next = D
+D.next = E
+E.next = F
 print("traverse: " + A.traverse())
 A=remove_duplicates_from_sorted_list(A)
 print("traverse-after: " + A.traverse())
@@ -55,10 +55,10 @@ B = ListNode(1)
 C = ListNode(1)
 D = ListNode(2)
 E = ListNode(3)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 print("traverse: " + A.traverse())
 A=remove_duplicates_from_sorted_list(A)
 print("traverse-after: " + A.traverse())

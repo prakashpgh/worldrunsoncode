@@ -3,6 +3,7 @@
 #find_minimum_in_rotated_sorted_array.py
 
 #this is modified binary search problem.
+    first checkif there is no rotation
     get the midpoint in the usual way.
         this is ascending array, rotated... we need to find the smallest numbe
         if n[m] > n[m+1]    => m+1 is the point  
@@ -23,7 +24,6 @@ def find_minimum_rotated_sorted_array(nums: list[int]):
     #no rotations
     if nums[r] > nums[l]:
         return nums[0]
-
     m=0
     while r > l:
         m = l + (r-l)//2

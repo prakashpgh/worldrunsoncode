@@ -8,10 +8,10 @@ def delete_duplicates(head:ListNode):
     prev = None
     while node:
         #print(node)
-        if prev and prev._val == node._val:
-            prev._next = node._next
+        if prev and prev.val == node.val:
+            prev.next = node.next
         prev=node
-        node = node._next
+        node = node.next
     return head
 
 
@@ -20,10 +20,10 @@ B = ListNode(1)
 C = ListNode(2)
 D = ListNode(3)
 E = ListNode(3)
-A._next = B
-B._next = C
-C._next = D
-D._next = E
+A.next = B
+B.next = C
+C.next = D
+D.next = E
 
 A.traverse()
 

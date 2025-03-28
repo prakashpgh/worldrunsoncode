@@ -1,4 +1,13 @@
 '''
+https://leetcode.com/problems/populating-next-right-pointers-in-each-node/  => 116 perfect binary tree
+for perfect binary tree, you dont need additional storage
+
+    while loop => to traverse levels
+        while loop => to traverse the nodes in a given level
+
+
+
+
 https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
 
 https://www.geeksforgeeks.org/connect-nodes-at-same-level/
@@ -11,6 +20,12 @@ Idea:
 from tree_node import TreeNode
 from tree_node import bfs
 from collections import deque
+
+
+#no need of extra storage here..
+def populate_next_right_perfect_binary_tree(root: TreeNode) -> TreeNode:
+    #todo
+    pass
 
 
 def populate_next_right_pointers(root: TreeNode):

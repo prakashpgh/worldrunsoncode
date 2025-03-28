@@ -13,7 +13,6 @@ print("after sort: " + str(intervals))
 
 
 
-
 #frequency counter
 freq_counter = [0]*26
 s = "leetcode"
@@ -58,6 +57,7 @@ print(f":5 {str(nums)} => {nums[:5]}")
 nums = [1,2,3,4,5,6,7,8,9]
 print(f"3: {str(nums)} => {nums[3:]}")
 
+
 nums = [1,2,3,4,5,6,7,8,9]
 print(f"3:8 {str(nums)} => {nums[3:8]}")
 
@@ -99,13 +99,13 @@ print("zip: " + str(list(combine)))
 
 ##
 #grids
+offsets = [(0,-1),(-1,0),(0,1),(1,0)]
 grid = [[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]
 #getting the neighbors
 rows = len(grid)
 cols = len(grid[0])
 for r in range(rows):
     for c in range(cols):
-        offsets = [(0,-1),(-1,0),(0,1),(1,0)]
         for off in offsets:
             i = r + off[0]
             j = c + off[1]
@@ -114,5 +114,5 @@ for r in range(rows):
 #fill 3d grid
 m=3
 n=4
-memo = [[-1] * n for i in range(m)]
-print(memo)
+memo = [[-1] * n for _ in range(m)]
+print("memo: " + str(memo))

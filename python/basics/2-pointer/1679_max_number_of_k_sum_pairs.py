@@ -1,7 +1,11 @@
 '''
 https://leetcode.com/problems/max-number-of-k-sum-pairs
 
-#tricky
+Approach I
+    using hashtable.. 
+        iterate the array
+            check if com
+            store the elements
 '''
 
 
