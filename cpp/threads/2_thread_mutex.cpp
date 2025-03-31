@@ -14,8 +14,6 @@ Other analogy: libarary book
     checkout process => mutex
     readers => threads
 ----------------------------------
-
-
 Multiple threads issues.
     race conditions:  data corruption due to many threads acting on the same data
 

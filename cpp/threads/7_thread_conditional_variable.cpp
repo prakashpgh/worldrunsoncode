@@ -1,5 +1,7 @@
 /*
 condition variable
+    used to synchronize the action of multiple threads
+    wait(block) until a certain condition becomes true
 
 Steps
     unique_lock

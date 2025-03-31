@@ -39,7 +39,7 @@ Captain is the main thread..
 
 
 sleep v wait..
-sleep => no cpu ccyles for n units of time
+sleep => no cpu cyles for n units of time
 wait => no cpu till some thread calls notify on my condition_variable
 
 
