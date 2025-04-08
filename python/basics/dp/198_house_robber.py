@@ -28,31 +28,20 @@ def house_robber(nums: list[int]) -> int:
     recursive.. basecriteria
 '''
 def house_robber_recursive(nums: list[int]) -> int:
-    result = 0
     N = len(nums)
     memo = {}
-    if N==0:
-        return 0
-    
-    memo[0]=nums[0]
-    if N>1:
-        memo[1]=max(nums[0], nums[1])
-
-    if N==1:
-        return nums[0]
-    if N==2:
-        return max(nums[0], nums[1])
 
     def dp(i):
+        if i >= len(nums):
+            return 0
         if i in memo:
             return memo[i]
         else:
-            m = max(dp(i-1), dp(i-2) + nums[i]) # => this is the algo
+            m = max(dp(i+1), dp(i+2) + nums[i]) # => this is the algo
             memo[i] = m
             return m
     
-    a = dp(N-1)
-    return a
+    return dp(0)
 
 nums = [1,2,3,1]
 #Output: 4
@@ -71,3 +60,4 @@ nums = [2,7,9,3,1]
 #Total amount you can rob = 2 + 9 + 1 = 12.
 result = house_robber(nums)
 print("result: " + str(result))
+

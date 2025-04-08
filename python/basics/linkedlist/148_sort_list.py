@@ -13,7 +13,7 @@ merge sort
 from linkedlist import ListNode
 
 
-def getMidPoint(head: ListNode) -> ListNode:
+def split_at_midpoint(head: ListNode) -> ListNode:
     node = head
     faster = head
     prev = None
@@ -49,7 +49,7 @@ def sort_list(head:ListNode):
     if not head or not head.next:
         return head
     
-    mid = getMidPoint(head)
+    mid = split_at_midpoint(head)
     #print("mid: " + mid.traverse())
     #print("left: " + head.traverse())
 

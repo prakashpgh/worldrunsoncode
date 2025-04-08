@@ -2,11 +2,14 @@ grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
 rows = len(grid)
 cols = len(grid[0])
 
+print(grid)
 #making tuple out of columns and rows
+print("cols as tuple")
 for c in range(cols):
         t = tuple(r[c] for r in grid)
         print(t)
 
+print("rows as tuples")
 #rows in tuple
 for r in range(rows):
         t = tuple(grid[r])

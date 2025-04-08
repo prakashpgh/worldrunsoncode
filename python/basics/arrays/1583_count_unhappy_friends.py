@@ -1,7 +1,18 @@
 '''
 https://leetcode.com/problems/count-unhappy-friends/
 
-#todo
+create the partners map
+create a rank of the friends => 2 dim 
+preferences = [[1,2,3],[3,2,0],[3,1,0],[1,2,0]]
+    rank = [[0, 0, 1, 2],
+            [2, 0, 1, 0],
+            [0, 0, 1, 2],
+            [0, 0, 1, 2]]    
+
+    key: 
+        x partner is y
+        there exists people u who are more preferred by x & 
+        u partner is v, and u prefers x over v
 '''
 
 
@@ -20,10 +31,16 @@ def count_unhappy_friends(n:int, preferences: list[list[int]], pairs: list[list[
     print(partner)
 
     unhappy = set()
-    for i in range(n):
-        x = partner[i]
-        if rank[i][x] > 0:
-            unhappy.add(x)
+    for x in range(n):
+        y = partner[x]
+
+        for u in preferences[x]:
+            if u == y:
+                break
+            v = partner[u]
+            if rank[u][x] < rank[u][v]: 
+                unhappy.add(x)
+                unhappy.add(u)
     return len(unhappy)
 
 

@@ -5,10 +5,14 @@ here the catch is when you change the col+row to zero, then it affects the exist
 
 Option 1) make a read-only copy, and change the input
 
-Option 2) if row = 0, mark the first element of row = 0
-        if col = 0, mark the first element of that row = 0
-        if row[0][0] == 0, then use a separate flag for the column 0
-        we use a flag for col=0.   row=0 => indicated by [0][0]
+Option 2) 
+        1st row and 1st column are used as flags for the rows and cols zero... 
+        flag kept if the 1st column has to be zerod.
+        iterate by exclusing the 1st row and 1st column, and update the 1st row and 1st column
+
+        go thru the 1st row and 1st column and update the zeros
+        check 0,0,, and update the 1st rows..
+        check the 1st column flag and update the 1st column accordingly
 '''
 
 def set_zeros(matrix:list[list[int]]):

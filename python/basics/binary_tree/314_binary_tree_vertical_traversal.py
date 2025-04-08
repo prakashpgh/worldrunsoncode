@@ -1,6 +1,9 @@
 '''
 https://leetcode.com/problems/binary-tree-vertical-order-traversal/
 
+maintain a map of k,v  k = column-index,  v = list of (rowindex, node values)
+    do a dfs, with dfs(node, row, col)
+
 do a bfs..
 in the q, add node,0
 

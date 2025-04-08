@@ -2,7 +2,7 @@
 https://leetcode.com/problems/gas-station/description/?envType=study-plan-v2&envId=top-interview-150
 
 gain for each station..
-if the total gain > 0, its possible, 
+if the total gain > 0, its possible 
 for each station 
     if current gain goes -ve, then that station is surely not possible, lets try the next one & make current_gain = 0
 

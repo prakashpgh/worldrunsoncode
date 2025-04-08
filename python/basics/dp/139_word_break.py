@@ -2,25 +2,46 @@
 https://leetcode.com/problems/word-break/
 https://www.geeksforgeeks.org/word-break-problem-dp-32/
 
-Idea is take the prefix of the word - one character at a given time
-    check if its in the words list
+Approach I:
+recursive.. traverse the string, for each letter, check any words match.
+if they match, repeat with the index starting from next
+    exit: the index == len of string
+    You can add dp to this to optimize
+
+Approach II:Iterative.
+
+
 '''
 
-def word_break_recursive(s:str, word_dict:list[str]) -> bool:
-    #print("s: " + s + " len:" + str(len(s)))
-    if not s:
+def word_break_recursive(index:int, s:str, word_dict:list[str]) -> bool:
+    if index == len(s):
         return True
     
     word_len = len(s)
-
-    for i in range(word_len+1): #mistake +1 was missing
-        prefix = s[:i]
-        #print("prefix: " + prefix)
-
-        if prefix in word_dict:
-            if word_break_recursive(s[i:], word_dict):
-                return True
+    for i in range(index, word_len): #mistake +1 was missing
+        if s[index:i+1] in word_dict and word_break_recursive(i+1, s, word_dict):
+            return True
     return False
+
+
+def word_break_recursive_dp(index:int, s:str, word_dict:list[str], dp) -> bool:
+    if index == len(s):
+        return True
+    if index in dp:
+        return dp[index]
+    
+    word_len = len(s)
+    for i in range(index, word_len): #mistake +1 was missing
+        if s[index:i+1] in word_dict and word_break_recursive(i+1, s, word_dict):
+            dp[index] = True
+            return True
+    dp[index] = False
+    return dp[index]
+
+
+def word_break_recursive_with_dp(index:int, s:str, word_dict:list[str]) -> bool:
+    dp = [-1] * (len(s)+1)
+    return word_break_recursive_dp(0, s, word_dict, dp)
 
 
 '''
@@ -35,30 +56,56 @@ def word_break_recursive(s:str, word_dict:list[str]) -> bool:
 '''
 def word_break_iterative(s: str, word_dict: list[str]) -> bool:
     dp = [False] * (len(s) + 1)
-    dp[len(s)] = True #base case
+    dp[0] = True #base case
+    N=len(s)
 
-    for i in range(len(s) - 1, -1, -1):
+    for i in range(1, N+1):
         for w in word_dict:
-            if (i + len(w)) <= len(s) and s[i:i+len(w) ] == w:
-                dp[i] = dp[i + len(w)]
-            if dp[i]:
+            wl = len(w)
+            start = i - wl
+            if start >= 0 and start <= len(s) and dp[start] and s[start:start+wl] == w:
+                dp[i] = True
                 break
-    return dp[0]
+    return dp[N]==True
 
 
 
 s = "leetcode"
-wordDict = ["leet","code"]
+wordDict = ["lee", "leet","code"]
 #Output: true
 #Explanation: Return true because "leetcode" can be segmented as "leet code".
-result = word_break_recursive(s, wordDict)
+result = word_break_recursive(0, s, wordDict)
 print("result: " + str(result))
+
+result = word_break_recursive_with_dp(0, s, wordDict)
+print("result-dp: " + str(result))
+
+result = word_break_iterative(s, wordDict)
+print("result-iterative: " + str(result))
+
 
 
 s = "applepenapple"
 wordDict = ["apple","pen"]
 #Output: true
+result = word_break_recursive(0, s, wordDict)
+print("result: " + str(result))
+
+result = word_break_recursive_with_dp(0, s, wordDict)
+print("result-dp: " + str(result))
+
+result = word_break_iterative(s, wordDict)
+print("result-iterative: " + str(result))
+
 
 s = "catsandog"
 wordDict = ["cats","dog","sand","and","cat"]
 #Output: false
+result = word_break_recursive(0, s, wordDict)
+print("result: " + str(result))
+
+result = word_break_recursive_with_dp(0, s, wordDict)
+print("result-dp: " + str(result))
+
+result = word_break_iterative(s, wordDict)
+print("result-iterative: " + str(result))

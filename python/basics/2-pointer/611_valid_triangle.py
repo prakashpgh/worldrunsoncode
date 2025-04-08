@@ -7,8 +7,9 @@ https://leetcode.com/problems/valid-triangle-number/
     r = k-1
         if less, then i++
         else,
-            j-1 possible combinations
+            j-i possible combinations 
             j--
+#partly 2-pointer and partly binary search
 #revisit
 '''
 

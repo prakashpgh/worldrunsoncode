@@ -1,6 +1,8 @@
 #https://leetcode.com/problems/search-in-rotated-sorted-array
 
 '''
+>> array has distinct values
+
 mistake: be careful about the indexes...
 
 1) first find the min... element index.. index of the min. element.

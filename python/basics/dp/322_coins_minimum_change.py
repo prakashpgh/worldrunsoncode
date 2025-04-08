@@ -1,25 +1,25 @@
 '''
+https://leetcode.com/problems/coin-change/
 greedy approach does not always give the optimal solution
 
-recursive approach...
-    top down..
-    go thru the coins, and do a recurse..
+Approach I: recursive
 
-    https://www.geeksforgeeks.org/coin-change-dp-7/
+            you need amount A
+            recur(amount) {
+                exit criteria: 
+                    0 or -ve
+                for() => coins {
+                    min = min(min_needed, 1 + recur(amount-coin))
+                }
+            }
 
-    Idea here is you have 2 choices
-        1) take the coin at nth index => sum will reduce & n will be same 
-        Or
-        2) dont take the coin => sum not reduced, coins reduced
-
-        take the min of the 2 cases
-
-        base cases: sum = 0, return 0,.
-            sum < 0 or n <= 0 => return max
-
-        --
-        memo will be sum & num
-        
+Approach II:
+    dp array fill to float('inf')
+    dp[0] = 0
+        for for all dp[1] .. dp[target]
+        for all coins {
+            dp[i] = min(dp[i], dp[i-coin] + 1)
+        }
 '''
 def minimum_coins_recursion_topdown(nums, target):
     nums.sort()
@@ -30,11 +30,12 @@ def minimum_coins_recursion_topdown(nums, target):
         if amount in dp:
             return dp[amount]
         mi = float('inf')
+        if amount < 0:
+            return float('inf')
+
         #go thru the coins
         for c in nums:
             remaining = amount - c
-            if remaining < 0:
-                break
             mi = min(mi, 1 + dp_func(remaining))
         dp[amount] = mi
         return mi        
@@ -44,33 +45,27 @@ def minimum_coins_recursion_topdown(nums, target):
         return -1
     else:
         return result
-   
+    
 
-'''
-
+''' 
+iterative dp method
 '''
 def minimum_coins(coins, target):
-    #sort if firts
+    #sort 
     coins.sort()
-    memo = [0] * (target+1)
+    memo = [float('inf')] * (target+1)
     N = len(coins)
+    memo[0] = 0
     #fill from 1 to the target.
     for i in range(1,target+1):
-        min1=float('inf')
         #for each go thru the coins array
         for j in range(N):
-            remaining = i - coins[j]
-            if remaining < 0:
-                #not possible to make, we ignore the remainign coins as they are larger
-                continue
-            min1 = min(min1, 1+memo[remaining])
-        memo[i] = min1
+            memo[i] = min(memo[i], memo[i - coins[j]] + 1)
 
-    result = memo[target]
-    if result < float('inf'):
-        return result
-    else:
+    if memo[target] == float('inf'):
         return -1
+    else:
+        return memo[target]
 
 
 def min_coins_g4g_recur(coins:list[int], sum:int) -> int:

@@ -16,13 +16,11 @@ def merge_sorted_list(list1:ListNode, list2:ListNode)->ListNode:
     while node1 and node2:
         val = -1
         if node1.val < node2.val:
-            val = node1.val
+            resultNode.next = node1
             node1=node1.next
         else:
-            val = node2.val
+            resultNode.next = node2
             node2=node2.next
-
-        resultNode.next = ListNode(val)
         resultNode = resultNode.next
     node = node1
     if not node:

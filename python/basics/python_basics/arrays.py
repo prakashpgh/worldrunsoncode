@@ -83,11 +83,16 @@ print(f"reversing ::-2: {str(nums)} =>  {nums[::-2]}")
 nums = [1,2,3,4,5,6,7,8,9]
 print(f"reversing with -1:{str(nums)} =>  {nums[::-1]}")
 
+#deep copy
+import copy
+dc = copy.deepcopy(nums)
+print("deepcopy: " + str(dc))
 
 #arrays and tuple
 nums = [(1,11),(2,22),(3,33),(4,44),(5,55)]
 tup = [t[1] for t in nums]
 print("tup: " + str(tup))
+
 
 
 ###########################################################################
