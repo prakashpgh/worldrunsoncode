@@ -6,7 +6,6 @@ unique_lock
 3) recursive locking
 4) transfer of lock ownership
 5) condition variable
-
                 
 */
 
@@ -19,7 +18,7 @@ int shared_data = 0;
 std::mutex m;
 
 void thread_func(int thread_id, int incr) {
-    std::unique_lock lock(m);
+    std::unique_lock<std::mutex> lock(m);
     for (int i = 0; i < incr; ++i) {
         shared_data++;
     }

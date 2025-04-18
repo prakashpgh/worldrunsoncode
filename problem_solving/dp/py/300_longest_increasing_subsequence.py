@@ -3,6 +3,9 @@
 
 #https://www.youtube.com/watch?v=MrPa5EFcDCU&list=PLKYEe2WisBTFEr6laH5bR2J19j7sl5O8R&index=118
 '''
+recursive approach:
+    choice: consider this element or do not consider this element.
+
 
 https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
 here iterative is the best solution
@@ -12,6 +15,26 @@ here iterative is the best solution
 
         nlogn using binary search => https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
 '''
+
+def longest_increasing_subsequence(nums: list[int]):
+    result = []
+    for num in nums:
+        if (not result) or num > result[-1]:
+            result.append(num)
+        else:
+            l = 0
+            r = len(result)-1
+            while(l < r):
+                m = l + (r-l)/2
+                if result[m] < num:
+                    l = m + 1
+                else:
+                    r = m
+            result[l] = num
+    return len(result)
+
+                        
+
 
 def longest_increasing_subsequence(nums: list[int]):
     result = 0

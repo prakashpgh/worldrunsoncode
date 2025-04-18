@@ -9,6 +9,7 @@ https://www.geeksforgeeks.org/find-maximum-possible-stolen-value-houses/
 
 the robber cannot rob the adjacent houses
     so choice is i-1th house OR i-2  && ith
+    max(total till i-2  + value of i   Or   value of i-1)
 '''
 def house_robber(nums: list[int]) -> int:
     N = len(nums)

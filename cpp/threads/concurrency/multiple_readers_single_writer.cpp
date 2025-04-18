@@ -28,7 +28,6 @@ public:
         // Wait if a writer is active or waiting (to avoid starving the writer)
         readers_cv.wait(lock, [this] { return !writer_active && !writer_waiting; });
         active_readers++;
-        lock.unlock();  // Unlock immediately after incrementing
     }
 
     // Release a read lock

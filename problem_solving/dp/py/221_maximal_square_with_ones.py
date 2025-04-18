@@ -11,6 +11,7 @@ idea:
         
         a square is formed when right,diag and the down are 1s
         min(right, diag, down)
+            keep a record of the max
 -------------------
     iterative => fill from the bottom right
         if cell = 0, the memo is zero.

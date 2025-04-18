@@ -14,10 +14,12 @@ void print_names(College* colleges, size_t n_colleges) {
 
 void copy_test()
 {
+  //constructor invoked
   College c;
   c.name = "test";
   printf("c: %p ", c);
 
+  //copy constructor invoked
   College ccopy = c;
   printf("c: %p ", c);
 
@@ -45,7 +47,7 @@ void references_test()
 
 int main() {
     copy_test();
-    return 0;
+    
 
     references_test();
 

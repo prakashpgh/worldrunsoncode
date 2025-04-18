@@ -30,8 +30,6 @@ def interleaving_string_recursion(s1:str, s2:str, s3: str) -> bool:
             ret1 = recur(i+1, j, k+1)    
         if j < A2 and s2[j] == s3[k]:
             ret2 = recur(i, j+1, k+1)    
-        else:
-            return false
         memo[(i,j,k)]=ret1 or ret2
         return memo[(i,j,k)]
     return recur(0,0,0)

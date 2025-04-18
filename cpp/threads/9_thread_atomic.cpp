@@ -10,6 +10,12 @@ Memory model orders
     memory_order_acquire
     memory_order_release
     memory_order_relaxed
+
+    Atomic operations are typically implemented using hardware-level instructions, which are very efficient
+    much faster than mutex
+
+    std::atomic is for simple, fast atomic operations.
+    std::mutex is for protecting complex critical sections.
 */
 
 #include <iostream>

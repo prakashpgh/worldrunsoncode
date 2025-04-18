@@ -1,1 +1,0 @@
-print("my_package __init__")

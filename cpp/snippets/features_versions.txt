@@ -1,0 +1,49 @@
+C++ 11
+rvalue * move semantics ****
+lambda expressions  ****
+auto
+range based for loops
+nullptr
+Enum class
+constexpr
+Initializer lists   ***
+variadic templates
+
+unordered_map, unordered_set, unordered_multimap, and unordered_multiset    *****
+std::thread 
+std::shared_ptr & std::unique_ptr
+std::chrono
+std::regex
+std::tuple
+
+========================
+C++ 14
+enhancements in lambda 
+decltype(auto)
+binary literals support
+digit separators
+[[deprecated]]
+std::make_unique    
+
+C++17
+structured bindings
+if constexpr
+inline variables
+include initializer with if and switch  
+std::optional
+std::variant
+std::any
+std::filesystem ****
+parallel algorithms ******
+
+
+C++ 20
+Calendar & time-zone support std::chrono
+
+std::format
+std::span
+ranges library
+coroutines
+modules - replace header files
+three way comparison operators
+

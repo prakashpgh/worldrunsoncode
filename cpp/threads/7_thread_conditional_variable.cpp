@@ -44,7 +44,6 @@ int THESHOLD = 20;
 bool increment_done = false;
 
 void thread_decrement() {
-    
     for(int i = 0; i < 200; ++i) {
         std::unique_lock<std::mutex> lock(m);
         std::cout << "thread_decrement before cv " << shared_counter  << std::endl;
@@ -55,11 +54,9 @@ void thread_decrement() {
         std::cout << "decrement done " << shared_counter << std::endl;
     }
     std::cout << "thread_decrement end " << shared_counter << std::endl;
-
 }
 
 void thread_increment() {
-    
     for(int i = 0; i < 200; i=i+5) {
         std::lock_guard<std::mutex> lock(m);
         std::this_thread::sleep_for(std::chrono::seconds(1));

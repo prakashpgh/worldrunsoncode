@@ -4,6 +4,8 @@ process v thread
 
 thread 
     light weight process
+    process => dedicated and isolated memory, resources like I/O and execution context, high overhead for starting new process
+    thread => light weight execution unit within process, shares the process memory space with other threads, lower overhead in starting new thread
 
 use cases:
     spell checker, intelli-sense, browser multiple tabs
@@ -13,18 +15,18 @@ use cases:
 
 
 creation of thead
-    using function
+    1) using function
         passing parameters by reference std::ref or std::cref,
             but be mindful of thread safety when using std::ref
 
-        
+    2) using callable class
 
-    using callable class
+    3) using lambda
 
-    using lambda
+    4) class instance method or the static method
 
-    multiple threads can be launched using std::vector<std::thread>
-
+    5) multiple threads can be launched using std::vector<std::thread>
+---------------------------------------------
 
 join() 
     blocks the calling thread till the thread on which join is called is finished.

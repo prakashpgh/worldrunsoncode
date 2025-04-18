@@ -3,17 +3,21 @@ https://leetcode.com/problems/coin-change/
 greedy approach does not always give the optimal solution
 
 Approach I: recursive
-
             you need amount A
             recur(amount) {
-                exit criteria: 
+            exit criteria
+
                     0 or -ve
+            Choices:
                 for() => coins {
                     min = min(min_needed, 1 + recur(amount-coin))
                 }
             }
+            Parameters: amount
 
 Approach II:
+    find the coins needed for 0, 1 etc.. and build from there.
+
     dp array fill to float('inf')
     dp[0] = 0
         for for all dp[1] .. dp[target]

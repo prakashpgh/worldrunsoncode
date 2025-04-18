@@ -2,7 +2,7 @@
 https://leetcode.com/problems/longest-palindromic-substring
 https://www.youtube.com/watch?v=XYQecbcd6_c
 Idea:
-    for each character, check if its a palindrome going outwards
+    for each character, check if its a center of palindrome going outwards
         for odd, i=j
         for even i=j+1  
 

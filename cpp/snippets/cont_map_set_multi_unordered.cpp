@@ -1,0 +1,219 @@
+/*
+Summary Table:
+
+Container	    Ordered?	Duplicates?	Implementation	Average Time Complexity (Insertion, Deletion, Lookup)
+set	            Yes	        No	        Binary Tree	    O(log n)
+map	            Yes	        No	        Binary Tree	    O(log n)
+multiset	    Yes	        Yes	        Binary Tree	    O(log n)
+multimap	    Yes	        Yes	        Binary Tree	    O(log n)
+unordered_set	No	        No	        Hash Table	    O(1)
+unordered_map	No	        No	        Hash Table	    O(1)
+unordered_multiset	No	    Yes	        Hash Table	    O(1)
+unordered_multimap	No	    Yes	        Hash Table	    O(1)
+
+
+Export to Sheets
+
+set
+    insert
+    find
+        no duplicate entry
+    ordered
+    no dupes
+    self balancing binary trees red-black trees
+    O(log N)
+
+multiset
+    count
+    
+    allows duplicate entry
+    ordered
+    self balancing binary trees red-black trees
+    O(log N)
+
+map
+    [key]=value
+    insert(std::pair<k,v>(k,v));
+    ageMap.insert(std::make_pair("David", 28)); // Another way to insert
+    []
+    find()
+        duplicate key not allowed
+    self balancing binary trees red-black trees
+    O(log N)
+    ordered
+    no dupes
+
+
+multimap
+    [] operator not provided.
+     range()
+        duplicate key allowed
+    allows duplicate entry
+    ordered
+    self balancing binary trees red-black trees
+    O(log N)
+
+
+unordered_set
+    stored as hashtable.
+    better peformance
+    O(1)
+
+unordered_multiset
+
+unordered_map
+    uses hashtable
+    O(1)
+unordered_multimap
+*/
+#include<map>
+#include<set>
+#include<string>
+#include "../utils/utils.h"
+#include<iostream>
+
+/*
+[k] = val
+insert(std::pair)
+find
+*/
+void map_demo() {
+    std::map<std::string, int> ageMap;
+    // Insert key-value pairs into the map
+    ageMap["Alice"] = 30;
+    ageMap["Bob"] = 25;
+    ageMap["Charlie"] = 35;
+    ageMap.insert(std::make_pair("David", 28)); // Another way to insert
+    //ageMap.insert("David1", 28)); // Another way to insert
+
+    // Access values using keys
+    std::cout << "Alice's age: " << ageMap["Alice"] << std::endl;
+    std::cout << "Bob's age: " << ageMap["Bob"] << std::endl;
+
+    // Check if a key exists
+    if (ageMap.find("Eve") != ageMap.end()) {
+        std::cout << "Eve's age: " << ageMap["Eve"] << std::endl;
+    } else {
+        std::cout << "Eve's age not found." << std::endl;
+    }
+    print_map(ageMap);
+}
+
+
+void multi_map_demo() {
+    std::multimap<std::string, int> ageMap;
+    // Insert key-value pairs into the map
+    ageMap.insert({"Alice",30});
+    ageMap.insert({"Bob",25});
+    ageMap.insert({"Charlie",35});
+    ageMap.insert({"Charlie",45});
+    ageMap.insert({"Charlie",55});
+    ageMap.insert(std::make_pair("David", 28)); // Another way to insert
+
+    // Access values using keys
+    //std::cout << "Alice's age: " << (ageMap.equal_range("Alice")).first << std::endl;
+    //std::cout << "Bob's age: " << ageMap["Bob"] << std::endl;
+    auto range = ageMap.equal_range("Charlie");
+    for(auto it = range.first; it != range.second; ++it) {
+        std::cout << it->first << "     " << it->second << std::endl;
+    }
+    // Check if a key exists
+    if (ageMap.find("Charlie") != ageMap.end()) {
+        std::cout << "Charlie's age: " << std::endl;
+    } else {
+        std::cout << "Charlie's age not found." << std::endl;
+    }
+    print_multi_map(ageMap);
+}
+
+
+#include<set>
+
+/*
+insert
+find
+erase
+*/
+void set_demo() {
+    std::set<int> mySet = {1,2,3,4,5}; 
+    mySet.insert(6);
+    mySet.insert(3);
+
+    // Check if an element exists
+    if (mySet.find(4) != mySet.end()) {
+        std::cout << "4 exists in the set." << std::endl;
+    } else {
+        std::cout << "4 does not exist in the set." << std::endl;
+    }
+
+    if(mySet.find(10) != mySet.end()){
+        std::cout << "10 exists in the set." << std::endl;
+    } else {
+        std::cout << "10 does not exist in the set." << std::endl;
+    }
+
+    mySet.erase(2);
+
+    print_set(mySet);
+
+// Create a set of strings
+    std::set<std::string> stringSet;
+    stringSet.insert("apple");
+    stringSet.insert("banana");
+    stringSet.insert("cherry");
+    stringSet.insert("apple"); //Duplicate, will not be inserted
+    print_set(stringSet);
+}
+
+
+
+void multi_set_demo() {
+    std::multiset<int> mySet = {1,2,3,4,5}; 
+    mySet.insert(6);
+    mySet.insert(6);
+    mySet.insert(6);
+    mySet.insert(3);
+    std::cout << "count of 6: " << mySet.count(6) << std::endl;
+    print_set(mySet);
+    // Check if an element exists
+    if (mySet.find(4) != mySet.end()) {
+        std::cout << "4 exists in the set." << std::endl;
+    } else {
+        std::cout << "4 does not exist in the set." << std::endl;
+    }
+
+    if(mySet.find(10) != mySet.end()){
+        std::cout << "10 exists in the set." << std::endl;
+    } else {
+        std::cout << "10 does not exist in the set." << std::endl;
+    }
+
+
+    mySet.erase(2);
+
+    print_set(mySet);
+
+// Create a set of strings
+    std::set<std::string> stringSet;
+    stringSet.insert("apple");
+    stringSet.insert("banana");
+    stringSet.insert("cherry");
+    stringSet.insert("apple"); //Duplicate, will not be inserted
+    print_set(stringSet);
+}
+
+#include <unordered_set>
+void unordered_set_demo() {
+
+}
+
+
+int main() {
+    //map_demo();
+
+    //set_demo();
+
+    //multi_set_demo();
+
+    multi_map_demo();
+}

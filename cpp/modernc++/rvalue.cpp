@@ -13,6 +13,10 @@ rvalue
 
     lvalue:  i = 10;  
 
+
+A move constructor is called in C++ when an object is being initialized with an rvalue, indicating that the source object's resources can be "moved" rather than copied. 
+
+
 std::move
     lvalue => rvalue T&&
 
@@ -72,6 +76,46 @@ class MyString {
 };
 
 
+class MyString123 {
+public:
+    std::string data;
+
+    MyString123(std::string str) : data(std::move(str)) {
+        std::cout << "Constructor called" << std::endl;
+    } //constructor
+
+    // Move constructor
+    MyString123(MyString123&& other) noexcept : data(std::move(other.data)) {
+        std::cout << "Move constructor called" << std::endl;
+    }
+
+    // Copy constructor
+    MyString123(const MyString123& other) : data(other.data) {
+        std::cout << "Copy constructor called" << std::endl;
+    }
+
+    
+    ~MyString123(){
+        std::cout << "Destructor called" << std::endl;
+    }
+    
+};
+
+MyString123 createString() {
+    return MyString123("Hello, World!"); // Returns a temporary MyString
+}
+
+#include<vector>
+void move_demo() {
+    MyString123 s1 = createString(); // Move constructor called (temporary object) //1
+    std::string temp = "another string";
+    MyString123 s2 = MyString123(std::move(temp));//2
+
+    //std::vector<MyString123> myVector;
+    //myVector.emplace_back("vector string"); // move constructor might be called, if the vector needs to resize.
+}
+
+
 
 void test_rvalue() {
     Test t;
@@ -86,8 +130,8 @@ void test_rvalue() {
     MyString s4(std::move(s));
     std::cout << "4" << std::endl;
 
-    MyString s1(s4);
-    std::cout << "3" << std::endl;
+    //MyString s1(s4);
+    //std::cout << "3" << std::endl;
 }
 
 void test_unique_ptr_move() {
@@ -102,9 +146,12 @@ void test_unique_ptr_move() {
     }
 }
 
+
+
 int main() {
     test_rvalue();
 
-    test_unique_ptr_move();
+    //test_unique_ptr_move();
 
+    //move_demo();
 }

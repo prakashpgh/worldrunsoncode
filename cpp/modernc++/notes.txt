@@ -1,16 +1,51 @@
 C++...
+keywords
+const 
+
+constexpr	
+	value of a variable or the return of a function can be evaluated at compile time
+
+
+final
+	used with function => function cannot be overrided
+	used with class => class cannot be derived
+	
+
+pointers
+
 shared pointers
+	shared_ptr
+	unique_ptr
+	weak_ptr
 
 lambda
 
 rvalue
 lvalue
 
+rvalue references
+
 move
 
 -------------------------
 containers
 	std::array<>
+	std::vector
+	std::list
+
+	std::stack
+	std::queue
+	std::deque
+
+	std::set, 
+	std::multiset, 
+	std::unordered_set, 
+	std::unordered_multiset
+	
+	std::map => association
+	std::multimap, 
+	std::unordered_map, 
+	std::unordered_multimap
 
 emplace_back
 	constructs in place
@@ -34,4 +69,35 @@ deadlocks
 
 semaphores
 
+
+=====================================
+compiler optimizations
+-O0 => no optimization
+-O1	basic optimizations
+-O2	aggressive 
+-O3	highest level of optimization
+-Os	size optimization
+
+Specific optimizations
+-finline-functions
+-funroll-loops
+--fvectorize
+-fomit-frame-pointers
+-march=<cpu-architecture>
+-mtune=<cpu-architecture>
+-flto link-time optimizations
+
+===============================
+hot and cold 
+hot => code that is executed very frequently  => optimizations can be done here..
+cold => code that is not executed very frequently
+
+
+profiling...
+perf
+gprof
+valgrind
+
+Application level profiling
+Google benchmark
 

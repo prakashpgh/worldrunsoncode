@@ -1,13 +1,29 @@
-#include <iostream>
+/*
 //encapsulation
 
 
 //inheritance
 
+virtual function
+    class A {
+        virtual void test();
+    };
+    
+    classs D : public A {
+        void test() override;   => override is not necessary, but if we use it then its a safety net  if base signature changes 
+                                    and good maintenance..for devs to know that this is overided
+    };
+
 
 //virtual inheritance
 //solves the diamond problem...   In below, D inherits from B & C, here x is ambiguous for D.  
 // if B & C inherit virtually from A, this problem is solved
+
+
+
+*/
+
+#include <iostream>
 class A {
     public:
     int x;
@@ -29,6 +45,9 @@ class D : public B, public C {
 
 };
 
+if a class has virtual functions, a v-table is created by the compiler.  its per class.   it holds the addresses of all virtual functions 
+vPtr => v-table
+https://www.geeksforgeeks.org/vtable-and-vptr-in-cpp/
 
 
 //polymorphism

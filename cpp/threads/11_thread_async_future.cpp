@@ -13,6 +13,9 @@ std::future
 You can do the same thing with directly using std::thread, std::future does have some overhead.  
 If performance is an issue, then directly use std::thread
 
+std::async
+It abstracts away the details of thread management, allowing the runtime to optimize execution. This might involve creating a new thread, using a thread pool, or even executing the task synchronously (deferred execution).
+
 */
 
 #include <iostream>

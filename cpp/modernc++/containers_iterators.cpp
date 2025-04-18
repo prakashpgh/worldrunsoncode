@@ -11,11 +11,9 @@ removing while iterating
       }
 
 --
-std::array
-
---
-std::deque
-
+numbers.erase(std::remove_if( numbers.begin(), numbers.end(), [] (int n) {return n%2 == 0;}), numbers.end());
+Or
+it = numbers.erase(it);
  */
 
 #include<vector>

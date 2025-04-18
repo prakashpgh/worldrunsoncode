@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=davP62I_Mw8
+
+Polymorphism
+    virtual table
+    vptr..
+
+
+function stack call
+
+
+virtual memory
+
+
+CPU cache
+
+
+network
+TCP v UDP
+
+
+segfault v 
+
+
+profiling
+
+

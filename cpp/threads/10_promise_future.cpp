@@ -33,12 +33,14 @@ void thread_func(std::promise<int> promise, int a, int b) {
 
 
 void promise_demo() {
+    //create a promise and get its future
     std::promise<int> prom;
     std::future<int> fut = prom.get_future();
     
+    //move the promise to the thread
     std::thread t(thread_func, std::move(prom), 5, 10);
     std::cout << "waiting on result " << std::endl;
-
+    //get result from future
     int result = fut.get();
     std::cout << "result " << result << std::endl;
     t.join();
@@ -50,6 +52,7 @@ void promise_demo() {
     std::cout << "waiting on result " << std::endl;
 
     try {
+        //exception
         result = fut2.get();
         std::cout << "result " << result << std::endl;
     } catch(const std::exception& ex) {
