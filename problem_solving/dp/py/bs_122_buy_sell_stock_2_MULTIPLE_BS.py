@@ -1,5 +1,5 @@
 '''
-#https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/?envType=study-plan-v2&envId=top-interview-150
+#https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
 
 repeat 1 & 2 using while loop
     1) buy at the lowest .. using while

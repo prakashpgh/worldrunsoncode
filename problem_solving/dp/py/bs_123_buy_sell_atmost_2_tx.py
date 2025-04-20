@@ -32,6 +32,25 @@ Approach 3)
     Profit_2 ~ max
 
     O(N)
+
+Approach dp:
+    Note buy is considered as tx.
+
+[i=days][j=transactions][k=state 0=not holding 1=holding]
+
+2-possible states, we are holding or not hoding
+Holding
+                    holding             not holding + bought on ith
+dp[i][j][1] = max*( dp[i-1][j][1] , dp[i-1][j-1][0] - price[i])
+
+Not hodling         not holding     holding and then sole
+dp[i][j][0]= max( dp[i-1][j][0] ,  dp[i-1][j][1] + price[i],  
+
+
+
+
+
+
 '''
 #todo
 def buy_sell_atmost_2_2N_approach():

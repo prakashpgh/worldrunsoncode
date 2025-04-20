@@ -42,7 +42,7 @@ def edit_distance_recursive(word1:str, word2:str) -> int:
     return dp(word1, l1, word2, l2)
 
 
-#todo.. need to add memo
+#need to add memo
 def edit_distance_recursive_memo(word1:str, word2:str) -> int:
     l1=len(word1)
     l2=len(word2)
@@ -62,9 +62,9 @@ def edit_distance_recursive_memo(word1:str, word2:str) -> int:
             memo[m][n] = dp(word1, m-1, word2, n-1)
             return memo[m][n]
         
-        memo[m][n] = 1 + min(dp(word1, m-1, word2, n-1),
-                   dp(word1, m, word2, n-1),
-                   dp(word1, m-1, word2, n))
+        memo[m][n] = 1 + min(dp(word1, m-1, word2, n-1),#update
+                   dp(word1, m, word2, n-1), #add
+                   dp(word1, m-1, word2, n)) #delete
         return memo[m][n]
     return dp(word1, l1, word2, l2)
 

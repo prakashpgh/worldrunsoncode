@@ -11,6 +11,7 @@ x**n = x. x**(n-1) = x. (x**2)**((n-1)/2)
 def power(x:int,n:int):
     if n==0:
         return 1
+        
     if n < 0:
         return 1/power(x, -n)       #mistake need to take care of -ve power
     
