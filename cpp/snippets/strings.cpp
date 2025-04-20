@@ -29,7 +29,7 @@ void miscell() {
     std::cout << c << "=>" << char(std::tolower(c)) << std::endl;
 
     //length
-    s = "test is leng";
+    std::string s = "test is leng";
     int len = s.length();
 
     //empty
@@ -59,7 +59,7 @@ void miscell() {
     size_t pos = s.find("world");//6
 
     //rfind
-    size_t pos = s.find("world");//12
+    pos = s.find("world");//12
 
     //compare
     std::string s1 = "apple";
@@ -74,6 +74,17 @@ void miscell() {
     std::stod
     std::to_string()  => convert numbe to string
     */
+
+    //char to int => minus '0'
+    c  = '6';
+    int i = c;
+    int j = c - '0';
+    std::cout << "into to char " << ch << "=>" << i << "=>" << j << "=>" << std::endl;
+    //into to char.  plus '0'
+    i = 8;
+    c = i;
+    char c1 = i + '0';
+    std::cout << "char to int: " << c << "=>" << i << "=>" << c1 << "=>" << std::endl;
 }
 
 

@@ -259,7 +259,7 @@ void std_array_demo() {
     std::cout << "first element: " << *data << std::endl;
 }
 
-void two_dim_vector() {
+void multi_dim_vector() {
     int rows = 3;
     int cols = 3;
     std::vector<std::vector<int>> memo(rows, std::vector<int>(cols, -1));
@@ -269,7 +269,25 @@ void two_dim_vector() {
     cols = 4;
     memo.resize(rows, std::vector<int>(cols, -2));
     print_vector_of_vector(memo);
+
+    //3-dim vector..  lc 123 and 188
+    std::vector<int> prices = {1,2,3,4,5,6};
+    int n = prices.size();
+    int k = 2;
+    std::vector<std::vector<std::vector<int>>> dp( n, std::vector<std::vector<int>>(k+1, std::vector<int>(2, 0)));
+
 }
+
+void max_element() {
+    std::vector<int> vec = {1,2,3,32,4,5,8,7};
+    auto mx = std::max_element(vec.begin(), vec.end());
+    std::cout << "max: " << *mx << std::endl;
+
+    //max_element with custom
+    mx = std::max_element(vec.begin(), vec.end(), std::greater<int>());
+    std::cout << "max: " << *mx << std::endl;
+}
+
 
 int main() {
     //sorting_demo();
@@ -290,6 +308,8 @@ int main() {
 
     //std_array_demo();
 
-    two_dim_vector();
+    multi_dim_vector();
+
+    max_element();
 }
 

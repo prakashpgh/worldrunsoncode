@@ -28,7 +28,7 @@ void bit_magic() {
     bool is_odd = (n & 1) == 1;
     std::cout << "odd " << n << "=>" << is_odd << std::endl;    
 
-    //#remove the rightmost 1
+    //#remove the rightmost 1 =>  x & (x-1)
     x = 5;
     std::bitset<32> binary(x);
     std::cout << "binary " << x << "=>" << binary << std::endl;    
@@ -41,11 +41,34 @@ void bit_magic() {
     
     unsigned long num = binary.to_ulong();
     std::cout << "decimal " << binary << "=>" << num << std::endl;    
+
+
+    std::string binaryString = "1011001";
+    std::bitset<32> bs(binaryString); // Specify the size of the bitset
+    num = bs.to_ulong();
+    std::cout << "decimal " << binaryString << "=>" << num << std::endl;    
 }
+
+
+void and_range_of_numbers(int left, int right) {
+    while(left < right) {
+        right = right & (right - 1);
+    }
+    std::cout << "&range " << right << std::endl;
+}
+
+
+
+
+
 
 
 int main() {
     bit_magic();
+
+    and_range_of_numbers(5,7);
+    and_range_of_numbers(9,12);
+
     return 0;
 }
 

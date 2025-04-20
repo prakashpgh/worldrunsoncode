@@ -11,6 +11,23 @@ void test_random() {
     std::cout << ranged_num << std::endl;
 }
 
+//gcd
+#include<numeric>
+void test_gcd() {
+    int g = std::gcd(12, 16);
+    std::cout << "gcd: " << g << std::endl;
+}
+
+//min & max
+void test_min_max() {
+    int i = INT_MIN;
+    i = INT_MAX;
+    
+}
+
+
 int main() {
     test_random();
+
+    test_gcd();
 }

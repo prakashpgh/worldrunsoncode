@@ -207,6 +207,24 @@ void unordered_set_demo() {
 
 }
 
+#include<algorithm>
+void max_element_values() {
+    std::map<std::string, int> myMap = {
+        {"apple", 10},
+        {"banana", 25},
+        {"cherry", 15},
+        {"date", 20}
+    };
+
+    auto mx = std::max_element(myMap.begin(), myMap.end(), [] (const auto& a, const auto& b) {
+        return a.second < b.second;
+    });
+
+    std::cout << "max in the values: " << mx->second << std::endl;
+    std::cout << "max in the values: " << mx->first << std::endl;
+}
+
+
 
 int main() {
     //map_demo();
@@ -216,4 +234,6 @@ int main() {
     //multi_set_demo();
 
     multi_map_demo();
+
+    max_element_values();
 }
