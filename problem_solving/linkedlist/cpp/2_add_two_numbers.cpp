@@ -9,8 +9,8 @@ add n1, n2 and carry
 #include<sstream>
 #include<vector>
 #include<iostream>
-#include "../../utils/utils.h"
-#include "../../common_header.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 using namespace std;
 
 

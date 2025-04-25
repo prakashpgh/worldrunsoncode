@@ -45,7 +45,7 @@ int main() {
     std::cout << "Second element: " << secondElement << std::endl;
     std::cout << "Third element: " << thirdElement << std::endl;
 
-
+    //structured bindings.
     auto [x,y,z] = myTuple;
     cout << "structured binding x: " << x << endl;
     cout << "structured binding y: " << y << endl;

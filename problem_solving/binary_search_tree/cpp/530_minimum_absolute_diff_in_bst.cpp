@@ -6,8 +6,8 @@ keep the min_diff
 
 #include<stack>
 #include<iostream>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 
 int minimum_absolute_diff_in_bst(TreeNode* root) {

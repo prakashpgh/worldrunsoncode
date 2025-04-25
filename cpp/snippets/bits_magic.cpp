@@ -47,6 +47,21 @@ void bit_magic() {
     std::bitset<32> bs(binaryString); // Specify the size of the bitset
     num = bs.to_ulong();
     std::cout << "decimal " << binaryString << "=>" << num << std::endl;    
+
+    //traversing the bits.
+    num = 45;
+    std::cout << num << " => ";
+    for(int i = 31; i >= 0; --i) {
+        int bit = (num >> i) & 1;
+        std::cout << bit;
+    }
+    std::cout << std::endl;
+
+    //toggling the bits
+    //changing 45 to 41..
+    num = 45;
+    num = num ^ (1 << 2);
+    std::cout << num << std::endl;
 }
 
 

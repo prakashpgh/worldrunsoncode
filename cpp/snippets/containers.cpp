@@ -68,6 +68,26 @@ void erase_from_iterator() {
 
 //std::tuple
 
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+
+/*
+ranges used to filter and transform sequences
+*/
+void ranges_demo() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    auto even_numbers = numbers 
+                        | std::views::filter([](int n) { return n % 2 == 0; })
+                        | std::views::transform([](int n) { return n * n; });
+
+    for (int n : even_numbers) {
+        std::cout << n << " ";
+    }
+
+}
 
 
 

@@ -1,6 +1,15 @@
+/*
+https://leetcode.com/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-interview-150
+
+sort on start-key
+create this interval... and if next start lies in this interval... then adjust the end-point of the interval
+*/
+
 #include<vector>
 #include<algorithm>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 using namespace std;
 
 vector<vector<int>> merge_intervals(vector<vector<int>> intervals) {

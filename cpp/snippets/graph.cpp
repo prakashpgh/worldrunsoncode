@@ -231,11 +231,127 @@ void print_adjacency_list(int n, const vector<std::unordered_set<int>>& adj_list
     }
 }
 
+#include<queue>
+void bfs_demo_grid(std::vector<std::vector<char>>& grid, int start_row, int start_col) {
+    
+    int rows = grid.size();
+    int cols = 0;
+    if(rows > 0) {
+        cols = grid[0].size();
+    }
+    std::vector<std::vector<int>> neighbors = {{0,-1},{-1,0},{0,1},{1,0}};
+    std::queue<std::pair<int, int>> q;
+    q.push({start_row, start_col});
+    std::cout << start_row << "," << start_col << std::endl;
+    while(!q.empty())  {
+        const auto& pair = q.front();
+        q.pop();
+        
+        int r = pair.first;
+        int c = pair.second;
+        //do processing
+        char ch = grid[r][c];
+
+        for(const auto& entry : neighbors) {
+            int i =  entry[0];
+            int j = entry[1];
+            
+            int row = r + i;
+            int col = c + j;
+            //std::cout << row << "," << col << std::endl;
+            if(row < 0 || row >= rows || col < 0 || col >= cols) {
+                continue;
+            }
+            //std::cout << "processing: " << row << "," << col << std::endl;
+            if(grid[row][col] == '1') {
+                std::cout << row << "," << col << " = " << grid[row][col] << std::endl;
+                grid[row][col] = '0';
+                q.push({row, col});
+            }
+        }
+    }//q
+}
+
+class Solution {
+public:
+void dfs(std::vector<std::vector<char>>& grid, int start_row, int start_col) {
+    std::vector<std::vector<int>> neighbors = {{0,-1},{-1,0},{0,1},{1,0}};
+    for(const auto& nei : neighbors) {
+        int r = start_row + nei[0];
+        int c = start_col + nei[1];
+        if(r < 0 || r >= rows || c < 0 || c >= cols) {
+            continue;
+        }
+        if(grid[r][c] == '0') {
+            continue;
+        }
+        grid[r][c] = '0';
+        dfs(grid, r, c);
+    }
+}
+
+int rows;
+int cols;
+int dfs_solve(std::vector<std::vector<char>>& grid) {
+    rows =  grid.size();
+    cols = 0;
+    if(rows > 0) {
+        cols = grid[0].size();
+    }
+    int islands = 0;
+    for(int i = 0; i < rows; ++i) {
+        for(int j = 0; j < cols; ++j) {
+            if(grid[i][j] == '1')  {
+                dfs(grid, i, j);
+                islands += 1;
+            }
+        }
+    }
+    return islands;
+}
+};
 
 int main() {
     std::vector<std::vector<int>> edges = {{1, 2}, {1, 3}, {2, 4}, {3, 4}, {4, 5}};
     int n = 5;
     auto adj_list = edges_to_adjacency_list(n, edges);
     print_adjacency_list(n, adj_list);
+
+    //bfs..
+    std::cout << "bfs_begin" << std::endl;
+    std::vector<std::vector<char>> grid = {
+                    {'1','1','1','1','0'},
+                    {'1','1','0','1','0'},
+                    {'1','1','0','0','0'},
+                    {'0','0','0','0','0'}
+    };
+    int rows = grid.size();
+    int cols = 0;
+    if (rows > 0) {
+        cols = grid[0].size();
+    }
+    int islands = 0;
+    for(int i=0;i < rows; ++i) {
+        for(int j=0;j < cols; ++j) {
+            if(grid[i][j] == '1') {
+                islands += 1;
+                bfs_demo_grid(grid, i, j);
+            }
+        }
+    }
+    std::cout << "islands " << islands << std::endl;
+
+
+    //dfs...
+    Solution solve;
+    std::cout << "dfs_begin" << std::endl;
+    grid = {
+                    {'1','1','1','1','0'},
+                    {'1','1','0','1','0'},
+                    {'1','1','0','0','0'},
+                    {'0','0','0','0','0'}
+    };
+    int result = solve.dfs_solve(grid);
+    std::cout << "result: " << result << std::endl;
     return 0;
 }

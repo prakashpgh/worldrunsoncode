@@ -5,7 +5,9 @@ since its sorted, we can use the 2-ptr approach
 */
 #include<vector>
 #include<iostream>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 
 
 std::vector<int> two_sum_sorted_input(const std::vector<int>& nums, int target)  {

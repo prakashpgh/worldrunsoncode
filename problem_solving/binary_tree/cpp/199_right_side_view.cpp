@@ -6,8 +6,8 @@ level order traversal... take the last element of each level
 
 #include<queue>
 #include<iostream>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 
 std::vector<int> right_side_view(TreeNode* root) {

@@ -71,6 +71,7 @@ unordered_multimap
 #include<string>
 #include "../utils/utils.h"
 #include<iostream>
+#include <unordered_map>
 
 /*
 [k] = val
@@ -97,6 +98,18 @@ void map_demo() {
         std::cout << "Eve's age not found." << std::endl;
     }
     print_map(ageMap);
+
+    //iterating map
+    std::unordered_map<int, int> scores_playerid_map;
+    scores_playerid_map[1] = 10;
+    scores_playerid_map[2] = 20;
+    scores_playerid_map[3] = 30;
+
+    for(const auto& [id, player] : scores_playerid_map) {
+        std::cout << "id: " << id << " player: " << player << std::endl;
+    }
+
+
 }
 
 
@@ -227,13 +240,13 @@ void max_element_values() {
 
 
 int main() {
-    //map_demo();
+    map_demo();
 
     //set_demo();
 
     //multi_set_demo();
 
-    multi_map_demo();
+    //multi_map_demo();
 
-    max_element_values();
+    //max_element_values();
 }

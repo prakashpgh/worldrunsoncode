@@ -1,11 +1,19 @@
 /*
 https://leetcode.com/problems/summary-ranges/
+
+iterate the array.
+    start variable
+    for condition when n[i] + 1 != n[i+1] or i == n-1
+        create the range.
+        start = n[i+1]
 */
 #include<string>
 #include<sstream>
 #include<vector>
 #include<iostream>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 using namespace std;
 
 

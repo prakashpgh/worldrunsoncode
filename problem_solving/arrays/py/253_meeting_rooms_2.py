@@ -2,6 +2,23 @@
 https://leetcode.com/problems/meeting-rooms-ii/
 time: N log N
 space: N
+
+===================================
+
+max rooms variable
+
+sort intervals by starttime.
+use a min heap for the end-times.
+
+iterate intervals.
+{
+    if start >= top of heap, then pop,  
+    heap push
+    rooms needed at this time = size of heap.
+}
+
+
+====================
 '''
 
 def min_meeting_rooms(intervals: list[list[int]]) -> int:

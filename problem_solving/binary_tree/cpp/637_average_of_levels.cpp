@@ -6,8 +6,8 @@ level order traversal using q.
 
 #include<queue>
 #include<iostream>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 using namespace std;
 

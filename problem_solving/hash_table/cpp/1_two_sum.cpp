@@ -1,6 +1,15 @@
+/*
+https://leetcode.com/problems/two-sum/
+
+hashtable
+check if the target - i exists in hashtable, if yes, you got it.
+if not just add to the hashmap.
+*/
 #include <vector>
 #include <map>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 
 std::vector<int> two_sum(const std::vector<int>& nums, int target) {
     std::map<int, int> hashmap;

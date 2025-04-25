@@ -3,7 +3,9 @@ https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 */
 #include<vector>
 #include<iostream>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 
 int remove_duplicates_sorted_array(std::vector<int>& nums) {
     if(nums.empty()) {

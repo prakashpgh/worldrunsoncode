@@ -3,7 +3,7 @@ https://leetcode.com/problems/merge-sorted-array/
 */
 #include<vector>
 #include<iostream>
-#include "../../utils/utils.h"
+#include "../../../cpp/utils/utils.h"
 
 void merge_sorted_arrays(std::vector<int>& nums1, const std::vector<int>& nums2, int m, int n) {
     int i = m-1;

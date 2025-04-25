@@ -1,5 +1,8 @@
 https://www.youtube.com/watch?v=davP62I_Mw8
 
+https://climbtheladder.com/modern-c-interview-questions/
+
+
 Polymorphism
     virtual table
     vptr..

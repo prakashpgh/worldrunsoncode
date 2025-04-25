@@ -17,8 +17,8 @@ https://leetcode.com/problems/add-edges-to-make-degrees-of-all-nodes-even/descri
 #include<unordered_map>
 #include<unordered_set>
 #include<set>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 using namespace std;
 
 class Solution {

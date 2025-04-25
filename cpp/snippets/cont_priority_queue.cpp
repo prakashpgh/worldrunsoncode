@@ -2,8 +2,10 @@
 priority_queue
 
     push
-    pop
+        top
+        pop
     empty()
+
     custom compare
         1) bool operator<(const A& a, const A& b)
         2) lambda => 

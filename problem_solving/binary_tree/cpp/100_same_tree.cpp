@@ -5,8 +5,8 @@ https://leetcode.com/problems/same-tree
 
 
 
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 using namespace std;
 

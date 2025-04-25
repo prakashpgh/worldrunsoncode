@@ -16,8 +16,8 @@ Idea:
 #include<queue>
 #include<iostream>
 #include<unordered_map>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 std::unordered_map<int, int> inorder_value_index_map;
 int pre_order_index=0;

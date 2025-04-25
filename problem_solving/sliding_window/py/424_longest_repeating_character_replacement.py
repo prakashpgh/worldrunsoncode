@@ -1,4 +1,6 @@
-
+'''
+https://leetcode.com/problems/longest-repeating-character-replacement/
+'''
 def longest_repeating_character_replacement(s:str, k:int) -> int:
     result = 0
     N = len(s)

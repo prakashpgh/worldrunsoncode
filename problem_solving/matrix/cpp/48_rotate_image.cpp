@@ -3,7 +3,9 @@ matrix
 */
 #include <vector>
 #include<iostream>
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+
 
 
 void transpose_matrix(std::vector<std::vector<int>>& matrix) {

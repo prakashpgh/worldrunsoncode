@@ -1,4 +1,5 @@
 /*
+Atomic operations allow for lock-free, thread-safe manipulation of shared data.
 atomics:  std::atomic
     load
     store

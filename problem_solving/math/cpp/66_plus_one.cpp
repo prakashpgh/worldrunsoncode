@@ -6,8 +6,8 @@ iterate from end.. till carry = 0
 
 #include<iostream>
 #include<vector>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 std::vector<int> plus_one(std::vector<int>& nums) {
     int carry = 1;

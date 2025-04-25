@@ -6,8 +6,8 @@ in inorder BST, the nodes are stored in ascending order.
 
 #include<stack>
 #include<iostream>
-#include "../../common_header.h"
-#include "../../utils/utils.h"
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
 
 
 

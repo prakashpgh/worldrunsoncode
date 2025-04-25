@@ -19,6 +19,8 @@ std::array
     back
 
 std::fill => applies to vector, array, raw arrays, deque, list
+
+std::swap() => to swap the arrays.
 */
 #include <algorithm>
 #include <vector>
@@ -185,6 +187,27 @@ void custom_sort_demo() {
         p.print();
     }    
 
+
+    //sorting vector of vector
+    std::vector<std::vector<int>> intervals = {{1,3},{7,10},{2,6},{8,10},{15,18}};
+    print_vector_of_vector(intervals);
+    std::sort(intervals.begin(), intervals.end());
+    std::cout << "after sort" << std::endl;
+    print_vector_of_vector(intervals);
+
+
+    //swap vectors..
+    std::vector<int> nums1 = {1,3,7,10,2};
+    std::vector<int> nums2 = {6,8,10,15,18};
+    std::cout << "before swap " << std::endl;
+    print_vector(nums1);
+    print_vector(nums2);
+    std::swap(nums1, nums2);
+    std::cout << "after swap " << std::endl;
+    print_vector(nums1);
+    print_vector(nums2);
+
+
 }
 
 
@@ -304,12 +327,12 @@ int main() {
 
     //copy_vector();
 
-    //custom_sort_demo();
+    custom_sort_demo();
 
     //std_array_demo();
 
-    multi_dim_vector();
+    //multi_dim_vector();
 
-    max_element();
+    //max_element();
 }
 
