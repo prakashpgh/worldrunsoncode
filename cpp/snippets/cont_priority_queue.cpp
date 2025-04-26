@@ -83,6 +83,50 @@ void priority_q() {
     std::cout << std::endl;
 
 
+    //
+    //priority q for a pair
+    std::priority_queue< std::pair<int,int>, std::vector< std::pair<int,int> >, std::greater<std::pair<int,int>>> heap;
+
+    //priority q for a tuple
+    std::priority_queue<std::tuple<int, double, char>> pq;
+
+    pq.push(std::make_tuple(3, 1.5, 'c'));
+    pq.push(std::make_tuple(1, 2.8, 'a'));
+    pq.push(std::make_tuple(3, 0.5, 'b'));
+    pq.push(std::make_tuple(2, 1.0, 'd'));
+
+    std::cout << "Priority queue (max-heap based on lexicographical order):\n";
+    while (!pq.empty()) {
+        std::tuple<int, double, char> current = pq.top();
+        std::cout << std::get(current) << ", " << std::get(current) << ", " << std::get(current) << '\n';
+        pq.pop();
+    }
+
+
+    
+    //min heap with tuple
+    // Custom comparator for a min-heap based on the first element of the tuple
+    auto compare = [](const std::tuple<int, double, char>& a, const std::tuple<int, double, char>& b) {
+        return std::get(a) > std::get(b); // Return true if a's first element is GREATER than b's
+    };
+
+    // Declare the priority queue with the custom comparator
+    std::priority_queue<std::tuple<int, double, char>,
+                        std::vector<std::tuple<int, double, char>>,
+                        decltype(compare)>
+        pq(compare);
+
+    pq.push(std::make_tuple(3, 1.5, 'c'));
+    pq.push(std::make_tuple(1, 2.8, 'a'));
+    pq.push(std::make_tuple(3, 0.5, 'b'));
+    pq.push(std::make_tuple(2, 1.0, 'd'));
+
+    std::cout << "Priority queue (min-heap based on the first element):\n";
+    while (!pq.empty()) {
+        std::tuple<int, double, char> current = pq.top();
+        std::cout << std::get(current) << ", " << std::get(current) << ", " << std::get(current) << '\n';
+        pq.pop();
+    }
 }
 
 

@@ -22,29 +22,56 @@ find the occurence as normal binary search...
 using namespace std;
 
 
-std::vector<int> find_first_last_position_sorted_array(const std::vector<int> nums, int target) {
+int find_first_last_position_sorted_array(const std::vector<int> nums, int target, bool leftside) {
     std::vector<int> result;
-    return result;
+    int len = nums.size();
+    int l = 0;
+    int r = len - 1;
+    int index = -1;
+    while(l <= r) {
+        int m = l + (r-l)/2;
+        if(nums[m] < target) {
+            l = m + 1;
+        } else if (target < nums[m]) {
+            r = m - 1;
+        } else {
+            index = m;
+            if(leftside) {
+                r = m - 1; 
+            } else {
+                l = m + 1;
+            }
+        }
+
+    }
+    return index;
 }
+
+vector<int> searchRange(vector<int>& nums, int target) {
+    int index1 = find_first_last_position_sorted_array( nums, target, true);
+    int index2 = find_first_last_position_sorted_array( nums, target, false);
+    return {index1, index2};
+}
+
 
 
 int main() {
     std::vector<int> nums = {5,7,7,8,8,10};
     int target = 8;
     //#Output: [3,4]
-    auto result = find_first_last_position_sorted_array(nums, target);
+    auto result = searchRange(nums, target);
     print_vector(result);
 
     nums = {5,7,7,8,8,10};
     target = 6;
     //#Output: [-1,-1]
-    result = find_first_last_position_sorted_array(nums, target);
+    result = searchRange(nums, target);
     print_vector(result);
 
     nums = {};
     target = 0;
     //#Output: [-1,-1]
-    result = find_first_last_position_sorted_array(nums, target);
+    result = searchRange(nums, target);
     print_vector(result);
 
     return 0;

@@ -1,0 +1,9 @@
+1) merge 
+        sorted linked lists, 
+        sorted arrays, 
+        intervals
+        strings
+
+2) kth
+        in an arrays
+

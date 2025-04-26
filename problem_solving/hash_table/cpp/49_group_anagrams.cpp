@@ -1,8 +1,9 @@
 /*
 https://leetcode.com/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-interview-150
 
+std::unordered_map<std::string, std::vector<std::string>> 
 create frequency counter... 
-dict[tuple of freq. counter] = Lis
+create string key with count#count#...
 
 '''
 */

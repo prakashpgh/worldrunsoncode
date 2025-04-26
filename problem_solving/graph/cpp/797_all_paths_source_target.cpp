@@ -8,6 +8,14 @@ dfs
         dfs
     pop
 
+
+time:   O(n * P)  => p is numbr of paths
+             O(n * 2**n)
+            O(n) for each path... P paths possible ... O(n. P)... worst case O(n * 2**n)
+
+space: O(n * P)
+            P = numbe of paths.
+----------------------
 bfs 
     q.push{node, path}
 
@@ -53,10 +61,47 @@ public:
     }
 };
 
+#include<queue>
+
+std::vector<std::vector<int>> all_paths_bfs(const std::vector<std::vector<int>>& graph) {
+    int n = graph.size();
+    if(n == 0) {
+        return {};
+    }
+    std::vector<std::vector<int>> all_paths;
+    std::queue<std::vector<int>> q;
+    std::vector<int> path{0};
+    q.push(path);
+
+    while(!q.empty()) {
+        std::vector<int> current = q.front();
+        q.pop();
+
+        int last_node = current.back();
+        if(last_node == n-1) {
+            all_paths.push_back(current);
+        } else {
+            for(int nei : graph[last_node]) {
+                auto new_path = current;
+                new_path.push_back(nei);
+                q.push(new_path);
+            }
+        }
+
+    }
+    return all_paths;
+}
+
 
 int main() {
     std::vector<std::vector<int>> graph = {{1,2},{3},{3},{}};
     Solution solve;
     auto result = solve.all_paths_source_target(graph);
     print_vector_of_vector(result);
+
+    graph = {{1,2},{3},{3},{}};
+    std::cout << "bfs " << std::endl;
+    result = all_paths_bfs(graph);
+    print_vector_of_vector(result);
+    
 }

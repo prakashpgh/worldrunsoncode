@@ -1,8 +1,20 @@
 '''
 https://leetcode.com/problems/next-permutation/
 
+Intuition   1 3 5 2
+ => from right, you need to get the first descending number 3 in 
+        that is where you can possibly make a change.
+
+    if i == -1, => everything is in the ascending order, the next sequence would be to reverse the digits.
+
+    2) find smallest digit to the right that is greater than the pivot
+        move from right => left
+                    in above e.g its 5    
+    3) swap nums[i] and nums[j]     1   5   3   2   => numbe becomes larger
+    4) reverse after i =>   1   5   2   3   => reversing makes sure that we are getting the smallest number
+////////////////////////////////////////////////////////
 321
-1) from right, find the first descending element i
+1) from right, find the first descending element i 
 2) if i >= 0, find the smallest larger than [i]. .. this is j
 3) swap [i] and [j]
 4) reverse after i

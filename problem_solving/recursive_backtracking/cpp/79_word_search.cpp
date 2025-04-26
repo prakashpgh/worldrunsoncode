@@ -60,7 +60,7 @@ public:
         }
         for(int i = 0; i < rows; ++i) {
             for(int j = 0; j < cols; ++j) {
-                auto ret = (board[i][j] == word[0]) && recur(i, j, 0);        
+                auto ret = (board[i][j] == word[0]) && recur(i, j, 0);
                 if(ret) {
                     return ret;
                 }

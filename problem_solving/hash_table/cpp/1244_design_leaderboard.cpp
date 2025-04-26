@@ -4,7 +4,7 @@ https://leetcode.com/problems/design-a-leaderboard/
 std::unordered<int, int> playerid_score_map
 in top method, create a min heap..  if size() > K, pop()
 
-unordered_map => 
+unordered_map<int, int> => playerID to score
 */
 
 #include<queue>

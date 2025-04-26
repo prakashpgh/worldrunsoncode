@@ -53,6 +53,7 @@ class MinStack {
     std::stack<int> main_stack;
     std::stack<int> min_stack;
 
+    public:
     MinStack() {
 
     }   
@@ -64,16 +65,13 @@ class MinStack {
         }
     }
 
-    int pop() {
+    void pop() {
         if( !main_stack.empty() && !min_stack.empty() && min_stack.top() == main_stack.top() ) {
             min_stack.pop();
         }
         if(!main_stack.empty()) {
-            int val = main_stack.top();
             main_stack.pop();
-            return val;
         }
-        return -1;
     }
 
     int top() {
@@ -83,7 +81,7 @@ class MinStack {
         return -1;
     }
 
-    int get_min() {
+    int getMin() {
         if(!min_stack.empty()) {
             return min_stack.top();
         }
