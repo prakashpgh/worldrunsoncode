@@ -8,6 +8,7 @@ pop
 
 size()
 
+//Monotonic stacks
 increasing or decreasing order
 to find the next greater or smaller element in an array
 
@@ -22,7 +23,9 @@ for increasing, its a good idea to start from the end of the array.
 
 #include <stack>
 #include<iostream>
+#include "../utils/utils.h"
 using namespace std;
+
 
 void stack_demo() {
     std::stack<int> st;
@@ -55,9 +58,116 @@ void stack_demo() {
     }
 }
 
+//smaller to the left..
+std::vector<int> monotonic_find_smaller_on_left( const std::vector<int>& arr) {
+    std::stack<int> st;
+    int len = arr.size();
+    std::vector<int> result(len, -1);
+    
+    for(int i = 0; i < len; ++i) {
+        while( !st.empty() && arr[st.top()] >= arr[i]) {
+            st.pop();
+        }
+        if(!st.empty()) {
+            result[i] = arr[st.top()];
+        }
+        st.push(i);
+    }
+    return result;
+}
+
+
+//larter to the left..
+std::vector<int> monotonic_find_larger_on_left( const std::vector<int>& arr) {
+    std::stack<int> st;
+    int len = arr.size();
+    std::vector<int> result(len, -1);
+    
+    for(int i = 0; i < len; ++i) {
+        //ONLY change in sign here
+        while( !st.empty() && arr[st.top()] <= arr[i]) {
+            st.pop();
+        }
+        if(!st.empty()) {
+            result[i] = arr[st.top()];
+        }
+        st.push(i);
+    }
+    return result;
+}
+
+
+
+//smaller to the right
+std::vector<int> monotonic_find_smaller_on_right( const std::vector<int>& arr) {
+    std::stack<int> st;
+    int len = arr.size();
+    std::vector<int> result(len, -1);
+    
+    for(int i = len-1; i >= 0; --i) {
+        while( !st.empty() && arr[st.top()] >= arr[i]) {
+            st.pop();
+        }
+        if(!st.empty()) {
+            result[i] = arr[st.top()];
+        } else {
+            //result[i] = INT_MIN;
+        }
+        st.push(i);
+    }
+    return result;
+}
+
+
+
+//larger to the right
+std::vector<int> monotonic_find_larger_on_right( const std::vector<int>& arr) {
+    std::stack<int> st;
+    int len = arr.size();
+    std::vector<int> result(len, len);
+    
+    for(int i = len-1; i >= 0; --i) {
+        while( !st.empty() && arr[st.top()] <= arr[i]) {
+            st.pop();
+        }
+        if(!st.empty()) {
+            result[i] = arr[st.top()];
+        } else {
+            result[i] = INT_MIN;
+        }
+        st.push(i);
+    }
+    return result;
+}
+
 
 
 int main() {
-    stack_demo();
+    //stack_demo();
+
+    //monotonic stacks
+    std::vector<int> nums = {4,5,2,10,8};
+    auto result = monotonic_find_smaller_on_left(nums);    
+    print_vector(result);
+
+    std::cout << "largest to left" << std::endl;
+    result = monotonic_find_larger_on_left(nums);    
+    print_vector(result);
+
+
+    std::cout << "smaller to right" << std::endl;
+    result = monotonic_find_smaller_on_right(nums);    
+    print_vector(result);
+
+
+    std::cout << "largest to right" << std::endl;
+    result = monotonic_find_larger_on_right(nums);    
+    print_vector(result);
+
+    std::cout << "next: " << std::endl;
+    nums = { 11, 13, 21, 3 };
+    result = monotonic_find_larger_on_right(nums);    
+    print_vector(result);
+
 }
 

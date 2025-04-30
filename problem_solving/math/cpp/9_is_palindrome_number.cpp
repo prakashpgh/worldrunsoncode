@@ -17,7 +17,7 @@ bool is_number_palindrome(int number) {
             return true;
         }
         number /= 10;
-        if(rev_number == number) {
+        if(rev_number == number) {  #mistake
             return true;
         }
     }

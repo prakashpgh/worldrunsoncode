@@ -3,11 +3,16 @@ https://leetcode.com/problems/longest-repeating-character-replacement/
 sliding window + hashmap
 
 Idea:
+    valid window criteria:
+        window length - max freq  <= k
+            max. frequency is how many times a unique character appears.
+
     use sliding window... for(r=0)  & l = 0
 
     to find the valid window: 
         maintain vector(26,0).... (ch[i] - 'A') ... add in the r, - in the l
         window valid = window_len - max_freq > k
+    #interesting
 */
 
 #include<iostream>
@@ -29,7 +34,7 @@ int longest_repeating_character_replacement(const std::string& s, int k) {
         int char_index = s[r] - 'A';
         alpha_freq[char_index]++;
         max_freq = std::max(max_freq, alpha_freq[char_index]);
-        if((r - l + 1) - max_freq > k) {
+        while((r - l + 1) - max_freq > k) {
             //the window is not valid.
             alpha_freq[s[l] - 'A']--;
             l += 1;

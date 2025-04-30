@@ -27,6 +27,9 @@ void print_vector_of_vector(const std::vector<std::vector<T>>& vec) {
     return;
 }
 
+
+
+
 #include<array>
 template<typename T>
 void print_std_array(const std::array<T,20>& arr) {

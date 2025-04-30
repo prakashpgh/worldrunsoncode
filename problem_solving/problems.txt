@@ -1,9 +1,33 @@
 1) merge 
         sorted linked lists, 
+
         sorted arrays, 
+
         intervals
+
         strings
 
 2) kth
         in an arrays
+        binary tree
+        linked lists
+
+3) sums
+        2sum   
+            https://leetcode.com/problems/two-sum/description/
+            unsorted, use of hashmap
+        
+            https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+            sorted, 2-pointer
+
+        3sum
+
+
+4) intervals
+
+
+
+5) subarray sum
+        https://leetcode.com/problems/subarray-sum-equals-k/description/
+        
 

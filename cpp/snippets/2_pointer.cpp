@@ -1,4 +1,5 @@
 /*
+2-pointer
 */
 #include<string>
 #include<cctype>
