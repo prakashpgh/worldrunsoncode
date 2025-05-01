@@ -156,17 +156,28 @@ int height(TreeNode* root) {
     return h;
 }
 
-bool is_balanced(TreeNode* root) {
-    if(!root) {
-        return true;
+
+bool isBalanced(TreeNode* root) {
+        return checkHeight(root) != -1;
     }
-    int lh = height(root->left);
-    int rh = height(root->right);
-    if (abs(lh - rh) > 1) {
-        return false;
+
+int checkHeight(TreeNode* node) {
+        if (!node) return 0; // Base case: empty tree has height 0
+        
+        // Check left subtree
+        int leftHeight = checkHeight(node->left);
+        if (leftHeight == -1) return -1; // Left subtree is unbalanced
+        
+        // Check right subtree
+        int rightHeight = checkHeight(node->right);
+        if (rightHeight == -1) return -1; // Right subtree is unbalanced
+        
+        // Check if current node is balanced
+        if (std::abs(leftHeight - rightHeight) > 1) return -1;
+        
+        // Return height of current node
+        return std::max(leftHeight, rightHeight) + 1;
     }
-    return is_balanced(root->left) && is_balanced(root->right);
-}
 
 
 int find_max(TreeNode* root) {

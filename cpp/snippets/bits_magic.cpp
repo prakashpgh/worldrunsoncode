@@ -79,7 +79,7 @@ void and_range_of_numbers(int left, int right) {
 
 
 int main() {
-    bit_magic();
+    //bit_magic();
 
     and_range_of_numbers(5,7);
     and_range_of_numbers(9,12);
