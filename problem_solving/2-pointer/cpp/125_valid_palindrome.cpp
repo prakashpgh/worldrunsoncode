@@ -1,6 +1,12 @@
 /*
- 
- * 
+ #https://leetcode.com/problems/valid-palindrome/
+'''
+2-pointe technique
+isalnum()
+
+t:O(N)
+s: O(1)
+'''
  */
 
 

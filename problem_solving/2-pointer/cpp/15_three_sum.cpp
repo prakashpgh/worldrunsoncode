@@ -5,8 +5,9 @@ t: O(n)
 s: O(1)
 #check
 iterate ..
-    for each element... find the other 2 elements.
+    for each element... find the other 2 elements using 2-pointer 
     take care of duplicates ..by comparing i+1 and i
+    optimization: if the first element > target then break
 */
 
 #include<iostream>

@@ -17,7 +17,7 @@ int index_of_first_occurence_string(const std::string& haystack, const std::stri
                 break;
             }
         }
-        std::cout << "j:" << j << std::endl;
+        //std::cout << "j:" << j << std::endl;
         if(j==n) {
             
             return i;

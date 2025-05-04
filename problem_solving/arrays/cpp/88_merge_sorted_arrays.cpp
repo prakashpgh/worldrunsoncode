@@ -1,5 +1,17 @@
 /*
 https://leetcode.com/problems/merge-sorted-array/
+
+#time O(m+n)
+#space O(1)
+
+#meta
+'''
+TIP: when changing array in-place, try changing from the end.
+traverse the 2 arrays from end.. i and j pointers till it reaches the beginning
+the highest should be placed starting at the end using a k pointer
+
+if j is exhausted we are done.. 
+if j is not exhausted, then we continue with j pointer
 */
 #include<vector>
 #include<iostream>

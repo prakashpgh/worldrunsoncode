@@ -24,7 +24,7 @@ bool jump_game(const std::vector<int>& nums) {
     for (int i = 0; i < len; ++i) {
         int reach = i + nums[i];
         max_reach = std::max(max_reach, reach) ;
-        if(i >= max_reach) {
+        if(i >= max_reach) {  //#important
             return false;
         }
         if(max_reach >= len-1) {

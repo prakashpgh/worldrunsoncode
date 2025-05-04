@@ -1,5 +1,12 @@
 /*
 https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+
+iterate.. starting from i=2
+k is the write index
+if  n[i] != n[i-2], replace n[k] = n[i], k += 1
+
+t: O(n)
+s: O(1)
 */
 #include<iostream>
 #include<vector>

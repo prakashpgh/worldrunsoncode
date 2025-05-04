@@ -1,4 +1,14 @@
 /*
+#https://leetcode.com/problems/remove-element/description/
+#a-2
+'''
+O(n)
+space: O(1)
+
+iterate from beginning 
+Idea is if we encounter target, replace it from end with non-target.
+kind of 2-pointer approach
+'''
 */
 #include<vector>
 #include<iostream>

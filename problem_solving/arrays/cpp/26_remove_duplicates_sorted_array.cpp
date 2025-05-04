@@ -1,5 +1,8 @@
 /*
 https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+
+t: O(n)
+s: O(1)
 */
 #include<vector>
 #include<iostream>
