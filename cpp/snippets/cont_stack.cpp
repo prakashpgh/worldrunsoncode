@@ -77,8 +77,8 @@ std::vector<int> monotonic_find_smaller_on_left( const std::vector<int>& arr) {
 }
 
 
-//larter to the left..
-std::vector<int> monotonic_find_larger_on_left( const std::vector<int>& arr) {
+//larger to the left..
+std:1:vector<int> monotonic_find_larger_on_left( const std::vector<int>& arr) {
     std::stack<int> st;
     int len = arr.size();
     std::vector<int> result(len, -1);

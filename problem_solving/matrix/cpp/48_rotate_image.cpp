@@ -1,5 +1,7 @@
 /*
 matrix
+1) transpose 
+2) vertical mirror
 */
 #include <vector>
 #include<iostream>
