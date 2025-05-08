@@ -11,22 +11,8 @@ int minimum_size_subarray_sum(int target, const std::vector<int>& nums) {
     return result;
 }
 
-import sys
+
 //todo
-def minimum_size_subarray_sum(target, nums):
-    N = len(nums)
-    min_size = sys.maxsize
-    l = 0
-    sum = 0
-    for r in range(N):
-        sum += nums[r]
-        while sum >= target and l < N:
-            min_size = min(min_size, r-l+1) #did mistake here.
-            sum -= nums[l]  #kool trick
-            l += 1
-    if min_size == sys.maxsize:
-        min_size = 0
-    return min_size
 
 
 int main() {

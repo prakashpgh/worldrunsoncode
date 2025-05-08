@@ -9,7 +9,7 @@ Option 1) make a read-only copy, and change the input
 Option 2) 
         1st row and 1st column are used as flags for the rows and cols zero... 
         flag kept if the 1st column has to be zerod.
-        iterate by exclusing the 1st row and 1st column, and update the 1st row and 1st column
+        iterate by excluding the 1st row and 1st column, and update the 1st row and 1st column
 
         go thru the 1st row and 1st column and update the zeros
         check 0,0,, and update the 1st rows..
