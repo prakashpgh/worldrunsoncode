@@ -2,8 +2,11 @@
 
 void key_words() {
 //const
+    //can be used with member functions or variables
+    //functions => cannot change the member variables.
 
 //mutable
+    //mutable data members can be changed within a const function
 
 //constexpr
     //constexpr allows the evaluation of functions and expressions at compile time reducing the run-time computations.

@@ -18,7 +18,7 @@ good for one-off synchronous result
 #include <chrono>
 #include <future>
 
-void thread_func(std::promise<int> promise, int a, int b) {
+void thread_func(std::promise<int>&& promise, int a, int b) {
     std::this_thread::sleep_for(std::chrono::seconds(2));
     try {
         if (a < 0 || b < 0 ) {

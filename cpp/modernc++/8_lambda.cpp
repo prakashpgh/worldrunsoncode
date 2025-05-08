@@ -57,7 +57,7 @@ void lambda_usage() {
 
     //#####################################
     //B=>capture by reference
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    numbers = {1, 2, 3, 4, 5};
     int sum =  0;
     std::for_each(numbers.begin(), numbers.end(), [&sum](int n) { sum += n; });
     std::cout << "sum: " << sum << std::endl;
@@ -75,7 +75,7 @@ void lambda_usage() {
 int main()
 {
     std::cout << "lambda 0" << std::endl;
-
+    lambda_usage();
 
     return 0;
 }

@@ -2,7 +2,9 @@
 https://leetcode.com/problems/valid-parentheses/
 
 iterate the string
-when closing brace is encountered, check if the top of stack has the correcsponding opening, if yes, pop, if no, return false.
+when closing brace is encountered, check if the top of stack has the correcsponding opening, 
+    if yes, pop, 
+    if no, return false.
 for opening brackets, push the stack.
 in the end the stack should be empty for success.
 */

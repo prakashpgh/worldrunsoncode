@@ -311,6 +311,35 @@ void max_element() {
     std::cout << "max: " << *mx << std::endl;
 }
 
+//swapping std::swap is O(1) => irrespective of the size of the vector
+void swap_demo() {
+    //array... iterate and use std::swap
+    int array1[] = {1, 2, 3, 4, 5};
+    int array2[] = {6, 7, 8, 9, 10};
+    int size = sizeof(array1) / sizeof(array1[0]);
+
+    if (sizeof(array1) != sizeof(array2)) {
+        std::cerr << "Arrays must have the same size for element-wise swap." << std::endl;
+        return;
+    }
+
+    for (int i = 0; i < size; ++i) {
+        std::swap(array1[i], array2[i]);
+    }
+
+    //vector => std:swap for whole vector
+    std::vector<int> vec1 = {1, 2, 3, 4, 5};
+    std::vector<int> vec2 = {6, 7, 8, 9, 10};
+    std::swap(vec1, vec2);
+
+
+    //std::array => std::swap for whole array
+    std::array<int, 3> arr1 = {10, 20, 30};
+    std::array<int, 3> arr2 = {40, 50, 60};
+    std::swap(arr1, arr2);
+}
+
+
 
 int main() {
     //sorting_demo();
@@ -334,5 +363,7 @@ int main() {
     //multi_dim_vector();
 
     //max_element();
+
+    swap_demo();
 }
 

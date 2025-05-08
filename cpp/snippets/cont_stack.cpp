@@ -141,6 +141,30 @@ std::vector<int> monotonic_find_larger_on_right( const std::vector<int>& arr) {
 }
 
 
+/*
+    digit => get all the digits.
+        get the whole number  num = num * 10 + (s[i] - '0')
+        result += sign * number
+        sign = 1
+
+
+    when ( starts, 
+        push result, push sign,  
+        reset result = 0, sign = 1
+
+    ) => 
+        pop sign
+        pop result
+        => result = previousresult + popped_sign * current_Result
+
+    + => sign = 1
+    -   => sign = -1
+
+*/
+void using_stack_parentheses() {
+    
+}
+
 
 int main() {
     //stack_demo();

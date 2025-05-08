@@ -41,3 +41,49 @@ int main() {
 
     return 0;
 }
+
+
+
+#include <iostream>
+#include <utility>
+
+class Resource {
+public:
+    int* data;
+
+    // Constructor
+    Resource(int value) : data(new int(value)) {}
+
+    // Destructor
+    ~Resource() {
+        delete data;
+    }
+
+    // Move Constructor
+    Resource(Resource&& other) noexcept : data(other.data) {
+        other.data = nullptr;
+    }
+
+    // Move Assignment Operator
+    Resource& operator=(Resource&& other) noexcept {
+        if (this != &other) {
+            delete data;
+            data = other.data;
+            other.data = nullptr;
+        }
+        return *this;
+    }
+
+    // Disable Copy Constructor and Copy Assignment Operator
+    Resource(const Resource&) = delete;
+    Resource& operator=(const Resource&) = delete;
+};
+
+int main() {
+    Resource res1(10);
+    Resource res2 = std::move(res1); // Move constructor
+    Resource res3(20);
+    res3 = std::move(res2); // Move assignment operator
+
+    return 0;
+}

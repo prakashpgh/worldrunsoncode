@@ -41,7 +41,7 @@ storage class for variables
     inline:
         keyword hinting the compiler that the function call should be replaced by the actual code.
         its not guaranteed that the compiler would inline a function, it depends on the size of the function, complexity etc.    
-        performance improvements: function call is eliminated, stack, jumps, returns
+        performance improvements: function call is   , stack, jumps, returns
             good for small, frequently called funtions
             2) code caching: better instruction cache usage
 
@@ -52,6 +52,7 @@ storage class for variables
                 4) debugging difficulty: inlined function may not appear in stack trace or debuggers
             USE FOR SMALL, FREQUENTLY CALLED FUNCTIONS            
 
+-----------------------------
 functional header
     std::function<int(int, int)> operation;
     operation = [](int a, int b) { return a + b; };

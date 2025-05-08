@@ -2,6 +2,7 @@
 #include<string>
 #include<cctype>
 #include "../utils/utils.h"
+#include <sstream>
 
 //frequency counters
 void frequency_counter(const std::string& s) {
@@ -85,6 +86,39 @@ void miscell() {
     c = i;
     char c1 = i + '0';
     std::cout << "char to int: " << c << "=>" << i << "=>" << c1 << "=>" << std::endl;
+
+    //std::swap
+    s = "hello";
+    int l = 0;
+    int r = s.length() - 1;
+    while(l < r) {
+        std::swap(s[l], s[r]);
+        l++;
+        r--;
+    }
+    std::cout << "after swap: " << s << std::endl;
+}
+
+
+void parse_strings()  {
+    //breaking string into words..
+    s = "apple a day keeps doctor away";
+    std::stringstream ss(s);
+    std::string word;
+    while(ss >> word) {
+        std::cout << word << ",";
+    }
+    std::cout << std::endl;
+
+    //
+    std::string csv_line = "value1,value2,another value,last_value";
+    std::istringstream iss(csv_line);
+    std::string segment;
+    std::vector<std::string> values;
+
+    while (std::getline(iss, segment, ',')) {
+        values.push_back(segment);
+    }
 }
 
 

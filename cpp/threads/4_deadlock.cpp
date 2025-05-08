@@ -21,6 +21,8 @@ To avoid deadlocks
     T2
     lock(M3,M4)
     lock(M1, M2)
+
+//another way to prevent deadlocks => have timeouts..and log the timeouts
 */
 
 #include <iostream>

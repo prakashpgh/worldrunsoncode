@@ -1,5 +1,11 @@
 /*
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+iterate the prices.  update the min. price.
+for each tick,find the profit and update the max profit
+
+t:  O(n)
+s:  O(1)
 */
 
 #include<vector>

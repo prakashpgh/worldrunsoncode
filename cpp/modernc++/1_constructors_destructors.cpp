@@ -8,9 +8,26 @@ constructor:
 
         its okay to throw exceptions from constructor..
 
+
     explicit constructor
         if constructor is not marked as explicit, it will be called where object 
         is not instatiated explicitly, and cause subtle errors
+
+    class FileName {
+        public:
+        explicit FileName(const std::string& name) : name_(name) {
+            std::cout << "FileName constructor called with: " << name << std::endl;
+        }
+    }
+
+    void printFileName(const FileName& fn) {
+        std::cout << "File name: " << fn.getName() << std::endl;
+    }
+
+    >> if the constructor would not have been explicit, then the 
+            printFileName("data.csv") would have called the constructor
+        if explicit key word is present, we need 
+            printFileName(FileName("config.ini")); 
 
 -----------------------------------------------------------------------------------
 destructor
@@ -19,14 +36,14 @@ destructor
     we need a virtual destructor, else the derived class destructor is not called.. in case of polymorphic.
 
     throwing exception in destructor
-        if exception is thrown from the destructor terminate is called.
+        ** if exception is thrown from the destructor terminate is called.
         
         consider this scenario..
         there is an exception thrown.
             the stack is being unwind & all the object's in the stack => destructors are being called.
             now, if any of the destructors throw an exception, now the question for the compiler which exception should it handle.. the first one or the one from ~
             so the state of the program enters an undefined state.
-
+            In short, when an exception is thrown when a stack is unwinded, then std::terminate is called.
 
     delete [] => delete array
         class A {
@@ -61,14 +78,14 @@ assignment operator
 move constructor:
     Should be used when the contents can be transferred rather than copy
 
-
-        1) called when an object is initialized from rvalue
+    1) called when an object is initialized from rvalue
             std::move
     MyClass(MyClass&& other) {
     }
         MyClass obj1();
         MyClass c = std::move(obj1)
     }
+
     std::move
 
     std::move explicitly casts a lvalue to rvalue reference
@@ -145,26 +162,76 @@ if the class needs any of the following, it probably needs all 5
     => to explicitly prevent the compiler from generating certain default member functions.
         MyClass() = delete
 
+        class NonCopyable {
+        public:
+            NonCopyable() = default;
+
+            // Prevent copy construction
+            NonCopyable(const NonCopyable&) = delete;
+
+            // Prevent copy assignment
+            NonCopyable& operator=(const NonCopyable&) = delete;
+
+            void doSomething() const {
+                std::cout << "NonCopyable object doing something." << std::endl;
+            }
+        };
+
+        to prevent unwanted coppying or moving.
+            e.g for file handles, mutexes, 
+----------------------
+=default
+    is a feature in C++11 and later that you can use to explicitly request the compiler to generate the default implementation for certain special member functions. 
+
+
+    class Base {
+        public:
+            virtual ~Base() = default;
+            virtual void someMethod() {}
+        };
+
+        class Derived : public Base {
+        public:
+            ~Derived() override = default;
+            void someMethod() override {}
+        };
+-----------------------------
 
 friend function:
     function which has access to all the members of a class including private members
 
+----------------------------------------------------------------------
 noexcept    
     the keyword tells that this function will not throw exception, 
     if an exception passes out of this function, std::terminate is called.
+
     e.g destructor has noexcept 
     1) it helps the compile and run-time understand a function is guaranteed not to throw any exceptions.
     2) move semantics: Standard Library containers rely on noexcept move operations for strong exception safety guarantees during resizing or other operations.
 
     Unconditional
-
+        void f() noexcept {
+            // This function is guaranteed not to throw any exceptions
+        }
     Conditional
+        void g() noexcept(true) {
+            // This function is guaranteed not to throw any exceptions
+        }
+
+        void h() noexcept(false) {
+            // This function might throw exceptions
+        }
+
+        template <typename T>
+        void i() noexcept(std::is_nothrow_move_constructible_v<T>) {
+            // This function is noexcept if T's move constructor is noexcept
+        }
 
     when to use: when you are certain it will not throw... simple operations, move construct/assignment
 ------------------------------------------------------------------------------------------
 
 this => pointer to self
-
+---------------------------------
 
 #include <iostream>
 #include <string>
@@ -316,6 +383,7 @@ public:
         rhs.data = nullptr;//** this is very important to avoid double de-allocation */
 
         std::cout << "move operator" << std::endl;
+        return *this;
     }
 };
 
@@ -347,47 +415,3 @@ int main() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-
-#include <iostream>
-#include <utility>
-
-class Resource {
-public:
-    int* data;
-
-    // Constructor
-    Resource(int value) : data(new int(value)) {}
-
-    // Destructor
-    ~Resource() {
-        delete data;
-    }
-
-    // Move Constructor
-    Resource(Resource&& other) noexcept : data(other.data) {
-        other.data = nullptr;
-    }
-
-    // Move Assignment Operator
-    Resource& operator=(Resource&& other) noexcept {
-        if (this != &other) {
-            delete data;
-            data = other.data;
-            other.data = nullptr;
-        }
-        return *this;
-    }
-
-    // Disable Copy Constructor and Copy Assignment Operator
-    Resource(const Resource&) = delete;
-    Resource& operator=(const Resource&) = delete;
-};
-
-int main() {
-    Resource res1(10);
-    Resource res2 = std::move(res1); // Move constructor
-    Resource res3(20);
-    res3 = std::move(res2); // Move assignment operator
-
-    return 0;
-}

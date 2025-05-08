@@ -94,10 +94,38 @@ cold => code that is not executed very frequently
 
 
 profiling...
-perf
-gprof
-valgrind
+	perf
+	gprof
+	valgrind
 
 Application level profiling
 Google benchmark
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+malloc & new
+	void*					object
+	
+	only allocates mem		allocate memory + object construction
+
+	failure => nullptr		bad_alloc
+
+	frequently				delete
+
+
+----------------------------------------------------------------------------
+std::atomic => internals
+
+
+shared pointer..... 
+	deallocater, 
+	weak pointer...
+
+
+new features in C++
+
+
+make_shared..
+	and direct pointer...
 

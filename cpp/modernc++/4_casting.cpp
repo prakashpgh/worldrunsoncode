@@ -14,10 +14,6 @@ const_cast
 
 reinterpret_cast
     low level reinterpretation of data
-
-
-
-
  */
 
 

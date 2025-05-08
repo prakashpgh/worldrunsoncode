@@ -45,19 +45,12 @@ dp[i][j][1] = max*( dp[i-1][j][1] , dp[i-1][j-1][0] - price[i])
 
 Not hodling         not holding     holding and then sole
 dp[i][j][0]= max( dp[i-1][j][0] ,  dp[i-1][j][1] + price[i],  
-
-
-
-
-
-
 '''
 #todo
 def buy_sell_atmost_2_2N_approach():
     profit = 0
 
     return profit
-
 
 
 def buy_sell_atmost_effective_buy_price_approach(prices: list[int]):
