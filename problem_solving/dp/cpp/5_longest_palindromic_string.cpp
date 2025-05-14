@@ -4,6 +4,14 @@ https://leetcode.com/problems/longest-palindromic-substring
 iterate the string..
 for each char, consider that as the center of palindrom... 
     check if its a palindrome from center... and if has the max length, get the max string.
+
+https://www.youtube.com/watch?v=XYQecbcd6_c
+Idea:
+    for each character, check if its a center of palindrome going outwards
+        for odd, i=j
+        for even i=j+1  
+
+        O(N**2)
 */
 
 

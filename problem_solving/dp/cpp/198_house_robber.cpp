@@ -1,7 +1,32 @@
 /*
 https://leetcode.com/problems/house-robber/
 
+bottom up... fill the dp array
+time: O(n)
+space: O(n)
+https://leetcode.com/problems/house-robber/
 
+https://www.geeksforgeeks.org/find-maximum-possible-stolen-value-houses/
+
+Idea:
+the robber cannot rob the adjacent houses
+    so choice is i-1th house OR i-2  && ith
+    max(total till i-2  + value of i   Or   value of i-1)
+
+    max( nums[n] + value(n-2), nums[n-1])
+
+Approach I:
+    recursive: time: 2^n
+                space: n
+
+Approach I:
+    recursive with memo:   time: O(n)
+            space: O(n)
+
+Approach II:
+    iterative:
+        time: O(n)
+        space: O(1)
 */
 
 #include<vector>

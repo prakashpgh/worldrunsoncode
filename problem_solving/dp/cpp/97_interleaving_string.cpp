@@ -1,5 +1,15 @@
 /*
 https://leetcode.com/problems/interleaving-string/description/?envType=study-plan-v2&envId=top-interview-150
+
+https://www.youtube.com/watch?v=oRYUnwklC98
+
+Approach I: recursion
+    Choice: the char matches s1 & s3, s2 & s3
+    if the character matches, then try the next character..
+    try with both the strings if charactermatches.
+
+    base case: sum of lengths, all indexes reach the lengths of the strings
+        check for lengths - len(S1) + len(S2) 
 */
 #include<string>
 #include<iostream>

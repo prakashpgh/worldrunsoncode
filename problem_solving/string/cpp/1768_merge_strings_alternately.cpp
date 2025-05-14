@@ -1,5 +1,9 @@
 /*
 https://leetcode.com/problems/merge-strings-alternately/
+
+while(i < s1.length() || j < s2.length() ) {
+    
+}
 */
 
 #include<iostream>

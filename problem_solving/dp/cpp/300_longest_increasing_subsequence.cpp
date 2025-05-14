@@ -1,5 +1,30 @@
 /*
-https://leetcode.com/problems/longest-increasing-subsequence/
+#https://leetcode.com/problems/longest-increasing-subsequence/description/
+#https://www.youtube.com/watch?v=DG50PJIx2SM
+
+#https://www.youtube.com/watch?v=MrPa5EFcDCU&list=PLKYEe2WisBTFEr6laH5bR2J19j7sl5O8R&index=118
+'''
+recursive approach:
+    choice: consider this element or do not consider this element.
+
+
+https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+here iterative is the best solution
+    iterate 1..N
+        iterate 1..N
+        O(n**2)        
+
+        nlogn using binary search => https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+
+            iterate the input
+                if result empty or result.back < num 
+                    result.push
+                else
+                    find the position of the number (smallest number larger than the number ) in result using binary search.
+                    replace the numbe in the result  
+                    => by replacing we are not increasing the size of the sub-sequence, 
+            return result.size();
+
 */
 
 #include<iostream>
@@ -33,8 +58,6 @@ int length_lis_iterative(const std::vector<int>& nums) {
     return result.size();
 
 }
-
-
 
 
 int recur(std::vector<std::vector<int>>& dp, 
@@ -87,7 +110,7 @@ int main()  {
     std::cout << "result: " << result << std::endl;
     result = length_lis_iterative(nums);
     std::cout << "result-iterative: " << result << std::endl;
-    
+  
 
 
     nums = {0,1,0,3,2,3};

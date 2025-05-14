@@ -1,5 +1,15 @@
 /*
-https://leetcode.com/problems/minimum-path-sum/
+https://leetcode.com/problems/minimum-path-sum
+
+Idea:
+    choices: move down or left..
+        current + min( choices )
+    base case: off limits inf.  
+                if final cell, get its value
+    memo: 2 parameters r & c, 2 dim array
+
+    ~~
+    iterative approach => fill the r-1, c-1 and back fill
 */
 
 #include<vector>

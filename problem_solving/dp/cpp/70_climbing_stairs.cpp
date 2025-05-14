@@ -2,8 +2,22 @@
 https://leetcode.com/problems/climbing-stairs/
 
 Approch:
-recursion
+recursion & memo..
+you can climb nth step... from n-1 or n-2 steps.
+    how many ways you can reach n-1 step
+    how many ways you can reach n-2 step
 
+Approach:
+    recursive: 
+        time:2^^n
+        space: n
+    recursive with memo:
+        time: n
+        space: n
+    iterative:
+        time: n
+        space: 1
+   
 */
 #include<vector>
 #include<unordered_map>

@@ -1,5 +1,18 @@
 /*
-https://leetcode.com/problems/word-break/description/
+https://leetcode.com/problems/word-break/
+https://www.geeksforgeeks.org/word-break-problem-dp-32/
+
+Approach I:
+recursive.. traverse the string, for each letter, check any words match.
+if they match, repeat with the index starting from next
+    exit: the index == len of string
+    You can add dp to this to optimize
+    without memoization: (2^n)
+
+    time: (n ^ 2)
+    space: (n+W)
+
+Approach II:Iterative.
 */
 
 #include<vector>
@@ -19,7 +32,8 @@ bool recur(const std::string& s, const std::unordered_set<std::string>& words, s
     }
     
     for(int i = index; i < len; ++i) {
-        if( words.find(s.substr(index, i-index+1)) != words.end() && 
+        std::string word = s.substr(index, i-index+1);
+        if( words.find(word) != words.end() && 
             recur(s, words, dp, i + 1)) {
                 dp[index] = true;
                 return dp[index];

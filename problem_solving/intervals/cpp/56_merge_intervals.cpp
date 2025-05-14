@@ -1,5 +1,5 @@
 /*
-https://leetcode.com/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-interview-150
+https://leetcode.com/problems/merge-intervals/
 
 sort on start-key
 create this interval... and if next start lies in this interval... then adjust the end-point of the interval

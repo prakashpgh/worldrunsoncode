@@ -1,7 +1,9 @@
 /*
 https://leetcode.com/problems/powx-n/
 
-
+x**n = (x**2)**(n/2)
+x**n = x. x**(n-1) = x. (x**2)**((n-1)/2)
+#interesting if you want O(logN)
 */
 
 #include<iostream>

@@ -1,5 +1,36 @@
 /*
 https://leetcode.com/problems/coin-change/
+greedy approach does not always give the optimal solution
+
+Approach I: recursive
+            you need amount A
+            recur(amount) {
+            exit criteria
+
+                    0 or -ve
+            Choices:
+                for() => coins {
+                    min = min(min_needed, 1 + recur(amount-coin))
+                }
+            }
+            Parameters: amount
+
+    time ( S ^ n) => S is number of coin denominations, n = target amount
+    space (n)
+
+    with memoization
+    (n * C)
+        C = number of coin denominations
+
+Approach II:
+    find the coins needed for 0, 1 etc.. and build from there.
+
+    dp array fill to float('inf')
+    dp[0] = 0
+        for for all dp[1] .. dp[target]
+        for all coins {
+            dp[i] = min(dp[i], dp[i-coin] + 1)
+        }
 
 
 */

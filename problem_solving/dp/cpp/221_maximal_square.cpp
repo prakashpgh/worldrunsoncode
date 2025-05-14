@@ -1,5 +1,22 @@
 /*
 https://leetcode.com/problems/maximal-square/
+
+https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-matrix/
+
+idea:
+    
+
+    recursive => from [0][0] to m-1,n-1
+        if == 0, return zero
+        
+        a square is formed when right,diag and the down are 1s
+        min(right, diag, down)
+            keep a record of the max
+-------------------
+    iterative => fill from the bottom right
+        if cell = 0, the memo is zero.
+        else min(right, down, diag)
+            keep tab on the max..
 */
 
 #include<string>

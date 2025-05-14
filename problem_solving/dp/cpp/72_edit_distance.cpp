@@ -1,5 +1,25 @@
 /*
 https://leetcode.com/problems/edit-distance/
+
+https://www.geeksforgeeks.org/edit-distance-dp-5/
+Approach I: recursive
+    base: m ==0, return n, n ==0, return m => for insertions and deletions when one string ends
+
+    start from end.. base case one of the string ends.
+
+    if character match...  try with the strings with each index reduced by 1
+    if character dont match => insert, replace, delete => get min.
+
+    memoization: parameters m, n -lengths of the strings
+
+Approach II: bottom up iterative
+    create dp array with m+1, n+1 for 0-m
+    fill case for when m = 0
+    fill case for when n = 0
+
+    iterate 1..m+1,n+1
+        when string match ... no changes needed. so match [i-1][j-1]
+        when dont match 1 + min(update, delete, insert)  1 is for 1char change
 */
 #include<string>
 #include<iostream>

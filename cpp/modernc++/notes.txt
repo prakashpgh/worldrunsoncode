@@ -128,4 +128,38 @@ new features in C++
 
 make_shared..
 	and direct pointer...
+	The key difference between using std::make_shared and directly constructing a std::shared_ptr lies in how the memory for the managed object and the shared pointer's control block are allocated.
 
+	1) single allocation
+		std::make_shared allocates memory for both the object of type T and the shared pointer's control block (which stores the reference count and potentially custom deleters) in a single contiguous block of memory.
+
+	2) efficiency: cache locality... object and the control block are close together in memory
+
+	3) strong exception handling...
+
+	In essence, std::make_shared is generally the preferred and safer way to create std::shared_ptr instances.
+
+When to use the std::shared	
+	1) When you want a std::shared_ptr to manage an object but point to a subobject within it (aliasing). std::make_shared doesn't directly support this.
+	2) Interfacing with Legacy Code: In some cases, you might receive a raw pointer from older code that you need to wrap in a std::shared_ptr.
+
+-------------
+https://dev.to/pratikparvati/memory-management-using-smart-pointers-in-c-part-2-3pp4
+control block in shared_ptr
+	ref_count
+	weak_ptr count
+	actual raw pointer
+	custom deleters (optional)
+	custom allocator state (optional)
+
+std::enable_shared_from_this
+	class MyClass : public std::enable_shared_from_this<MyClass> {
+		std::shared_ptr<MyClass> getShared()
+		{
+			return shared_from_this();
+		}
+
+	};
+	getting shared_ptr in an instance method.	
+
+------------------------

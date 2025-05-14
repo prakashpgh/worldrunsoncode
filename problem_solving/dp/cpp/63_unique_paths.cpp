@@ -9,6 +9,17 @@ Approach I:
     dp[0] = 1
     and keep filling the dp array. where there is no obstacle.
 
+idea:   
+    2 choices - right or down.
+    base cases: when reached bottom right, path = 1
+        when 1, return zero, 
+        when out of bounds return zero
+
+    iterative:
+        dp[i][j] => number of unique ways to reach that particular cell
+        start from top left to bottom right.
+
+        return dp[rows-1][cols-1]
 
 */
 #include<vector>

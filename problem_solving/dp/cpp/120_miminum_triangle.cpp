@@ -3,6 +3,16 @@ https://leetcode.com/problems/triangle/
 
 //using optimized space
 //moving from bottom of triangle to top..
+
+https://www.geeksforgeeks.org/minimum-sum-path-triangle/
+
+idea is 
+    choices available: i and i+1, take min. of the choices
+    recur... with row and col changing
+                    
+    basecase: row and col reach bounds
+
+    memo: there are 2 paramters row and col, so memo will be 2 dim array
 */
 
 #include<vector>

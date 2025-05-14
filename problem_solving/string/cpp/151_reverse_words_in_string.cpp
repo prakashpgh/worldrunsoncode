@@ -2,8 +2,19 @@
 #https://leetcode.com/problems/reverse-words-in-a-string/description/?envType=study-plan-v2&envId=top-interview-150
 traverse the string from 
 '''
+
 Approach I) no extra space
     reverse the string.. getting rid of spaces.
+        
+        writer pointer...
+        reader pointer => till it gets non-space
+        write the word..
+        reverse..
+        space..
+
+        std::revese
+
+        resize
     now for each word, reverse.
     cleanspace()
     use std::swap

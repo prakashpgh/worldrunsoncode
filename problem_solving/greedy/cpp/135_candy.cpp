@@ -1,6 +1,7 @@
 /*
 '''
 https://leetcode.com/problems/candy/description/?envType=study-plan-v2&envId=top-interview-150
+
 first pass: compare left to right. compare only the elements to its left
 second pass: compare right to left.
 '''
