@@ -38,7 +38,12 @@ void bit_magic() {
 
     //#number of 1s in x = ones in [x & (x-1)] + 1
     
+    //number of ones in x = 
+    //  if x = even, ones(x / 2) => for even number, the last bit is is 0, so right shift by 1 => divide by 1.
+    //  if x = odd, 1 + ones(x/2) => for odd number, the last bit is is 1, so right shift by 1 => divide by 1.
     
+
+
     unsigned long num = binary.to_ulong();
     std::cout << "decimal " << binary << "=>" << num << std::endl;    
 

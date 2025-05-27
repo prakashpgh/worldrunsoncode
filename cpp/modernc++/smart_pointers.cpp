@@ -3,6 +3,12 @@ unique_ptr
     single ownership
     movable
 
+    Why have shared_ptr when shared_ptr can do everything unique_ptr can doe.
+        shared_ptr has overhead => ref count, allocator, deallocator
+
+        use unique_ptr as the first go...
+
+
 shared_ptr  to share between objects/threads
     multiple ownership
     maintains ref counting

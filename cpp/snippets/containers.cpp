@@ -162,3 +162,53 @@ list
 	back
 
 */
+
+/*
+
+Feature	            std::deque	                                        std::list
+
+Underlying	        Discontiguous fixed-size arrays (chunks)	        Doubly-linked list  ******        
+                    (no resizing of existing chunks)
+
+Random Access	    Efficient, O(1)	Inefficient,                        O(n)                ******
+
+Insert/Delete End	Efficient, O(1) amortized	Efficient,              O(1)
+
+Insert/Delete Mid	Inefficient, O(n)	Efficient,                      O(1) (given an iterator)    ******
+
+Iterator Validity	Can be invalidated on middle insertion/deletion	    Generally remains valid on insertion/deletion   **********
+
+Cache Locality	    Better	                                            Worse                   ********
+
+Memory Overhead	    Potentially larger minimum	                        Overhead per element (pointers)    **** 
+
+*/
+
+
+/*
+low latency, high throughput system
+
+1) efficient algorithms & data structure
+        cache friendly ds
+
+2) multi-threading.
+    do all the work in separate thread
+    thread pool
+
+    Effective threading: use the right number of threads
+    
+    lock free/ low contention ds
+
+3) DB connection pooling
+
+4) caching.
+    caching of reference data
+
+5) load balancing
+
+6) Message Q
+
+
+
+
+*/

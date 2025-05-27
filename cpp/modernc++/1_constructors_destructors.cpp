@@ -1,6 +1,14 @@
 #include <iostream>
 
 /*
+rule of 5
+explicit pre => for constructor
+
+noexcept => optimization
+=delete
+=default
+friend
+
 constructor:
     multiple constructors can be defined by overloading
     if no constructors defined, then there is default constructor provided.
@@ -24,10 +32,43 @@ constructor:
         std::cout << "File name: " << fn.getName() << std::endl;
     }
 
+    int main() {
+        printFileName("hello"); // Implicit conversion!
+        FileName fileName = std::string("hello");  // Implicit conversion!
+        return 0;
+    }
+
     >> if the constructor would not have been explicit, then the 
             printFileName("data.csv") would have called the constructor
         if explicit key word is present, we need 
             printFileName(FileName("config.ini")); 
+
+    
+    >> initializer list
+    1) Initialization of primitives
+        init of primitivs
+
+    2) initialization of const and references
+                    class MyClass {
+                            private:
+                                const int constantValue;
+                                int& referencedValue;
+                                std::string name;
+
+                            public:
+                                // Constructor with member initializer list
+                                MyClass(int initialValue, int& ref, const std::string& n)
+                                    : constantValue(initialValue), // Initialize const member
+                                    referencedValue(ref),        // Initialize reference member
+                                    name(n)                      // Initialize regular member
+                                {
+                                }
+                    }
+    3) efficiency & performance
+        default constructor called.  and then assign the value in the constructor body.
+        initialization order is decided by the order in which the variables are declared.., not their order in the init list
+
+
 
 -----------------------------------------------------------------------------------
 destructor
@@ -100,39 +141,37 @@ move constructor:
                 return 0;
         }
         
-2) Returning a non-primitive object from a function: 
-    When an object is returned by value from a function, and the compiler can elide the copy.
-    Note that if a move constructor is not defined, then the copy constructor is called.
+    2) Returning a non-primitive object from a function: 
+        When an object is returned by value from a function, and the compiler can elide the copy.
+        Note that if a move constructor is not defined, then the copy constructor is called.
 
-3) Passing a temporary object as a function argument:
+    3) Passing a temporary object as a function argument:
 
-        void processVector(MyVector v) {
-            // ... use v ...
-        }
+            void processVector(MyVector v) {
+                // ... use v ...
+            }
 
-        MyVector getTemporaryVector() {
-            return MyVector();
-        }
+            MyVector getTemporaryVector() {
+                return MyVector();
+            }
 
-        int main() {
-            processVector(getTemporaryVector()); // Move constructor will likely be used
-            return 0;
-        }
+            int main() {
+                processVector(getTemporaryVector()); // Move constructor will likely be used
+                return 0;
+            }
 
-4) when an object is instantiated from a temporary object.
+    4) when an object is instantiated from a temporary object.
 
-        MyVector getAnotherTemporaryVector() {
-            return MyVector();
-        }
+            MyVector getAnotherTemporaryVector() {
+                return MyVector();
+            }
 
-        int main() {
-            MyVector v = getAnotherTemporaryVector(); // Move constructor will likely be used
-            return 0;
-        }
+            int main() {
+                MyVector v = getAnotherTemporaryVector(); // Move constructor will likely be used
+                return 0;
+            }
 
 5) many STL algorithms are optimized to use move during many of the operations - which is beneficial during resizing, inserting, sorting
-
-
         MyClass obj1;
         MyClass obj2 = obj1;       // Copy constructor is called (obj1 is an lvalue)
         MyClass obj3 = MyClass();  // Move constructor is called (MyClass() is an rvalue)
@@ -182,6 +221,8 @@ if the class needs any of the following, it probably needs all 5
 ----------------------
 =default
     is a feature in C++11 and later that you can use to explicitly request the compiler to generate the default implementation for certain special member functions. 
+    used when your class have primitives, and NO resources needing special resource handlers.
+
 
 
     class Base {
@@ -233,54 +274,6 @@ noexcept
 this => pointer to self
 ---------------------------------
 
-#include <iostream>
-#include <string>
-
-class MyString {
-public:
-    std::string data;
-
-    MyString(std::string str = "") : data(str) {
-        std::cout << "Constructor called." << std::endl;
-    }
-
-    MyString(const MyString& other) : data(other.data) {
-        std::cout << "Copy constructor called." << std::endl;
-    }
-
-    MyString(MyString&& other) : data(std::move(other.data)) {
-        std::cout << "Move constructor called." << std::endl;
-    }
-
-    MyString& operator=(const MyString& other) {
-        data = other.data;
-        std::cout << "Copy assignment called." << std::endl;
-        return *this;
-    }
-
-    MyString& operator=(MyString&& other) {
-        data = std::move(other.data);
-        std::cout << "Move assignment called." << std::endl;
-        return *this;
-    }
-};
-
-MyString createMyString() {
-    return MyString("Temporary String");
-}
-
-int main() {
-    MyString s1("Original String");
-    MyString s2;
-
-    // Move assignment operator (rvalue from function return)
-    s2 = createMyString();
-
-    // Move assignment operator (explicit move)
-    s2 = std::move(s1);
-
-    return 0;
-}
 */
 
 
@@ -388,9 +381,7 @@ public:
 };
 
 
-
-
-int main() {
+void polymorphism() {
     Animal animal(5);
 
     std::cout << "id: " << animal.id << std::endl;
@@ -404,6 +395,19 @@ int main() {
         delete a;
         std::cout << "end polymorphic..."  << std::endl;
     }
+}
+////////////////////////////////////////////////////////////////////
+//object slicing => when derived class is assigned to base class
+void object_slicing() {
+    Monkey m1(9);
+    Animal a = m1;
+}
+
+
+
+int main() {
+
+    polymorphism();
 
     //delete []
     int* p_i = new int[8];

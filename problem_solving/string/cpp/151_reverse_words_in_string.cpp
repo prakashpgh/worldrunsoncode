@@ -53,6 +53,10 @@ std::string reverse_words_in_string_extraspace(const std::string& input) {
     return result;
 }
 
+/*
+1) reverse the string..   std::reverse(xx.begin(), xx.end())
+2) get rid of the extra space... reverse the word...
+*/
 std::string reverse_words_in_string_no_extraspace(const std::string& input) {
     return input;
 }

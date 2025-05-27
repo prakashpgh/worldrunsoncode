@@ -10,7 +10,7 @@
                 predicate functions for std::sort, std::for_each
 
 
-    Other ways to call functios
+    Other ways to call functions
     1) function pointers
             just have the address of the function
 
@@ -69,6 +69,27 @@ void lambda_usage() {
         std::cout << i << "     ";
     }
 
+}
+
+
+#include<functional>
+int test_funct(int i) {
+    std::cout << i << std::endl;
+}
+
+class Functor {
+    public:
+        void operator()(int x) const {
+            std::cout << "Functor called with: " << x + 5 << std::endl;
+        }
+    };
+
+//1) std::function can be used to call lambda functions.
+//2) std::function can be used to call regular functions
+//3) std::function can be used to call functors
+void std_function() {
+    std::function<int(int)> func_ptr = test_funct;
+    func_ptr(10);
 }
 
 

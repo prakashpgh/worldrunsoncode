@@ -21,6 +21,20 @@ TreeNode* create_binary_tree() {
     return root;
 }
 
+TreeNode* tree(const std::vector<int>& vec, int start, int end) {
+    int m = start + (end - start) / 2;
+    TreeNode* node = new TreeNode(vec[m]);
+    node->left = tree(vec, start, m-1);
+    node->right = tree(vec, m+1, end);
+    return node;
+}
+
+TreeNode* array_to_binary_search_tree(const std::vector<int>& vec) {
+    std::sort(vec.begin(), vec.end());
+    TreeNode* node = tree(vec, 0, vec.size()-1);
+    return node;
+}
+
 #include<queue>
 std::vector<int> bfs(TreeNode* root) {
     std::vector<int> result;
@@ -31,7 +45,7 @@ std::vector<int> bfs(TreeNode* root) {
     q.push(root);
     while(!q.empty()) {
         auto node = q.front();
-        result.push_back(node->value);
+        result.push_back(node->val);
         q.pop();
         if(node->left) {
             q.push(node->left);
@@ -198,6 +212,8 @@ int main() {
     std::cout << "bfs" << std::endl;
     auto results = bfs(root);
     print_vector(results);
+    //printBinaryTree(root);
+    return 0;
 
     std::cout << "inorder" << std::endl;
     results.clear();

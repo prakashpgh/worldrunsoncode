@@ -55,19 +55,54 @@ void remove_from_iterator() {
 }
 
 //more efficient and recommended method
+/*
+remove_if => moves the elements which are to be kept at the beginning of the iterator, 
+   and adds the elements that are to be deleted at the end of the iterator.
+   the return iterator => beginning of the elements that are to be deleted.
+*/
 void remove_from_iterator_2() {
    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
    for (int n : numbers ) {
       std::cout << n << "  ";
    }
+   auto new_end = std::remove_if( numbers.begin(), numbers.end(), [] (int n) {return n%2 == 0;});
 
-   numbers.erase(std::remove_if( numbers.begin(), numbers.end(), [] (int n) {return n%2 == 0;}), numbers.end());
+   std::cout << "after...";
+   for (auto it = numbers.begin(); it != new_end; ++it) {
+      std::cout << *it << " ";
+   }
+
+   numbers.erase(new_end, numbers.end());
 
    std::cout << "after remove...";
    for (int n : numbers ) {
       std::cout << n << "  ";
    }
 }
+
+//implementation of std::remove_if
+template <typename ForwardIterator, typename UnaryPredicate>
+ForwardIterator remove_if(ForwardIterator first, ForwardIterator last, UnaryPredicate pred) {
+    ForwardIterator result = first;
+    for (; first != last; ++first) {
+        if (!pred(*first)) {
+            if (result != first) {
+                std::swap(*result, *first);
+            }
+            ++result;
+        }
+    }
+    return result;
+}
+
+/*
+++it => better option
+
+it++ => 
+1) Creating a temporary copy of the iterator's current state.
+2) Incrementing the original iterator.
+3) Returning the temporary copy.
+*/
 
 
 

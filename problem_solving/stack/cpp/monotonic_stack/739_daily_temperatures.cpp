@@ -52,5 +52,19 @@ int main() {
     result = daily_temperatures_stack(temperatures);
     print_vector(result);
     std::cout << "result done " << std::endl;
-    //#Output: [1,2,1,-1]
+    //#Output: [1,2,1,-1]d
+}
+
+
+voit temperatures {
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    
 }

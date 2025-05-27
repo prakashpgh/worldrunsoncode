@@ -250,3 +250,70 @@ int main() {
 
     //max_element_values();
 }
+
+
+//hashmap details
+/*
+key => hash_function => bucket
+good hash function
+
+Array of buckets
+buckets
+    collisions
+        1) separate chaining: ... linked list
+        2) open addressing: => probes for next empty bucket.
+
+    Dynamic resizing:
+        load factor = n/capacity
+        when hashmap becomes too full, the load factor exceeds a certain threshold, 
+        the number of buckets is typically increased, to help maintain efficiency of the hash map
+        by reducing the likelihood of collisions
+
+
+*/
+
+/*
+Custom hash implementation
+    https://en.cppreference.com/w/cpp/utility/hash
+    std::hash => can be used to 
+    boost::hash_combine
+
+
+
+    struct S
+{
+    std::string first_name;
+    std::string last_name;
+    bool operator==(const S&) const = default; // since C++20
+};
+ 
+// Before C++20.
+// bool operator==(const S& lhs, const S& rhs)
+// {
+//     return lhs.first_name == rhs.first_name && lhs.last_name == rhs.last_name;
+// }
+ 
+// Custom hash can be a standalone function object.
+struct MyHash
+{
+    std::size_t operator()(const S& s) const noexcept
+    {
+        std::size_t h1 = std::hash<std::string>{}(s.first_name);
+        std::size_t h2 = std::hash<std::string>{}(s.last_name);
+        return h1 ^ (h2 << 1); // or use boost::hash_combine
+    }
+};
+ 
+// Custom specialization of std::hash can be injected in namespace std.
+template<>
+struct std::hash<S>
+{
+    std::size_t operator()(const S& s) const noexcept
+    {
+        std::size_t h1 = std::hash<std::string>{}(s.first_name);
+        std::size_t h2 = std::hash<std::string>{}(s.last_name);
+        return h1 ^ (h2 << 1); // or use boost::hash_combine
+    }
+};
+
+ */
