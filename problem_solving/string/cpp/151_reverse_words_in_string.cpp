@@ -57,7 +57,50 @@ std::string reverse_words_in_string_extraspace(const std::string& input) {
 1) reverse the string..   std::reverse(xx.begin(), xx.end())
 2) get rid of the extra space... reverse the word...
 */
-std::string reverse_words_in_string_no_extraspace(const std::string& input) {
+std::string reverse_words_in_string_no_extraspace(std::string& input) {
+    int r = 0;
+    int w = 0;
+    //remove spaces
+    while(r < input.length() && input[r] == ' ') {
+        r++;
+    }
+    while(r < input.length()) {
+        //traverse the word
+        while(r < input.length() && input[r] != ' ') {
+            input[w++] = input[r++];
+        }   
+        if(r < input.length()) {
+            input[w++] = ' ';
+        }
+        //skip the spaces between words..
+        while(r < input.length() && input[r] == ' ') {
+            r++;
+        }
+    }
+    input.resize(j);
+
+    if(input.empty()) {
+        return "";
+    }
+
+    if(input.back() == ' ') {
+        input.pop_back();
+    }
+
+    if(input.empty()) {
+        return "";
+    }
+    ////by this time all extra spaces have been removed.
+    //reverse the string.
+    std::reverse(input.begin(), input.end());
+
+    int word_start = 0;
+    for(int i=0; i <= input.length(); ++i) {
+        if( i == input.length() || input[i] == ' ') {
+            std::reverse(input.begin() + word_start, input.begin() + i);
+            word_start = i + 1;
+        }
+    }
     return input;
 }
 

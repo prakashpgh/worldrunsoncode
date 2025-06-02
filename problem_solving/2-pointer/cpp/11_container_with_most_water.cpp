@@ -12,7 +12,21 @@
 
 int container_with_most_water(const std::vector<int> heights) {
     int water = 0;
-    return water;
+    int l = 0;
+    int r = heights.size()-1;
+    int max_area = 0;
+    while(l < r) {
+        int area = ( std::min(heights[l], heights[r]) * (r-l) );
+        if(area > max_area) {
+            max_area = area;
+        }
+        if(heights[l] <= heights[r]) {
+            l++;
+        } else {
+            r--;
+        }
+    }
+    return max_area;
 }
 
 
