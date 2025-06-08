@@ -1,7 +1,9 @@
-'''
+/*'''
 https://leetcode.com/problems/total-cost-to-hire-k-workers/
-2642_total_cost_hire_workers.py
+2642_total_cost_hire_workers
 '''
+*/
+
 import heapq
 
 def total_cost_hire_workers(costs: list[int], k:int, candidates: int) -> int:

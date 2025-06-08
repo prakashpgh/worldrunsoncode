@@ -29,10 +29,22 @@ TreeNode* tree(const std::vector<int>& vec, int start, int end) {
     return node;
 }
 
+/*
+create bst from an array
+https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+*/
 TreeNode* array_to_binary_search_tree(const std::vector<int>& vec) {
     std::sort(vec.begin(), vec.end());
     TreeNode* node = tree(vec, 0, vec.size()-1);
     return node;
+}
+
+/*
+https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/
+*/
+TreeNode* list_to_binary_search_tree(ListNode* root) {
+    TreeNode* root = nullptr;
+    return root;
 }
 
 #include<queue>

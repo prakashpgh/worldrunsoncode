@@ -39,14 +39,14 @@ void print_tree_inorder(TreeNode* root, std::vector<int>& result) {
 /////////////////////
 
 // Helper function to get the height of the tree
-int hei(TreeNode* root) {
+int height(TreeNode* root) {
     if (!root) {
         return 0;
     }
-    return 1 + std::max(hei(root->left), hei(root->right));
+    return 1 + std::max(height(root->left), height(root->right));
 }
 
-/*
+
 // Helper function to print nodes at a specific level
 void printLevel(TreeNode* root, int level, std::vector<std::string>& lines, int start, int end) {
     if (!root) {
@@ -100,4 +100,4 @@ void printBinaryTree(TreeNode* root) {
         std::cout << line << std::endl;
     }
 }
-    */
+    

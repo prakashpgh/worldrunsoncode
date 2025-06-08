@@ -11,9 +11,6 @@ unordered_map	No	        No	        Hash Table	    O(1)
 unordered_multiset	No	    Yes	        Hash Table	    O(1)
 unordered_multimap	No	    Yes	        Hash Table	    O(1)
 
-
-Export to Sheets
-
 set
     insert
     find

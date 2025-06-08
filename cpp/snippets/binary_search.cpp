@@ -53,20 +53,37 @@ int search(std::vector<int>& nums, int target) {
 //BOUNDARY 
 //34
 //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-int firstPosition(vector<int>& nums, int target) {
-    int left = 0
-    int right = nums.size() - 1;
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] >= target) {
-            right = mid - 1; // Move right to find first
+int find_first_last_position_sorted_array(const std::vector<int> nums, int target, bool leftside) {
+    std::vector<int> result;
+    int len = nums.size();
+    int l = 0;
+    int r = len - 1;
+    int index = -1;
+    while(l <= r) {
+        int m = l + (r-l)/2;
+        if(nums[m] < target) {
+            l = m + 1;
+        } else if (target < nums[m]) {
+            r = m - 1;
+        } else {
+            index = m;
+            if(leftside) {
+                r = m - 1; 
+            } else {
+                l = m + 1;
+            }
         }
-        else {
-            left = mid + 1;
-        }
+
     }
-    return left < nums.size() && nums[left] == target ? left : -1;
+    return index;
 }
+
+vector<int> searchRange1(vector<int>& nums, int target) {
+    int index1 = find_first_last_position_sorted_array( nums, target, true);
+    int index2 = find_first_last_position_sorted_array( nums, target, false);
+    return {index1, index2};
+}
+
 
 
 //35
@@ -93,7 +110,8 @@ int searchInsert(vector<int>& nums, int target) {
 //Optimization
 //https://leetcode.com/problems/split-array-largest-sum/description/
 /*
-
+    l = sum if there is only 1 element.. the largest element
+    r  = sum when all elements are in 1 subarray
 */
 int splitArray(std::vector<int>& nums, int m) {
         long long left = 0, right = 0;
@@ -134,8 +152,11 @@ int splitArray(std::vector<int>& nums, int m) {
 
 
 //PEAK
+/*
+https://leetcode.com/problems/find-peak-element/
+*/
 int findPeakElement(vector<int>& nums) {
-    int left = 0
+    int left = 0;
     int right = nums.size() - 1;
     while (left < right) {
         int mid = left + (right - left) / 2;
@@ -149,7 +170,9 @@ int findPeakElement(vector<int>& nums) {
     return left;
 }
 
-
+/*
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/
+*/
 int find_min_rotated_sorted_vector(const std::vector<int>& nums) {
     int l = 0;
     int r = nums.size()-1;
@@ -164,7 +187,43 @@ int find_min_rotated_sorted_vector(const std::vector<int>& nums) {
     return nums[l];
 }
 
+/*
+https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+    check if number equals
+    check if the left half is sorted
+    else {//right part is sorted
+        
+    }
+*/
+int search_rotated_array(std::vector<int>& nums, int target) {
+    int l = 0;
+    int r = nums.size() - 1;
+    while(l <= r) {
+        int m = l + (r-l)/2;
+        if(nums[m] == target) {
+            return m;
+        }
+        //left is sorted
+        if(nums[l] <= nums[m])  {
+            if(nums[l] <= target && target < nums[m]) {
+                r=m-1;
+            } else {
+                l =m+1;
+            }
+        } else {
+            if(nums[m] < target && target <= nums[r]) {
+                l=m+1;
+            } else {
+                r = m-1;
+            }
+        }
+    }
+    return -1;
+}
 
+/*
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/
+*/
 int find_min_index_duplicates_rotated_sorted_vector(const std::vector<int>& nums) {
     int l = 0;
     int r = nums.size() - 1;

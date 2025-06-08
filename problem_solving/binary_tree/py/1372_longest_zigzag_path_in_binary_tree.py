@@ -1,4 +1,5 @@
 '''
+https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree
 1372_longest_zigzag_path_in_binary_tree.py
 
 #tricky problem..
@@ -14,6 +15,16 @@ case 3) from the root
             left, "left", 1
             right, "right", 1
 
+            >> why we need a new start => ABE... ends..  EHI is new start
+    A
+   / \
+  B   C
+ / \ / \
+D  E F  G
+   \
+    H
+   /
+  I
 '''
 
 from tree_node import TreeNode
@@ -34,6 +45,8 @@ def longest_zigzag_path_in_binary_tree(root: TreeNode):
             dfs( node.right, "right", 1)    
         elif direction == "left":
             dfs( node.right, "right", steps+1)
+            # we have to start brand new here as its not it in the natural zig zag
+            # the goal is to find the longest zigzag.
             dfs( node.left, "left", 1)    
         else:
             dfs(node.left, "left", 1)
@@ -41,4 +54,5 @@ def longest_zigzag_path_in_binary_tree(root: TreeNode):
 
     dfs(root, "", 0)
     return longest_path
+
 

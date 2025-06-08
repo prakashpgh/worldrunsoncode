@@ -31,3 +31,14 @@
         https://leetcode.com/problems/subarray-sum-equals-k/description/
         
 
+6) binary trees - pathsum
+https://leetcode.com/problems/path-sum/
+        >> path exists
+
+https://leetcode.com/problems/path-sum-ii/
+        >> all the paths
+
+https://leetcode.com/problems/path-sum-iii/
+        >> sum... of nodes
+        >> use prefix sum
+        >> similar to subarray sum..

@@ -293,7 +293,7 @@ void multi_dim_vector() {
     memo.resize(rows, std::vector<int>(cols, -2));
     print_vector_of_vector(memo);
 
-    //3-dim vector..  lc 123 and 188
+    //3-dim vector..  leetcode 123 and 188
     std::vector<int> prices = {1,2,3,4,5,6};
     int n = prices.size();
     int k = 2;

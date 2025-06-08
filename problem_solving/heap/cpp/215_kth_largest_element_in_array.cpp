@@ -27,14 +27,28 @@ At the end, do a pop... thats the kth element
 
 
 
-int findKthLargest(const std::vector<int>& nums, int k) {
+int find_KthLargest(const std::vector<int>& nums, int k) {
     int result = 0;
+    std::sort(nums.begin(), nums.end());
+    if(nums.size()-k >= 0) {
+        result = nums[nums.size()-k];
+    }
     return result;
 }
 
 
 int findKthLargest_using_min_heap(const std::vector<int>& nums, int k) {
     int result = 0;
+    std::priority_queue<int, std::vector<int>, std::greater<int>> min_heap;
+    for(int i =0; i < nums.size(); ++i) {
+        min_heap.push(nums[i]);
+        if(min_heap.size() > k) {
+            min_heap.pop();
+        }
+    }
+    if(!min_heap.empty()) {
+        result = min_heap.top();
+    }
     return result;
 }
 
