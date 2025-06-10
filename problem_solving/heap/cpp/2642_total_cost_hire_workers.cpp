@@ -4,35 +4,63 @@ https://leetcode.com/problems/total-cost-to-hire-k-workers/
 '''
 */
 
-import heapq
+#include "../../../cpp/common_header.h"
+#include "../../../cpp/utils/utils.h"
+#include<algorithm>
+#include<queue>
 
-def total_cost_hire_workers(costs: list[int], k:int, candidates: int) -> int:
-    min_heap = []
-    l = 0
-    r = len(costs)-1
-    for _ in range(candidates):
-        if l <= r:
-            heapq.heappush(min_heap, (costs[l], l))
-            l += 1
+/*
+1) put candidates from left half into the heap...  default sort is by cost, index in ascending order.
+2) repeat 1) from right side.
+    Note, because of 1) and 2), the heap is sorted on (cost + index)
+3) iterate till k => pop from heap, get the cost
+*/
+long long total_cost_hire_workers(std::vector<int>& costs, int k, int candidates) {
+    long long result = 0;
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> min_heap;
+    int l = 0;
+    int r = costs.size() -1;
+    for(int i = 0; i < candidates; ++i) {
+        if(l <= r) {
+            min_heap.push({costs[l], l});
+        }
+        l++;
+    }
 
-    for _ in range(candidates):
-        if l <= r:
-            heapq.heappush(min_heap, (costs[r], r))
-            r -= 1
+    for(int i = 0; i < candidates; ++i) {
+        if(l <= r) {
+            min_heap.push({costs[r], r});
+        }
+        r--;
+    }
 
-    total_cost = 0
+    for(int i = 0; i < k; ++i) {
+        auto pr = min_heap.top();
+        min_heap.pop();
+        result += pr.first;
+        
+        if(l <= r) {
+            if(pr.second < l) {
+                min_heap.push({costs[l], l});
+                l++;    
+            } else {
+                min_heap.push({costs[r], r});
+                r--;
+            }
+        }
+    }
+    return result;
+}
 
-    for _ in range(k):
-        cost, idx = heapq.heappop(min_heap)
-        total_cost += cost
-
-        if l <= r:
-            if idx < l:
-                heapq.heappush(min_heap, (costs[l], l))
-                l += 1
-            else:
-                heapq.heappush(min_heap, (costs[r], r))
-                r -= 1
-    return total_cost
 
 
+
+int main() {
+    std::vector<int> costs = {17,12,10,2,7,2,11,20,8};
+    int k = 3;
+    int candidates = 4;
+    int result = total_cost_hire_workers(costs, k, candidates);
+    std::cout << "result: " << result << std::endl;
+    
+    return 0;
+}

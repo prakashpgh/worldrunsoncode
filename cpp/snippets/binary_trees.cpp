@@ -21,6 +21,9 @@ TreeNode* create_binary_tree() {
     return root;
 }
 
+/*
+binary tree from a sorted array.
+*/
 TreeNode* tree(const std::vector<int>& vec, int start, int end) {
     int m = start + (end - start) / 2;
     TreeNode* node = new TreeNode(vec[m]);
@@ -42,8 +45,28 @@ TreeNode* array_to_binary_search_tree(const std::vector<int>& vec) {
 /*
 https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/description/
 */
-TreeNode* list_to_binary_search_tree(ListNode* root) {
-    TreeNode* root = nullptr;
+//#todo
+TreeNode* list_to_binary_search_tree(ListNode* head) {
+    if(!head) {
+        return nullptr;
+    }
+    if(!head->next) {
+        return new TreeNode(head->val);
+    }
+    //find middle.
+    ListNode* slow = head;
+    ListNode* fast = head;
+    ListNode* prev = nullptr;
+    while(fast && fast->next) {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    prev->next = nullptr;
+
+    TreeNode* root = new TreeNode(slow->val);
+    root->left = tree(head);
+    root->right = tree(slow->next);
     return root;
 }
 
@@ -182,10 +205,11 @@ int height(TreeNode* root) {
     return h;
 }
 
-
+//std::abs(leftHeight - rightHeight) > 1)
 bool isBalanced(TreeNode* root) {
         return checkHeight(root) != -1;
     }
+
 
 int checkHeight(TreeNode* node) {
         if (!node) return 0; // Base case: empty tree has height 0

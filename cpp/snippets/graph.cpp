@@ -165,6 +165,17 @@ For weighted graph..
 
         1) maintain a vector of the distances of each node from the source  => keep updating it
         2) heap..min_heap... with cost as first => 
+            create adj. list
+            instantiate the distances vector.... it will have the min. time to reach that node.
+            initiate the heap with the src and distance zero.
+            while(heap not empty) {
+                get dist..
+                if dist. greater than in the vector, then ignore
+                else
+                get the neighbors..
+                    update if dist from this node + dist < vector
+                    update the heap
+            }
 */
 #include<queue>
 typedef pair<int, int> pii;
@@ -479,47 +490,47 @@ void bfs_demo_grid(std::vector<std::vector<char>>& grid, int start_row, int star
 
 class Solution {
 public:
-/*
-DFS
-1) Use stack
-t: O(V+E)
-s: O(V)
-*/
-void dfs(std::vector<std::vector<char>>& grid, int start_row, int start_col) {
-    std::vector<std::vector<int>> neighbors = {{0,-1},{-1,0},{0,1},{1,0}};
-    for(const auto& nei : neighbors) {
-        int r = start_row + nei[0];
-        int c = start_col + nei[1];
-        if(r < 0 || r >= rows || c < 0 || c >= cols) {
-            continue;
+    /*
+    DFS
+    1) Use stack
+    t: O(V+E)
+    s: O(V)
+    */
+    void dfs(std::vector<std::vector<char>>& grid, int start_row, int start_col) {
+        std::vector<std::vector<int>> neighbors = {{0,-1},{-1,0},{0,1},{1,0}};
+        for(const auto& nei : neighbors) {
+            int r = start_row + nei[0];
+            int c = start_col + nei[1];
+            if(r < 0 || r >= rows || c < 0 || c >= cols) {
+                continue;
+            }
+            if(grid[r][c] == '0') {
+                continue;
+            }
+            grid[r][c] = '0';
+            dfs(grid, r, c);
         }
-        if(grid[r][c] == '0') {
-            continue;
-        }
-        grid[r][c] = '0';
-        dfs(grid, r, c);
     }
-}
 
-int rows;
-int cols;
-int dfs_solve(std::vector<std::vector<char>>& grid) {
-    rows =  grid.size();
-    cols = 0;
-    if(rows > 0) {
-        cols = grid[0].size();
-    }
-    int islands = 0;
-    for(int i = 0; i < rows; ++i) {
-        for(int j = 0; j < cols; ++j) {
-            if(grid[i][j] == '1')  {
-                dfs(grid, i, j);
-                islands += 1;
+    int rows;
+    int cols;
+    int dfs_solve(std::vector<std::vector<char>>& grid) {
+        rows =  grid.size();
+        cols = 0;
+        if(rows > 0) {
+            cols = grid[0].size();
+        }
+        int islands = 0;
+        for(int i = 0; i < rows; ++i) {
+            for(int j = 0; j < cols; ++j) {
+                if(grid[i][j] == '1')  {
+                    dfs(grid, i, j);
+                    islands += 1;
+                }
             }
         }
+        return islands;
     }
-    return islands;
-}
 };
 
 int main() {

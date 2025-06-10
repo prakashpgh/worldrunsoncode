@@ -1,5 +1,7 @@
 /*
 1) traditional binary search
+    https://leetcode.com/problems/binary-search/
+
 
 2) capacity problems..
 
@@ -9,16 +11,15 @@
         case II: left half
         case III: right half
 
-
 return guidelines:
-1) exact match:
+4) exact match:
     if arr[mid] == target, return mid, else -1
 
-2) BOUNDARY PROBLEMS  FIRST/LAST OR CONDITION
-*/
-//binary search in rotated...
-//
-/*
+5) BOUNDARY PROBLEMS  FIRST/LAST OR CONDITION
+    //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+
+6) binary search in rotated
+
 When left > right (or left == right + 1):
 left: First index where the condition holds (e.g., first arr[i] >= target).
 right: Last index where the condition doesn’t hold.
@@ -110,8 +111,8 @@ int searchInsert(vector<int>& nums, int target) {
 //Optimization
 //https://leetcode.com/problems/split-array-largest-sum/description/
 /*
-    l = sum if there is only 1 element.. the largest element
-    r  = sum when all elements are in 1 subarray
+    l = sum if there is only 1 element.. the largest element => k = size of array => max sum = max of array
+    r  = sum when all elements are in 1 subarray => k = size of array... max sum = sum(array)
 */
 int splitArray(std::vector<int>& nums, int m) {
         long long left = 0, right = 0;
