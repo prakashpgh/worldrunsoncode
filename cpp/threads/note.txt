@@ -42,5 +42,38 @@ sleep v wait..
 sleep => no cpu cyles for n units of time
 wait => no cpu till some thread calls notify on my condition_variable
 
++++++++++++++++++++++++++++++++++++++++++
+false sharing..
+    cache updating... whole array getting update..
+
+    net result => multi-threaded code much slower than single-threaded
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+lock free and wait free
+
+lock-free
+A non-blocking algorithm is lock-free if it guarantees system-wide progress. This means that if multiple threads are attempting to modify a shared data structure, at least one of them is guaranteed to make progress in a finite number of steps, even if other threads are temporarily suspended or experience delays.
+
+system wide progress
+no deadlocks
+starvation possible for individual threads
+
+std::atomic
+    compare_exchange_weak
+    compare_exchange_strong
+----------------------------------
+wait-free
+This is a stronger guarantee than lock-free. It means that every thread attempting an operation on the shared data structure is guaranteed to complete its operation in a bounded number of steps, regardless of the execution speed or delays of other threads
+
+per thread progress (starvation free)
+all wait-free algorigthms are inherently lock-free
+
+
+Feature	        Lock-Free	                                                                            Wait-Free
+Progress        Guarantee	System-wide progress (at least one thread makes progress)	                Per-thread progress (every thread makes progress)
+Starvation	    Possible for individual threads	                                                        Impossible (starvation-free)
+Complexity	    Very difficult	                                                                        Extremely difficult
+Implementation	More common (e.g., std::atomic based)	                                                Less common, often involves "helping" mechanisms
+Use Cases	    High-performance concurrent data structures where some latency variation is acceptable	Real-time systems, scenarios requiring strict latency guarantees for all operations
 
 
